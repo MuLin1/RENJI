@@ -1,0 +1,47 @@
+{
+  "timestamp": "2026-03-26T04:04:22.634778",
+  "dataset_jobs": [
+    {
+      "name": "acute",
+      "annotation_file": "result_acute.json",
+      "raw_dataset_file": "xnk_dataset_acute.jsonl"
+    },
+    {
+      "name": "highrisk",
+      "annotation_file": "result_highrisk.json",
+      "raw_dataset_file": "xnk_dataset_highrisk.jsonl"
+    },
+    {
+      "name": "multisystem",
+      "annotation_file": "result_multisystem.json",
+      "raw_dataset_file": "xnk_dataset_multisystem.jsonl"
+    }
+  ],
+  "model_jobs": [
+    {
+      "name": "qwen",
+      "url": "http://127.0.0.1:57264/v1",
+      "key": "sk-xx"
+    }
+  ],
+  "results": [
+    {
+      "dataset_name": "acute",
+      "model_name": "qwen",
+      "output_file": "evaluation_results_qwen_acute.json",
+      "status": "success"
+    },
+    {
+      "dataset_name": "highrisk",
+      "model_name": "qwen",
+      "output_file": "evaluation_results_qwen_highrisk.json",
+      "status": "success"
+    },
+    {
+      "dataset_name": "multisystem",
+      "model_name": "qwen",
+      "output_file": "evaluation_results_qwen_multisystem.json",
+      "status": "success"
+    }
+  ]
+}

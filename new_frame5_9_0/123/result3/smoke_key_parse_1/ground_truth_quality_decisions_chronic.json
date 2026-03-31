@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "dataset_name": "chronic",
+    "input_file": "similarity_scores_evaluation_results_Qwen_Qwen3.5-9B_chronic_deepseek-v3.1.json",
+    "policy": "balanced",
+    "low_score_threshold": 2.5,
+    "judge_model": {
+      "name": "deepseek-v3.1",
+      "url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key_env": "inline_key_in_judge_api_key_env",
+      "api_key": "***hidden***"
+    },
+    "timestamp": "2026-03-29T21:21:55.770156"
+  },
+  "summary": {
+    "input_total_records": 2180,
+    "candidate_count_total": 193,
+    "candidate_evaluated_count": 1,
+    "candidate_skipped_by_max_samples": 192,
+    "filtered_count": 0,
+    "kept_count": 2180,
+    "filter_rate_in_candidates": 0.0,
+    "filter_rate_overall": 0.0,
+    "judge_status_counts": {
+      "judge_error": 1
+    },
+    "average_before_success": 2.8705,
+    "average_after_success": 2.8705,
+    "average_delta_success": 0.0
+  },
+  "decisions": [
+    {
+      "dataset_name": "chronic",
+      "sample_index": 1,
+      "pid": "5c6a2c30195f4824a1f08180bad54640",
+      "record_key": "pid:5c6a2c30195f4824a1f08180bad54640",
+      "final_score_0_5": 1.0,
+      "ground_truth_text": "医生：可以 互联网就诊，受限于医生与患者没有面对面沟通，医生也无法对患者进行查体，往往无法获得全面综合的信息。如您仍有不适，建议有条件的话及时线下复诊。 我的线下门诊时间是浦西仁济 每周二上午以及每周六下午 有需要的话可携带既往就诊记录和检查结果来就诊 请问还有什么其他问题吗 如果没有其他问题了 我就确认诊毕了哦",
+      "judge_status": "judge_error",
+      "error_message": "{\"error_message\": \"Error code: 401 - {'error': {'message': 'Incorrect API key provided. For details, see: https://help.aliyun.com/zh/model-studio/error-code#apikey-error', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}, 'request_id': 'bc3b85f4-da42-92ab-a2f1-6fb97785f5f0'}\", \"raw_text\": \"\", \"attempts\": [{\"attempt\": 1, \"status\": \"error\", \"elapsed_sec\": 0.151, \"error_type\": \"other_error\", \"error_message\": \"Error code: 401 - {'error': {'message': 'Incorrect API key provided. For details, see: https://help.aliyun.com/zh/model-studio/error-code#apikey-error', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}, 'request_id': 'e8849f16-7f8d-93dd-acf5-77c713b931ff'}\"}, {\"attempt\": 2, \"status\": \"error\", \"elapsed_sec\": 0.044, \"error_type\": \"other_error\", \"error_message\": \"Error code: 401 - {'error': {'message': 'Incorrect API key provided. For details, see: https://help.aliyun.com/zh/model-studio/error-code#apikey-error', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}, 'request_id': 'a33b0b3e-eba2-96ba-ac1f-ba1ceb25db15'}\"}, {\"attempt\": 3, \"status\": \"error\", \"elapsed_sec\": 0.058, \"error_type\": \"other_error\", \"error_message\": \"Error code: 401 - {'error': {'message': 'Incorrect API key provided. For details, see: https://help.aliyun.com/zh/model-studio/error-code#apikey-error', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}, 'request_id': 'f51dfb8b-3190-9cde-8385-aa3329166766'}\"}, {\"attempt\": 4, \"status\": \"error\", \"elapsed_sec\": 0.185, \"error_type\": \"other_error\", \"error_message\": \"Error code: 401 - {'error': {'message': 'Incorrect API key provided. For details, see: https://help.aliyun.com/zh/model-studio/error-code#apikey-error', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}, 'request_id': 'bc3b85f4-da42-92ab-a2f1-6fb97785f5f0'}\"}]}",
+      "judge_result": {
+        "should_filter": false,
+        "quality_label": "judge_error",
+        "reason": "LLM评测失败，按保守策略不删除",
+        "evidence_span": "",
+        "confidence": 0.0
+      },
+      "processing_time_sec": 17.749,
+      "debug_info": {
+        "messages": [
+          {
+            "role": "system",
+            "content": "你是一名医疗数据质检专家。你的任务是判断 Ground Truth 文本是否属于“低质量真值”，并且只能根据 Ground Truth 本身判断，不要参考任何 prediction。必须返回 JSON。"
+          },
+          {
+            "role": "user",
+            "content": "请按“平衡策略”判断以下 Ground Truth 是否应过滤。\n\n低质量（应过滤）通常包括：\n1) 纯流程/寒暄/礼貌收尾（如：好的、收到、不客气、请问还有问题吗）；\n2) 信息含量极低，无法提供可执行医疗指导；\n3) 不构成有效医学建议或有效管理动作。\n\n应保留（不应过滤）通常包括：\n1) 存在明确医疗动作或管理建议（检查、复查、用药、住院、转诊、随访等）；\n2) 即使简短，但能形成有效临床指引。\n\n输出字段要求：\n- should_filter: boolean\n- quality_label: 字符串，建议值 low_quality 或 acceptable\n- reason: 简要中文说明（<=120字）\n- evidence_span: 从 Ground Truth 原文摘取的短片段（<=40字）\n- confidence: 0~1 的数字\n\n只返回 JSON，不要输出其他内容。\n\n[Ground Truth]\n医生：可以 互联网就诊，受限于医生与患者没有面对面沟通，医生也无法对患者进行查体，往往无法获得全面综合的信息。如您仍有不适，建议有条件的话及时线下复诊。 我的线下门诊时间是浦西仁济 每周二上午以及每周六下午 有需要的话可携带既往就诊记录和检查结果来就诊 请问还有什么其他问题吗 如果没有其他问题了 我就确认诊毕了哦\n"
+          }
+        ]
+      }
+    }
+  ]
+}

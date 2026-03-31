@@ -1,0 +1,2238 @@
+{
+  "metadata": {
+    "dataset_name": "highrisk",
+    "input_file": "xnk_dataset_highrisk.jsonl",
+    "output_file": "result_highrisk.json",
+    "processed_count": 20,
+    "concurrency": 20,
+    "model_config": {
+      "url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "model_name": "deepseek-v3.1",
+      "api_key": "***hidden***"
+    },
+    "summary": {
+      "total_samples": 20,
+      "successful_annotations": 20,
+      "failed_annotations": 0,
+      "timeout_failures": 0,
+      "timeout_failure_rate": "0.00%",
+      "total_llm_requests": 40,
+      "total_retry_count": 0,
+      "average_retry_per_sample": 0.0,
+      "retry_success_count": 0,
+      "total_timeout_count": 0,
+      "low_confidence_diagnosis_count": 6,
+      "low_confidence_diagnosis_rate": "30.00%",
+      "screened_out_no_explicit_advice": 13,
+      "screened_out_no_explicit_advice_rate": "65.00%"
+    },
+    "timestamp": "2026-03-29T08:54:59.356753"
+  },
+  "results": [
+    {
+      "sample_index": 0,
+      "pid": "d6d92f48588343a7836d77aa22e14f4a",
+      "status": "success",
+      "error_message": "",
+      "failure_reason": "",
+      "k": null,
+      "k_source": "screen_no_explicit_advice",
+      "k_dialogue": [],
+      "total_rounds": 2,
+      "doctor_diagnosis_raw": "医生：可以的 可以来住院复查造影吗",
+      "doctor_diagnosis_round": 1,
+      "doctor_diagnosis_source": "scored_candidate",
+      "doctor_diagnosis_candidates": [
+        {
+          "round": 1,
+          "doctor_text": "医生：可以的 可以来住院复查造影吗",
+          "score": 6.75,
+          "reasons": [
+            "+2.0:复查",
+            "+2.0:造影",
+            "+2.0:住院",
+            "+0.75:position"
+          ]
+        },
+        {
+          "round": 2,
+          "doctor_text": "医生：最好复查个造影 几个血管都处理了，一年时间点最好复查一下",
+          "score": 5.5,
+          "reasons": [
+            "+2.0:复查",
+            "+2.0:造影",
+            "+1.50:position"
+          ]
+        }
+      ],
+      "has_explicit_diagnosis_advice": false,
+      "advice_screen_reason": "Text is a question about admission feasibility for a procedure, not providing diagnostic direction or concrete medical advice",
+      "processing_time": "4.914s",
+      "timestamp": "2026-03-29T08:54:55.400323",
+      "observability": {
+        "total_llm_requests": 1,
+        "timeout_count": 0,
+        "retry_count": 0,
+        "retry_success_count": 0,
+        "estimated_input_tokens_total": 276,
+        "error_type_counter": {}
+      },
+      "debug_info": {
+        "search_trace": [],
+        "search_note": "screen_no_explicit_advice",
+        "advice_screening": {
+          "raw_response": "{\"has_explicit_diagnosis_advice\": false, \"advice_screen_reason\": \"Text is a question about admission feasibility for a procedure, not providing diagnostic direction or concrete medical advice\"}",
+          "parsed_response": {
+            "has_explicit_diagnosis_advice": false,
+            "advice_screen_reason": "Text is a question about admission feasibility for a procedure, not providing diagnostic direction or concrete medical advice"
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a strict medical text screener. Judge whether the doctor's text contains explicit diagnostic advice."
+            },
+            {
+              "role": "user",
+              "content": "Decide whether the doctor text includes explicit diagnostic advice.\nExplicit diagnostic advice means clear diagnosis direction and/or concrete medical next-step advice (e.g., suggested examination, treatment, medication adjustment, follow-up plan).\nNot explicit includes only greetings, pure questioning, registration/process guidance, or generic conversation.\n\nDoctor text:\n医生：可以的 可以来住院复查造影吗\n\nReturn JSON only:\n{\"has_explicit_diagnosis_advice\": true/false, \"advice_screen_reason\": \"short reason\"}"
+            }
+          ],
+          "request_log": {
+            "start_at": "2026-03-29T08:54:53.183764",
+            "attempts": [
+              {
+                "attempt": 1,
+                "elapsed_sec": 2.217,
+                "status": "success"
+              }
+            ],
+            "final_status": "success",
+            "retry_success_at": null
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 1,
+      "pid": "8b584f3a65ad43389d9cf9b81b403b70",
+      "status": "success",
+      "error_message": "",
+      "failure_reason": "",
+      "k": 1,
+      "k_source": "coarse_hit_fallback",
+      "k_dialogue": [
+        "患者：昨天和医生问诊过，今天做了超声，发你看看 患者上传了预填图片[主诉：胸闷心悸加重, 窦性心动过速、完全性左束支传导阻滞、频发室性早搏和左室高电压；检查：心脏超声检查显示左室稍大且收缩功能减退，EF值为46%, 心率95次/分，律齐，各瓣膜听诊区未闻及杂音, 心率95次/分，律不齐，无明显病理性杂音，腹部柔软，无压痛及反跳痛，肝脾未触及异常，双下肢无水肿, 冠脉造影结果显示左主干正常，前降支近段70%狭窄，第一对角支近段70-80%狭窄，左回旋支和右冠未见明显狭窄；疾病史：完全性左束支传导阻滞，频发性室性期前收缩, 冠状动脉粥样硬化性心脏病、完全性左束支传导阻滞、频发性室性期前收缩, 冠状动脉粥样硬化性心脏病伴完全性左束支传导阻滞和频发性室性期前收缩, 现病有窦性心动过速、完全性左束支传导阻滞、频发室性早搏和左室高电压；手术史：室早射频消融术]（女，71岁）",
+        "医生：心功能已经减低了 这种情况建议射频消融治疗早搏 请问还有其他问题吗"
+      ],
+      "total_rounds": 16,
+      "doctor_diagnosis_raw": "医生：你那时血管也有问题 现在情况可能也有变化 所以造影也要复查 最好是住院评估",
+      "doctor_diagnosis_round": 3,
+      "doctor_diagnosis_source": "scored_candidate",
+      "doctor_diagnosis_candidates": [
+        {
+          "round": 3,
+          "doctor_text": "医生：你那时血管也有问题 现在情况可能也有变化 所以造影也要复查 最好是住院评估",
+          "score": 7.881,
+          "reasons": [
+            "+2.0:复查",
+            "+2.0:造影",
+            "+2.0:住院",
+            "+1.6:评估",
+            "+0.28:position"
+          ]
+        },
+        {
+          "round": 12,
+          "doctor_text": "医生：复查造影后才知道是否需要支架",
+          "score": 7.325,
+          "reasons": [
+            "+2.2:需要",
+            "+2.0:复查",
+            "+2.0:造影",
+            "+1.12:position"
+          ]
+        },
+        {
+          "round": 4,
+          "doctor_text": "医生：需要在网上预约住院登记嘛",
+          "score": 4.575,
+          "reasons": [
+            "+2.2:需要",
+            "+2.0:住院",
+            "+0.38:position"
+          ]
+        }
+      ],
+      "has_explicit_diagnosis_advice": true,
+      "advice_screen_reason": "Explicitly recommends specific medical procedure (angiography re-examination) and hospitalization for evaluation",
+      "processing_time": "6.691s",
+      "timestamp": "2026-03-29T08:54:57.178351",
+      "observability": {
+        "total_llm_requests": 3,
+        "timeout_count": 0,
+        "retry_count": 0,
+        "retry_success_count": 0,
+        "estimated_input_tokens_total": 1501,
+        "error_type_counter": {}
+      },
+      "debug_info": {
+        "search_trace": [
+          {
+            "k": 1,
+            "can_diagnose": true,
+            "diagnosis_text": "建议射频消融治疗频发室性早搏",
+            "request_log": {
+              "start_at": "2026-03-29T08:54:55.137695",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "elapsed_sec": 1.23,
+                  "status": "success"
+                }
+              ],
+              "final_status": "success",
+              "retry_success_at": null
+            },
+            "compression_info": {
+              "compressed": false,
+              "selected_rounds": 1
+            }
+          },
+          {
+            "k": 2,
+            "can_diagnose": false,
+            "diagnosis_text": "",
+            "request_log": {
+              "start_at": "2026-03-29T08:54:56.367542",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "elapsed_sec": 0.811,
+                  "status": "success"
+                }
+              ],
+              "final_status": "success",
+              "retry_success_at": null
+            },
+            "compression_info": {
+              "compressed": false,
+              "selected_rounds": 2
+            }
+          }
+        ],
+        "search_note": "",
+        "advice_screening": {
+          "raw_response": "{\"has_explicit_diagnosis_advice\": true, \"advice_screen_reason\": \"Explicitly recommends specific medical procedure (angiography re-examination) and hospitalization for evaluation\"}",
+          "parsed_response": {
+            "has_explicit_diagnosis_advice": true,
+            "advice_screen_reason": "Explicitly recommends specific medical procedure (angiography re-examination) and hospitalization for evaluation"
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a strict medical text screener. Judge whether the doctor's text contains explicit diagnostic advice."
+            },
+            {
+              "role": "user",
+              "content": "Decide whether the doctor text includes explicit diagnostic advice.\nExplicit diagnostic advice means clear diagnosis direction and/or concrete medical next-step advice (e.g., suggested examination, treatment, medication adjustment, follow-up plan).\nNot explicit includes only greetings, pure questioning, registration/process guidance, or generic conversation.\n\nDoctor text:\n医生：你那时血管也有问题 现在情况可能也有变化 所以造影也要复查 最好是住院评估\n\nReturn JSON only:\n{\"has_explicit_diagnosis_advice\": true/false, \"advice_screen_reason\": \"short reason\"}"
+            }
+          ],
+          "request_log": {
+            "start_at": "2026-03-29T08:54:53.202766",
+            "attempts": [
+              {
+                "attempt": 1,
+                "elapsed_sec": 1.935,
+                "status": "success"
+              }
+            ],
+            "final_status": "success",
+            "retry_success_at": null
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 2,
+      "pid": "4613877c11624a2abfdb9908a060333e",
+      "status": "success",
+      "error_message": "",
+      "failure_reason": "",
+      "k": null,
+      "k_source": "screen_no_explicit_advice",
+      "k_dialogue": [],
+      "total_rounds": 10,
+      "doctor_diagnosis_raw": "医生：对啊 这里面没有抗凝药 互联网就诊，受限于医生与患者没有面对面沟通，医生也无法对患者进行查体，往往无法获得全面综合的信息。如您搞不清楚究竟 建议有条件的话线下复诊比较好哦 我的线下门诊时间是浦西仁济 每周二上午以及每周六下午 有需要的话可携带既往就诊记录和检查结果来就诊",
+      "doctor_diagnosis_round": 3,
+      "doctor_diagnosis_source": "scored_candidate",
+      "doctor_diagnosis_candidates": [
+        {
+          "round": 3,
+          "doctor_text": "医生：对啊 这里面没有抗凝药 互联网就诊，受限于医生与患者没有面对面沟通，医生也无法对患者进行查体，往往无法获得全面综合的信息。如您搞不清楚究竟 建议有条件的话线下复诊比较好哦 我的线下门诊时间是浦西仁济 每周二上午以及每周六下午 有需要的话可携带既往就诊记录和检查结果来就诊",
+          "score": 9.25,
+          "reasons": [
+            "+2.2:建议",
+            "+2.2:需要",
+            "+1.8:检查",
+            "+0.8:药",
+            "+1.8:action_bundle",
+            "+0.45:position"
+          ]
+        },
+        {
+          "round": 6,
+          "doctor_text": "医生：确实应该改成利伐沙班 但没必要在胃镜前调整用药 胃镜前停波立维  胃镜后恢复成利伐沙班即可",
+          "score": 5.3,
+          "reasons": [
+            "+2.0:用药",
+            "+0.8:药",
+            "+1.6:调整",
+            "+0.90:position"
+          ]
+        },
+        {
+          "round": 1,
+          "doctor_text": "医生：你发的用药清单里 没有抗凝药 何来停用抗凝药一说 如果是指波立维 一般停3-5天就够了 胃镜后如无出血情况 尽早恢复即可",
+          "score": 2.95,
+          "reasons": [
+            "+2.0:用药",
+            "+0.8:药",
+            "+0.15:position"
+          ]
+        }
+      ],
+      "has_explicit_diagnosis_advice": false,
+      "advice_screen_reason": "Text contains only a general recommendation for in-person consultation and scheduling information, without specific diagnostic direction or concrete medical next steps",
+      "processing_time": "4.761s",
+      "timestamp": "2026-03-29T08:54:55.249694",
+      "observability": {
+        "total_llm_requests": 1,
+        "timeout_count": 0,
+        "retry_count": 0,
+        "retry_success_count": 0,
+        "estimated_input_tokens_total": 331,
+        "error_type_counter": {}
+      },
+      "debug_info": {
+        "search_trace": [],
+        "search_note": "screen_no_explicit_advice",
+        "advice_screening": {
+          "raw_response": "{\"has_explicit_diagnosis_advice\": false, \"advice_screen_reason\": \"Text contains only a general recommendation for in-person consultation and scheduling information, without specific diagnostic direction or concrete medical next steps\"}",
+          "parsed_response": {
+            "has_explicit_diagnosis_advice": false,
+            "advice_screen_reason": "Text contains only a general recommendation for in-person consultation and scheduling information, without specific diagnostic direction or concrete medical next steps"
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a strict medical text screener. Judge whether the doctor's text contains explicit diagnostic advice."
+            },
+            {
+              "role": "user",
+              "content": "Decide whether the doctor text includes explicit diagnostic advice.\nExplicit diagnostic advice means clear diagnosis direction and/or concrete medical next-step advice (e.g., suggested examination, treatment, medication adjustment, follow-up plan).\nNot explicit includes only greetings, pure questioning, registration/process guidance, or generic conversation.\n\nDoctor text:\n医生：对啊 这里面没有抗凝药 互联网就诊，受限于医生与患者没有面对面沟通，医生也无法对患者进行查体，往往无法获得全面综合的信息。如您搞不清楚究竟 建议有条件的话线下复诊比较好哦 我的线下门诊时间是浦西仁济 每周二上午以及每周六下午 有需要的话可携带既往就诊记录和检查结果来就诊\n\nReturn JSON only:\n{\"has_explicit_diagnosis_advice\": true/false, \"advice_screen_reason\": \"short reason\"}"
+            }
+          ],
+          "request_log": {
+            "start_at": "2026-03-29T08:54:53.548399",
+            "attempts": [
+              {
+                "attempt": 1,
+                "elapsed_sec": 1.701,
+                "status": "success"
+              }
+            ],
+            "final_status": "success",
+            "retry_success_at": null
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 3,
+      "pid": "ba9078ca1128446a9a3bdbf645d578e5",
+      "status": "success",
+      "error_message": "",
+      "failure_reason": "",
+      "k": null,
+      "k_source": "screen_no_explicit_advice",
+      "k_dialogue": [],
+      "total_rounds": 3,
+      "doctor_diagnosis_raw": "医生：每张处方最多开5个药，一次最多开一个月的药，超量的话审核无法通过的，抱歉 门诊开的药跟住院是一样的",
+      "doctor_diagnosis_round": 2,
+      "doctor_diagnosis_source": "scored_candidate",
+      "doctor_diagnosis_candidates": [
+        {
+          "round": 2,
+          "doctor_text": "医生：每张处方最多开5个药，一次最多开一个月的药，超量的话审核无法通过的，抱歉 门诊开的药跟住院是一样的",
+          "score": 3.8,
+          "reasons": [
+            "+2.0:住院",
+            "+0.8:药",
+            "+1.00:position"
+          ]
+        },
+        {
+          "round": 3,
+          "doctor_text": "医生：这些药每天都要吃的 自己在家要监测血压、心跳情况 可以互联网门诊开药 我明天也有互联网门诊，剩下的药可以明天再挂号开 都开了30天最大量 单硝酸异山梨酯这个药门诊是40mg的，用法也是每天1粒不变 快递地址请按操作流程填写即可",
+          "score": 1.1,
+          "reasons": [
+            "+0.8:药",
+            "-1.2:挂号",
+            "+1.50:position"
+          ]
+        },
+        {
+          "round": 1,
+          "doctor_text": "医生：您好，互联网门诊可以开药快递送 但是一次只能开5个药 请问要开哪5个？",
+          "score": 0.5,
+          "reasons": [
+            "+0.8:药",
+            "-0.8:question",
+            "+0.50:position"
+          ]
+        }
+      ],
+      "has_explicit_diagnosis_advice": false,
+      "advice_screen_reason": "Text only provides medication prescription rules and process information without diagnostic direction or medical advice",
+      "processing_time": "4.546s",
+      "timestamp": "2026-03-29T08:54:55.035702",
+      "observability": {
+        "total_llm_requests": 1,
+        "timeout_count": 0,
+        "retry_count": 0,
+        "retry_success_count": 0,
+        "estimated_input_tokens_total": 292,
+        "error_type_counter": {}
+      },
+      "debug_info": {
+        "search_trace": [],
+        "search_note": "screen_no_explicit_advice",
+        "advice_screening": {
+          "raw_response": "{\"has_explicit_diagnosis_advice\": false, \"advice_screen_reason\": \"Text only provides medication prescription rules and process information without diagnostic direction or medical advice\"}",
+          "parsed_response": {
+            "has_explicit_diagnosis_advice": false,
+            "advice_screen_reason": "Text only provides medication prescription rules and process information without diagnostic direction or medical advice"
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a strict medical text screener. Judge whether the doctor's text contains explicit diagnostic advice."
+            },
+            {
+              "role": "user",
+              "content": "Decide whether the doctor text includes explicit diagnostic advice.\nExplicit diagnostic advice means clear diagnosis direction and/or concrete medical next-step advice (e.g., suggested examination, treatment, medication adjustment, follow-up plan).\nNot explicit includes only greetings, pure questioning, registration/process guidance, or generic conversation.\n\nDoctor text:\n医生：每张处方最多开5个药，一次最多开一个月的药，超量的话审核无法通过的，抱歉 门诊开的药跟住院是一样的\n\nReturn JSON only:\n{\"has_explicit_diagnosis_advice\": true/false, \"advice_screen_reason\": \"short reason\"}"
+            }
+          ],
+          "request_log": {
+            "start_at": "2026-03-29T08:54:53.582399",
+            "attempts": [
+              {
+                "attempt": 1,
+                "elapsed_sec": 1.453,
+                "status": "success"
+              }
+            ],
+            "final_status": "success",
+            "retry_success_at": null
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 4,
+      "pid": "fdbeab39a2a1483fa76a9844cb60a9a1",
+      "status": "success",
+      "error_message": "",
+      "failure_reason": "",
+      "k": null,
+      "k_source": "screen_no_explicit_advice",
+      "k_dialogue": [],
+      "total_rounds": 2,
+      "doctor_diagnosis_raw": "医生：药开好了",
+      "doctor_diagnosis_round": 2,
+      "doctor_diagnosis_source": "scored_candidate",
+      "doctor_diagnosis_candidates": [
+        {
+          "round": 2,
+          "doctor_text": "医生：药开好了",
+          "score": 2.3,
+          "reasons": [
+            "+0.8:药",
+            "+1.50:position"
+          ]
+        },
+        {
+          "round": 1,
+          "doctor_text": "医生：您好，请问有什么问题？",
+          "score": -0.05,
+          "reasons": [
+            "-0.8:question",
+            "+0.75:position"
+          ]
+        }
+      ],
+      "has_explicit_diagnosis_advice": false,
+      "advice_screen_reason": "Only confirms medication prescription completion without diagnostic direction or specific medical next steps",
+      "processing_time": "4.736s",
+      "timestamp": "2026-03-29T08:54:55.225707",
+      "observability": {
+        "total_llm_requests": 1,
+        "timeout_count": 0,
+        "retry_count": 0,
+        "retry_success_count": 0,
+        "estimated_input_tokens_total": 271,
+        "error_type_counter": {}
+      },
+      "debug_info": {
+        "search_trace": [],
+        "search_note": "screen_no_explicit_advice",
+        "advice_screening": {
+          "raw_response": "{\"has_explicit_diagnosis_advice\": false, \"advice_screen_reason\": \"Only confirms medication prescription completion without diagnostic direction or specific medical next steps\"}",
+          "parsed_response": {
+            "has_explicit_diagnosis_advice": false,
+            "advice_screen_reason": "Only confirms medication prescription completion without diagnostic direction or specific medical next steps"
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a strict medical text screener. Judge whether the doctor's text contains explicit diagnostic advice."
+            },
+            {
+              "role": "user",
+              "content": "Decide whether the doctor text includes explicit diagnostic advice.\nExplicit diagnostic advice means clear diagnosis direction and/or concrete medical next-step advice (e.g., suggested examination, treatment, medication adjustment, follow-up plan).\nNot explicit includes only greetings, pure questioning, registration/process guidance, or generic conversation.\n\nDoctor text:\n医生：药开好了\n\nReturn JSON only:\n{\"has_explicit_diagnosis_advice\": true/false, \"advice_screen_reason\": \"short reason\"}"
+            }
+          ],
+          "request_log": {
+            "start_at": "2026-03-29T08:54:53.231765",
+            "attempts": [
+              {
+                "attempt": 1,
+                "elapsed_sec": 1.993,
+                "status": "success"
+              }
+            ],
+            "final_status": "success",
+            "retry_success_at": null
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 6,
+      "pid": "1d2b8600f1554713b5cc1564645c2a33",
+      "status": "success",
+      "error_message": "",
+      "failure_reason": "",
+      "k": 3,
+      "k_source": "coarse_hit_fallback",
+      "k_dialogue": [
+        "患者：去年夏天我心梗，医生给我做了血管开通，由于我冠脉瘤样扩张所以未放支架，现在一年到了是不是需要做个造影检查下？ 患者上传了预填图片[主诉：劳累后胸痛；检查：出院时腹部柔软，无压痛和反跳痛，肝脾未触及异常，胆囊和双下肢亦无浮肿, 丙氨酸氨基转移酶、天门冬氨酸氨基转移酶、乳酸脱氢酶、γ谷氨酰基转移酶、肌酐、尿酸、肌红蛋白、高敏肌钙蛋白等显著升高, 心率79次/分，血压106/77mmHg，无明显病理杂音和腹部压痛；疾病史：急性下壁心肌梗死伴Killip I级、冠状动脉粥样硬化性心脏病、高脂血症、高尿酸血症和脂肪肝；用药：抗血小板药物，降脂药，钙片，胃药，降糖药，胆碱胶囊，抗过敏药]（男，32岁）",
+        "医生：你好，是否配药还是复查？",
+        "患者：需要复查",
+        "医生：出院小结好像缺少一页",
+        "患者：患者上传了图片[患者为一名31岁男性，入院时进行了多项血液检测和心脏超声检查。结果显示白细胞介素-6、肌酸激酶同工酶、肌红蛋白、高敏肌钙蛋白等指标升高，提示心肌损伤。C反应蛋白和全血细胞分析显示炎症反应和白细胞计数异常。肝功能三项、尿素、肌酐等指标正常或轻微异常。心脏超声检查发现左室下壁心尖水平收缩活动减弱至消失，轻度二尖瓣和三尖瓣反流，LVEF为54%。冠脉造影显示LM、pLAD、mLAD、pLCX、p-mRCA等血管存在不同程度的狭窄或闭塞，dRCA完全闭塞。患者接受了PCI治疗后无胸闷等不适症状，生命体征稳定，皮肤巩膜无黄染，双肺呼吸音清，心率律齐，各瓣膜听诊区未闻及杂音。]",
+        "医生：你当时三支血管都瘤样扩张的，这次一年到了让你住院复查造影好吗"
+      ],
+      "total_rounds": 6,
+      "doctor_diagnosis_raw": "医生：你当时三支血管都瘤样扩张的，这次一年到了让你住院复查造影好吗",
+      "doctor_diagnosis_round": 3,
+      "doctor_diagnosis_source": "scored_candidate",
+      "doctor_diagnosis_candidates": [
+        {
+          "round": 3,
+          "doctor_text": "医生：你当时三支血管都瘤样扩张的，这次一年到了让你住院复查造影好吗",
+          "score": 6.75,
+          "reasons": [
+            "+2.0:复查",
+            "+2.0:造影",
+            "+2.0:住院",
+            "+0.75:position"
+          ]
+        },
+        {
+          "round": 4,
+          "doctor_text": "医生：你手机号码还是136****6684吗 那我去登记下，科室秘书稍后打你电话约住院时间",
+          "score": 3.0,
+          "reasons": [
+            "+2.0:住院",
+            "+1.00:position"
+          ]
+        },
+        {
+          "round": 6,
+          "doctor_text": "医生：好的",
+          "score": 1.5,
+          "reasons": [
+            "+1.50:position"
+          ]
+        }
+      ],
+      "has_explicit_diagnosis_advice": true,
+      "advice_screen_reason": "Contains clear directive for hospitalization and specific follow-up procedure (repeat angiography)",
+      "processing_time": "8.253s",
+      "timestamp": "2026-03-29T08:54:58.755801",
+      "observability": {
+        "total_llm_requests": 5,
+        "timeout_count": 0,
+        "retry_count": 0,
+        "retry_success_count": 0,
+        "estimated_input_tokens_total": 1509,
+        "error_type_counter": {}
+      },
+      "debug_info": {
+        "search_trace": [
+          {
+            "k": 1,
+            "can_diagnose": false,
+            "diagnosis_text": "",
+            "request_log": {
+              "start_at": "2026-03-29T08:54:55.228693",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "elapsed_sec": 0.897,
+                  "status": "success"
+                }
+              ],
+              "final_status": "success",
+              "retry_success_at": null
+            },
+            "compression_info": {
+              "compressed": false,
+              "selected_rounds": 1
+            }
+          },
+          {
+            "k": 3,
+            "can_diagnose": true,
+            "diagnosis_text": "建议住院复查冠脉造影，评估三支血管瘤样扩张情况及冠脉狭窄程度",
+            "request_log": {
+              "start_at": "2026-03-29T08:54:56.125534",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "elapsed_sec": 1.037,
+                  "status": "success"
+                }
+              ],
+              "final_status": "success",
+              "retry_success_at": null
+            },
+            "compression_info": {
+              "compressed": false,
+              "selected_rounds": 3
+            }
+          },
+          {
+            "k": 2,
+            "can_diagnose": false,
+            "diagnosis_text": "",
+            "request_log": {
+              "start_at": "2026-03-29T08:54:57.162360",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "elapsed_sec": 0.914,
+                  "status": "success"
+                }
+              ],
+              "final_status": "success",
+              "retry_success_at": null
+            },
+            "compression_info": {
+              "compressed": false,
+              "selected_rounds": 2
+            }
+          },
+          {
+            "k": 4,
+            "can_diagnose": false,
+            "diagnosis_text": "",
+            "request_log": {
+              "start_at": "2026-03-29T08:54:58.076354",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "elapsed_sec": 0.679,
+                  "status": "success"
+                }
+              ],
+              "final_status": "success",
+              "retry_success_at": null
+            },
+            "compression_info": {
+              "compressed": false,
+              "selected_rounds": 4
+            }
+          }
+        ],
+        "search_note": "",
+        "advice_screening": {
+          "raw_response": "{\"has_explicit_diagnosis_advice\": true, \"advice_screen_reason\": \"Contains clear directive for hospitalization and specific follow-up procedure (repeat angiography)\"}",
+          "parsed_response": {
+            "has_explicit_diagnosis_advice": true,
+            "advice_screen_reason": "Contains clear directive for hospitalization and specific follow-up procedure (repeat angiography)"
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a strict medical text screener. Judge whether the doctor's text contains explicit diagnostic advice."
+            },
+            {
+              "role": "user",
+              "content": "Decide whether the doctor text includes explicit diagnostic advice.\nExplicit diagnostic advice means clear diagnosis direction and/or concrete medical next-step advice (e.g., suggested examination, treatment, medication adjustment, follow-up plan).\nNot explicit includes only greetings, pure questioning, registration/process guidance, or generic conversation.\n\nDoctor text:\n医生：你当时三支血管都瘤样扩张的，这次一年到了让你住院复查造影好吗\n\nReturn JSON only:\n{\"has_explicit_diagnosis_advice\": true/false, \"advice_screen_reason\": \"short reason\"}"
+            }
+          ],
+          "request_log": {
+            "start_at": "2026-03-29T08:54:53.107767",
+            "attempts": [
+              {
+                "attempt": 1,
+                "elapsed_sec": 2.121,
+                "status": "success"
+              }
+            ],
+            "final_status": "success",
+            "retry_success_at": null
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 7,
+      "pid": "3fd939e8e47a46f3bc4365cbf08c1164",
+      "status": "success",
+      "error_message": "",
+      "failure_reason": "",
+      "k": 6,
+      "k_source": "fallback_last_round_no_positive",
+      "k_dialogue": [
+        "患者：患者上传了预填图片[主诉：胸痛, 因肾、肝、胆、胰、脾问题入院；检查：定期监测血压、心率、血糖及复查心电图、心彩超、Holter、血常规、凝血功能、肝肾功能、心肌酶和血脂等指标, 查体显示神清、气平、精神可，双肺呼吸音清，未闻及干湿性啰音, 胆囊壁稍毛糙、右肾结晶、肝脏及胰腺未见明显异常，冠脉造影显示左主干正常、前降支弥漫性病变、回旋支狭窄、右冠脉全程管壁不规则, 化验结果显示C-反应蛋白升高，白细胞计数正常偏高，肌钙蛋白I、D-D二聚体、降钙素原、B型钠尿肽、NT-proBNP、糖化血红蛋白、血脂全套等指标异常；疾病史：冠状动脉粥样硬化性心脏病，心肌梗死后心绞痛，高血压, 现病有冠状动脉疾病（前降支弥漫性病变、回旋支狭窄、右冠脉全程管壁不规则），既往无具体提及, 急性非ST段抬高型心肌梗死，高血压；手术史：冠脉造影术, 行PCI至LCX。；用药：抗血小板药物、降压药、降脂药、复代文, 阿司匹林、波立维、美托洛尔、立普妥、雨田青、缬沙坦胶囊、琥珀酸美托洛尔缓释片] 您好 我是21年初心梗 卜主任帮我进行的手术 最近准备去上海进行复查 因为我不是上海本地人 想问有哪些检查可以在我们这边医院先做完（男，37岁）",
+        "医生：一般复查需要进行心电图 心脏彩超 血检包括：血常规 肝肾功能 血糖 血脂这些",
+        "患者：还是直接到上海后由卜主任安排检查？",
+        "医生：也是可以的 这个主要取决于你自己怎么方便",
+        "患者：去复查的原因是心理一直有些焦虑 且这两年隐约感觉有些症状  主要是我不知道要先做哪些检查 因为去上海做可能时间上不太够",
+        "医生：建议直接来线下门诊 评估后再决定需要做什么检查 如果想先行在当地完成一些检查 那就是我刚刚说的那些",
+        "患者：哪些？我这边没看到",
+        "医生：医生上传了图片[该图片显示了一位医生在与患者交流过程中提供的医疗建议，指出一般复查需要进行心电图、心脏彩超和血检，血检项目包括血常规、肝肾功能、血糖和血脂。界面中还展示了多种沟通工具选项，如常用语、视频/语音通话、虚拟电话、照片拍摄等，并提供了写病历的功能，包括历史病历导入、模板病历导入和存为模板的选项。此外，界面底部有“收藏患者”和“结束就诊”的按钮。] 这句话没收到？",
+        "患者：好的 我这边没收到 可能系统有问题 患者上传了图片[患者在2021年初进行了心梗手术，现计划前往上海进行复查。由于不是本地人，询问是否可以在当地医院先完成部分检查或直接到上海由主治医生安排检查。患者表示去复查的原因是心理上一直有些焦虑，并且近两年隐约感觉有些症状，主要困惑在于不知道需要先做哪些检查，担心去上海后时间不够。医生回复表示可以自行选择方便的方式进行复查。]",
+        "医生：还有其他问题吗",
+        "患者：没有了 24小时心电图需要做一个吗 我带的智能手表有检测我偶尔有心律失常",
+        "医生：可以提前做好带来"
+      ],
+      "total_rounds": 6,
+      "doctor_diagnosis_raw": "医生：建议直接来线下门诊 评估后再决定需要做什么检查 如果想先行在当地完成一些检查 那就是我刚刚说的那些",
+      "doctor_diagnosis_round": 3,
+      "doctor_diagnosis_source": "scored_candidate",
+      "doctor_diagnosis_candidates": [
+        {
+          "round": 3,
+          "doctor_text": "医生：建议直接来线下门诊 评估后再决定需要做什么检查 如果想先行在当地完成一些检查 那就是我刚刚说的那些",
+          "score": 10.35,
+          "reasons": [
+            "+2.2:建议",
+            "+2.2:需要",
+            "+1.8:检查",
+            "+1.6:评估",
+            "+1.8:action_bundle",
+            "+0.75:position"
+          ]
+        },
+        {
+          "round": 4,
+          "doctor_text": "医生：医生上传了图片[该图片显示了一位医生在与患者交流过程中提供的医疗建议，指出一般复查需要进行心电图、心脏彩超和血检，血检项目包括血常规、肝肾功能、血糖和血脂。界面中还展示了多种沟通工具选项，如常用语、视频/语音通话、虚拟电话、照片拍摄等，并提供了写病历的功能，包括历史病历导入、模板病历导入和存为模板的选项。此外，界面底部有“收藏患者”和“结束就诊”的按钮。] 这句话没收到？",
+          "score": 8.4,
+          "reasons": [
+            "+2.2:建议",
+            "+2.2:需要",
+            "+2.0:复查",
+            "-0.8:question",
+            "+1.8:action_bundle",
+            "+1.00:position"
+          ]
+        },
+        {
+          "round": 1,
+          "doctor_text": "医生：一般复查需要进行心电图 心脏彩超 血检包括：血常规 肝肾功能 血糖 血脂这些",
+          "score": 4.45,
+          "reasons": [
+            "+2.2:需要",
+            "+2.0:复查",
+            "+0.25:position"
+          ]
+        }
+      ],
+      "has_explicit_diagnosis_advice": true,
+      "advice_screen_reason": "Provides clear medical next-step advice (suggesting specific examination options and recommending in-person evaluation)",
+      "processing_time": "8.312s",
+      "timestamp": "2026-03-29T08:54:58.847808",
+      "observability": {
+        "total_llm_requests": 5,
+        "timeout_count": 0,
+        "retry_count": 0,
+        "retry_success_count": 0,
+        "estimated_input_tokens_total": 2205,
+        "error_type_counter": {}
+      },
+      "debug_info": {
+        "search_trace": [
+          {
+            "k": 1,
+            "can_diagnose": false,
+            "diagnosis_text": "",
+            "request_log": {
+              "start_at": "2026-03-29T08:54:54.969693",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "elapsed_sec": 1.15,
+                  "status": "success"
+                }
+              ],
+              "final_status": "success",
+              "retry_success_at": null
+            },
+            "compression_info": {
+              "compressed": false,
+              "selected_rounds": 1
+            }
+          },
+          {
+            "k": 3,
+            "can_diagnose": false,
+            "diagnosis_text": "",
+            "request_log": {
+              "start_at": "2026-03-29T08:54:56.119532",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "elapsed_sec": 0.897,
+                  "status": "success"
+                }
+              ],
+              "final_status": "success",
+              "retry_success_at": null
+            },
+            "compression_info": {
+              "compressed": false,
+              "selected_rounds": 3
+            }
+          },
+          {
+            "k": 5,
+            "can_diagnose": false,
+            "diagnosis_text": "",
+            "request_log": {
+              "start_at": "2026-03-29T08:54:57.016053",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "elapsed_sec": 0.924,
+                  "status": "success"
+                }
+              ],
+              "final_status": "success",
+              "retry_success_at": null
+            },
+            "compression_info": {
+              "compressed": false,
+              "selected_rounds": 5
+            }
+          },
+          {
+            "k": 6,
+            "can_diagnose": false,
+            "diagnosis_text": "",
+            "request_log": {
+              "start_at": "2026-03-29T08:54:57.940355",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "elapsed_sec": 0.907,
+                  "status": "success"
+                }
+              ],
+              "final_status": "success",
+              "retry_success_at": null
+            },
+            "compression_info": {
+              "compressed": false,
+              "selected_rounds": 6
+            }
+          }
+        ],
+        "search_note": "",
+        "advice_screening": {
+          "raw_response": "{\"has_explicit_diagnosis_advice\": true, \"advice_screen_reason\": \"Provides clear medical next-step advice (suggesting specific examination options and recommending in-person evaluation)\"}",
+          "parsed_response": {
+            "has_explicit_diagnosis_advice": true,
+            "advice_screen_reason": "Provides clear medical next-step advice (suggesting specific examination options and recommending in-person evaluation)"
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a strict medical text screener. Judge whether the doctor's text contains explicit diagnostic advice."
+            },
+            {
+              "role": "user",
+              "content": "Decide whether the doctor text includes explicit diagnostic advice.\nExplicit diagnostic advice means clear diagnosis direction and/or concrete medical next-step advice (e.g., suggested examination, treatment, medication adjustment, follow-up plan).\nNot explicit includes only greetings, pure questioning, registration/process guidance, or generic conversation.\n\nDoctor text:\n医生：建议直接来线下门诊 评估后再决定需要做什么检查 如果想先行在当地完成一些检查 那就是我刚刚说的那些\n\nReturn JSON only:\n{\"has_explicit_diagnosis_advice\": true/false, \"advice_screen_reason\": \"short reason\"}"
+            }
+          ],
+          "request_log": {
+            "start_at": "2026-03-29T08:54:53.256771",
+            "attempts": [
+              {
+                "attempt": 1,
+                "elapsed_sec": 1.713,
+                "status": "success"
+              }
+            ],
+            "final_status": "success",
+            "retry_success_at": null
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 9,
+      "pid": "f7426348b5d34a7e8a79a9ad551da927",
+      "status": "success",
+      "error_message": "",
+      "failure_reason": "",
+      "k": null,
+      "k_source": "screen_no_explicit_advice",
+      "k_dialogue": [],
+      "total_rounds": 2,
+      "doctor_diagnosis_raw": "医生：好，我试一下。就这5个药对吧 一次只能5个药",
+      "doctor_diagnosis_round": 2,
+      "doctor_diagnosis_source": "low_confidence_fallback",
+      "doctor_diagnosis_candidates": [
+        {
+          "round": 2,
+          "doctor_text": "医生：好，我试一下。就这5个药对吧 一次只能5个药",
+          "score": 1.3,
+          "reasons": [
+            "+0.8:药",
+            "-1.0:就这",
+            "+1.50:position"
+          ]
+        },
+        {
+          "round": 1,
+          "doctor_text": "医生：你好，主要想咨询什么",
+          "score": -0.25,
+          "reasons": [
+            "-1.0:你好",
+            "+0.75:position"
+          ]
+        }
+      ],
+      "has_explicit_diagnosis_advice": false,
+      "advice_screen_reason": "The text only contains medication confirmation and process clarification, with no diagnostic direction or medical next-step advice.",
+      "processing_time": "4.737s",
+      "timestamp": "2026-03-29T08:54:55.257692",
+      "observability": {
+        "total_llm_requests": 1,
+        "timeout_count": 0,
+        "retry_count": 0,
+        "retry_success_count": 0,
+        "estimated_input_tokens_total": 280,
+        "error_type_counter": {}
+      },
+      "debug_info": {
+        "search_trace": [],
+        "search_note": "screen_no_explicit_advice",
+        "advice_screening": {
+          "raw_response": "{\"has_explicit_diagnosis_advice\": false, \"advice_screen_reason\": \"The text only contains medication confirmation and process clarification, with no diagnostic direction or medical next-step advice.\"}",
+          "parsed_response": {
+            "has_explicit_diagnosis_advice": false,
+            "advice_screen_reason": "The text only contains medication confirmation and process clarification, with no diagnostic direction or medical next-step advice."
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a strict medical text screener. Judge whether the doctor's text contains explicit diagnostic advice."
+            },
+            {
+              "role": "user",
+              "content": "Decide whether the doctor text includes explicit diagnostic advice.\nExplicit diagnostic advice means clear diagnosis direction and/or concrete medical next-step advice (e.g., suggested examination, treatment, medication adjustment, follow-up plan).\nNot explicit includes only greetings, pure questioning, registration/process guidance, or generic conversation.\n\nDoctor text:\n医生：好，我试一下。就这5个药对吧 一次只能5个药\n\nReturn JSON only:\n{\"has_explicit_diagnosis_advice\": true/false, \"advice_screen_reason\": \"short reason\"}"
+            }
+          ],
+          "request_log": {
+            "start_at": "2026-03-29T08:54:53.237765",
+            "attempts": [
+              {
+                "attempt": 1,
+                "elapsed_sec": 2.02,
+                "status": "success"
+              }
+            ],
+            "final_status": "success",
+            "retry_success_at": null
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 10,
+      "pid": "0242eacd587d42f0ae304a761c0e9357",
+      "status": "success",
+      "error_message": "",
+      "failure_reason": "",
+      "k": null,
+      "k_source": "screen_no_explicit_advice",
+      "k_dialogue": [],
+      "total_rounds": 3,
+      "doctor_diagnosis_raw": "医生：一下子吃这么多药胃会不舒服吧，可以间隔开来",
+      "doctor_diagnosis_round": 3,
+      "doctor_diagnosis_source": "scored_candidate",
+      "doctor_diagnosis_candidates": [
+        {
+          "round": 3,
+          "doctor_text": "医生：一下子吃这么多药胃会不舒服吧，可以间隔开来",
+          "score": 2.3,
+          "reasons": [
+            "+0.8:药",
+            "+1.50:position"
+          ]
+        },
+        {
+          "round": 2,
+          "doctor_text": "医生：哪几个药",
+          "score": 1.8,
+          "reasons": [
+            "+0.8:药",
+            "+1.00:position"
+          ]
+        },
+        {
+          "round": 1,
+          "doctor_text": "医生：可以",
+          "score": 0.5,
+          "reasons": [
+            "+0.50:position"
+          ]
+        }
+      ],
+      "has_explicit_diagnosis_advice": false,
+      "advice_screen_reason": "The text provides general medication timing advice but lacks specific diagnostic direction, examination suggestions, treatment plans, or concrete medical next steps",
+      "processing_time": "4.832s",
+      "timestamp": "2026-03-29T08:54:55.350693",
+      "observability": {
+        "total_llm_requests": 1,
+        "timeout_count": 0,
+        "retry_count": 0,
+        "retry_success_count": 0,
+        "estimated_input_tokens_total": 279,
+        "error_type_counter": {}
+      },
+      "debug_info": {
+        "search_trace": [],
+        "search_note": "screen_no_explicit_advice",
+        "advice_screening": {
+          "raw_response": "{\"has_explicit_diagnosis_advice\": false, \"advice_screen_reason\": \"The text provides general medication timing advice but lacks specific diagnostic direction, examination suggestions, treatment plans, or concrete medical next steps\"}",
+          "parsed_response": {
+            "has_explicit_diagnosis_advice": false,
+            "advice_screen_reason": "The text provides general medication timing advice but lacks specific diagnostic direction, examination suggestions, treatment plans, or concrete medical next steps"
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a strict medical text screener. Judge whether the doctor's text contains explicit diagnostic advice."
+            },
+            {
+              "role": "user",
+              "content": "Decide whether the doctor text includes explicit diagnostic advice.\nExplicit diagnostic advice means clear diagnosis direction and/or concrete medical next-step advice (e.g., suggested examination, treatment, medication adjustment, follow-up plan).\nNot explicit includes only greetings, pure questioning, registration/process guidance, or generic conversation.\n\nDoctor text:\n医生：一下子吃这么多药胃会不舒服吧，可以间隔开来\n\nReturn JSON only:\n{\"has_explicit_diagnosis_advice\": true/false, \"advice_screen_reason\": \"short reason\"}"
+            }
+          ],
+          "request_log": {
+            "start_at": "2026-03-29T08:54:53.519763",
+            "attempts": [
+              {
+                "attempt": 1,
+                "elapsed_sec": 1.831,
+                "status": "success"
+              }
+            ],
+            "final_status": "success",
+            "retry_success_at": null
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 11,
+      "pid": "22b1c052839841618fdeb12365a96290",
+      "status": "success",
+      "error_message": "",
+      "failure_reason": "",
+      "k": 1,
+      "k_source": "model_min_k_consistent",
+      "k_dialogue": [
+        "患者：续药，还有是否需要减少药品？ 患者上传了预填图片[主诉：头晕；检查：术中发现左主干未见明显狭窄，前降支自口部至中段弥漫性病变，第一对角支近中段弥漫性病变，最重处狭窄90%，远段管状狭窄80-90%, 出院时查体显示血压和心率正常，双肺呼吸音清晰，未及干湿啰音，心律齐，腹软无压痛，双下肢不肿, 入院时血压133/84mmHg，心率66次/分，呼吸18次/分，神清气平，双肺呼吸音清，腹软无压痛，双下肢无浮肿, 血细胞分析；疾病史：冠心病三支病变，累及LAD、LCX、RCA, 现病：PTCA术后恢复期, 急性非ST段抬高型心肌梗死，急性冠脉综合征；手术史：冠状动脉造影和支架植入手术（PCI和PTCA）, PTCA手术, 介入治疗成功PCI至LCX和LAD。；用药：铝镁匹林片、硫酸氢氯吡格雷片、雷贝拉唑钠肠溶胶囊、阿托伐他汀钙片、托拉塞米片、螺内酯片、依洛尤单抗注射液]（男，68岁）",
+        "医生：您好，暂时不减药 互联网门诊没有铝镁匹林和瑞百安 螺内酯目前缺货了，抱歉 其他四个药开好了 雷贝拉唑换厂家了，用法还是每天一粒不变"
+      ],
+      "total_rounds": 2,
+      "doctor_diagnosis_raw": "医生：铝镁匹林可以用阿司匹林代替 依洛尤单抗没有代替的",
+      "doctor_diagnosis_round": 2,
+      "doctor_diagnosis_source": "low_confidence_fallback",
+      "doctor_diagnosis_candidates": [
+        {
+          "round": 1,
+          "doctor_text": "医生：您好，暂时不减药 互联网门诊没有铝镁匹林和瑞百安 螺内酯目前缺货了，抱歉 其他四个药开好了 雷贝拉唑换厂家了，用法还是每天一粒不变",
+          "score": 1.55,
+          "reasons": [
+            "+0.8:药",
+            "+0.75:position"
+          ]
+        },
+        {
+          "round": 2,
+          "doctor_text": "医生：铝镁匹林可以用阿司匹林代替 依洛尤单抗没有代替的",
+          "score": 1.5,
+          "reasons": [
+            "+1.50:position"
+          ]
+        }
+      ],
+      "has_explicit_diagnosis_advice": true,
+      "advice_screen_reason": "Provides specific medication substitution advice (aspirin for aluminum magnesium aspirin) and states no substitute exists for evolocumab, constituting concrete pharmaceutical guidance",
+      "processing_time": "7.921s",
+      "timestamp": "2026-03-29T08:54:58.449946",
+      "observability": {
+        "total_llm_requests": 3,
+        "timeout_count": 0,
+        "retry_count": 0,
+        "retry_success_count": 0,
+        "estimated_input_tokens_total": 878,
+        "error_type_counter": {}
+      },
+      "debug_info": {
+        "search_trace": [
+          {
+            "k": 1,
+            "can_diagnose": true,
+            "diagnosis_text": "继续当前用药方案，无需减药，其中铝镁匹林和瑞百安缺货无法开具，螺内酯缺货，雷贝拉唑更换厂家但用法不变",
+            "request_log": {
+              "start_at": "2026-03-29T08:54:55.291695",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "elapsed_sec": 1.831,
+                  "status": "success"
+                }
+              ],
+              "final_status": "success",
+              "retry_success_at": null
+            },
+            "compression_info": {
+              "compressed": false,
+              "selected_rounds": 1
+            }
+          },
+          {
+            "k": 2,
+            "can_diagnose": true,
+            "diagnosis_text": "继续原治疗方案，铝镁匹林可用阿司匹林替代，依洛尤单抗无替代药物",
+            "request_log": {
+              "start_at": "2026-03-29T08:54:57.122357",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "elapsed_sec": 1.328,
+                  "status": "success"
+                }
+              ],
+              "final_status": "success",
+              "retry_success_at": null
+            },
+            "compression_info": {
+              "compressed": false,
+              "selected_rounds": 2
+            }
+          }
+        ],
+        "search_note": "",
+        "advice_screening": {
+          "raw_response": "{\"has_explicit_diagnosis_advice\": true, \"advice_screen_reason\": \"Provides specific medication substitution advice (aspirin for aluminum magnesium aspirin) and states no substitute exists for evolocumab, constituting concrete pharmaceutical guidance\"}",
+          "parsed_response": {
+            "has_explicit_diagnosis_advice": true,
+            "advice_screen_reason": "Provides specific medication substitution advice (aspirin for aluminum magnesium aspirin) and states no substitute exists for evolocumab, constituting concrete pharmaceutical guidance"
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a strict medical text screener. Judge whether the doctor's text contains explicit diagnostic advice."
+            },
+            {
+              "role": "user",
+              "content": "Decide whether the doctor text includes explicit diagnostic advice.\nExplicit diagnostic advice means clear diagnosis direction and/or concrete medical next-step advice (e.g., suggested examination, treatment, medication adjustment, follow-up plan).\nNot explicit includes only greetings, pure questioning, registration/process guidance, or generic conversation.\n\nDoctor text:\n医生：铝镁匹林可以用阿司匹林代替 依洛尤单抗没有代替的\n\nReturn JSON only:\n{\"has_explicit_diagnosis_advice\": true/false, \"advice_screen_reason\": \"short reason\"}"
+            }
+          ],
+          "request_log": {
+            "start_at": "2026-03-29T08:54:53.581398",
+            "attempts": [
+              {
+                "attempt": 1,
+                "elapsed_sec": 1.71,
+                "status": "success"
+              }
+            ],
+            "final_status": "success",
+            "retry_success_at": null
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 13,
+      "pid": "5998ff43e30a4d838a1b2d895f30e9dc",
+      "status": "success",
+      "error_message": "",
+      "failure_reason": "",
+      "k": null,
+      "k_source": "screen_no_explicit_advice",
+      "k_dialogue": [],
+      "total_rounds": 4,
+      "doctor_diagnosis_raw": "医生：对，我最近取消了几次 愿意住院复查吗？",
+      "doctor_diagnosis_round": 2,
+      "doctor_diagnosis_source": "scored_candidate",
+      "doctor_diagnosis_candidates": [
+        {
+          "round": 2,
+          "doctor_text": "医生：对，我最近取消了几次 愿意住院复查吗？",
+          "score": 3.95,
+          "reasons": [
+            "+2.0:复查",
+            "+2.0:住院",
+            "-0.8:question",
+            "+0.75:position"
+          ]
+        },
+        {
+          "round": 3,
+          "doctor_text": "医生：好的，你把姓名 联系方式发我，我安排你住院",
+          "score": 3.125,
+          "reasons": [
+            "+2.0:住院",
+            "+1.12:position"
+          ]
+        },
+        {
+          "round": 4,
+          "doctor_text": "医生：不客气，㊗️好。稍晚秘书会联系你",
+          "score": 1.5,
+          "reasons": [
+            "+1.50:position"
+          ]
+        }
+      ],
+      "has_explicit_diagnosis_advice": false,
+      "advice_screen_reason": "The text contains a question about willingness to undergo hospitalization for re-examination, which is not a clear diagnostic direction or concrete medical next-step advice.",
+      "processing_time": "4.638s",
+      "timestamp": "2026-03-29T08:54:55.195693",
+      "observability": {
+        "total_llm_requests": 1,
+        "timeout_count": 0,
+        "retry_count": 0,
+        "retry_success_count": 0,
+        "estimated_input_tokens_total": 278,
+        "error_type_counter": {}
+      },
+      "debug_info": {
+        "search_trace": [],
+        "search_note": "screen_no_explicit_advice",
+        "advice_screening": {
+          "raw_response": "{\"has_explicit_diagnosis_advice\": false, \"advice_screen_reason\": \"The text contains a question about willingness to undergo hospitalization for re-examination, which is not a clear diagnostic direction or concrete medical next-step advice.\"}",
+          "parsed_response": {
+            "has_explicit_diagnosis_advice": false,
+            "advice_screen_reason": "The text contains a question about willingness to undergo hospitalization for re-examination, which is not a clear diagnostic direction or concrete medical next-step advice."
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a strict medical text screener. Judge whether the doctor's text contains explicit diagnostic advice."
+            },
+            {
+              "role": "user",
+              "content": "Decide whether the doctor text includes explicit diagnostic advice.\nExplicit diagnostic advice means clear diagnosis direction and/or concrete medical next-step advice (e.g., suggested examination, treatment, medication adjustment, follow-up plan).\nNot explicit includes only greetings, pure questioning, registration/process guidance, or generic conversation.\n\nDoctor text:\n医生：对，我最近取消了几次 愿意住院复查吗？\n\nReturn JSON only:\n{\"has_explicit_diagnosis_advice\": true/false, \"advice_screen_reason\": \"short reason\"}"
+            }
+          ],
+          "request_log": {
+            "start_at": "2026-03-29T08:54:53.320768",
+            "attempts": [
+              {
+                "attempt": 1,
+                "elapsed_sec": 1.875,
+                "status": "success"
+              }
+            ],
+            "final_status": "success",
+            "retry_success_at": null
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 14,
+      "pid": "82d2f31f14b7437ba2305db6f9d3f3fe",
+      "status": "success",
+      "error_message": "",
+      "failure_reason": "",
+      "k": null,
+      "k_source": "screen_no_explicit_advice",
+      "k_dialogue": [],
+      "total_rounds": 2,
+      "doctor_diagnosis_raw": "医生：雷贝拉唑没有了 换一个类似的可以吗",
+      "doctor_diagnosis_round": 2,
+      "doctor_diagnosis_source": "low_confidence_fallback",
+      "doctor_diagnosis_candidates": [
+        {
+          "round": 2,
+          "doctor_text": "医生：雷贝拉唑没有了 换一个类似的可以吗",
+          "score": 1.5,
+          "reasons": [
+            "+1.50:position"
+          ]
+        },
+        {
+          "round": 1,
+          "doctor_text": "医生：你好 只能开5个药",
+          "score": 0.55,
+          "reasons": [
+            "+0.8:药",
+            "-1.0:你好",
+            "+0.75:position"
+          ]
+        }
+      ],
+      "has_explicit_diagnosis_advice": false,
+      "advice_screen_reason": "Only medication substitution query without diagnostic direction or specific medical advice",
+      "processing_time": "4.559s",
+      "timestamp": "2026-03-29T08:54:55.117700",
+      "observability": {
+        "total_llm_requests": 1,
+        "timeout_count": 0,
+        "retry_count": 0,
+        "retry_success_count": 0,
+        "estimated_input_tokens_total": 277,
+        "error_type_counter": {}
+      },
+      "debug_info": {
+        "search_trace": [],
+        "search_note": "screen_no_explicit_advice",
+        "advice_screening": {
+          "raw_response": "{\"has_explicit_diagnosis_advice\": false, \"advice_screen_reason\": \"Only medication substitution query without diagnostic direction or specific medical advice\"}",
+          "parsed_response": {
+            "has_explicit_diagnosis_advice": false,
+            "advice_screen_reason": "Only medication substitution query without diagnostic direction or specific medical advice"
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a strict medical text screener. Judge whether the doctor's text contains explicit diagnostic advice."
+            },
+            {
+              "role": "user",
+              "content": "Decide whether the doctor text includes explicit diagnostic advice.\nExplicit diagnostic advice means clear diagnosis direction and/or concrete medical next-step advice (e.g., suggested examination, treatment, medication adjustment, follow-up plan).\nNot explicit includes only greetings, pure questioning, registration/process guidance, or generic conversation.\n\nDoctor text:\n医生：雷贝拉唑没有了 换一个类似的可以吗\n\nReturn JSON only:\n{\"has_explicit_diagnosis_advice\": true/false, \"advice_screen_reason\": \"short reason\"}"
+            }
+          ],
+          "request_log": {
+            "start_at": "2026-03-29T08:54:53.236765",
+            "attempts": [
+              {
+                "attempt": 1,
+                "elapsed_sec": 1.88,
+                "status": "success"
+              }
+            ],
+            "final_status": "success",
+            "retry_success_at": null
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 15,
+      "pid": "aa9fe76364c2473db08b0d824135bade",
+      "status": "success",
+      "error_message": "",
+      "failure_reason": "",
+      "k": 2,
+      "k_source": "model_min_k_consistent",
+      "k_dialogue": [
+        "患者：你好医生 患者上传了预填图片[检查：CT报告显示冠脉呈右优势型，左主干起源于左窦，右冠状动脉起源于右窦。左主干、左前降支近中段、第1、2对角支、左回旋支、第1、2钝缘支及中间支未见斑块及狭窄。右冠状动脉近、中段多发斑块（钙化斑块，混合斑块），管腔轻微狭窄；疾病史：现病有左前降支远段局部闭塞和右冠状动脉近、中段多发斑块伴管腔轻微狭窄]（男，45岁）",
+        "医生：您好 这个CT做出来有问题 等会到医院我去查一查您的就诊记录",
+        "患者：那从CT上看问题严重吗 你好医生，在吗",
+        "医生：严重的 我正在开住院单，今天下午来，明天做造影"
+      ],
+      "total_rounds": 13,
+      "doctor_diagnosis_raw": "医生：建议冠脉造影",
+      "doctor_diagnosis_round": 3,
+      "doctor_diagnosis_source": "scored_candidate",
+      "doctor_diagnosis_candidates": [
+        {
+          "round": 3,
+          "doctor_text": "医生：建议冠脉造影",
+          "score": 4.546,
+          "reasons": [
+            "+2.2:建议",
+            "+2.0:造影",
+            "+0.35:position"
+          ]
+        },
+        {
+          "round": 2,
+          "doctor_text": "医生：严重的 我正在开住院单，今天下午来，明天做造影",
+          "score": 4.231,
+          "reasons": [
+            "+2.0:造影",
+            "+2.0:住院",
+            "+0.23:position"
+          ]
+        },
+        {
+          "round": 6,
+          "doctor_text": "医生：目前CT上看前降支远端病变，马上吃药，然后看症状有没有缓解。能不能做我得问问，好像都是去金山公卫的。 造影有2种结果，狭窄不超过75%也是吃药，超过了就可能植入支架 肝功能好吗",
+          "score": 3.492,
+          "reasons": [
+            "+2.0:造影",
+            "+0.8:药",
+            "+0.69:position"
+          ]
+        }
+      ],
+      "has_explicit_diagnosis_advice": true,
+      "advice_screen_reason": "Explicitly recommends a specific medical examination (coronary angiography)",
+      "processing_time": "8.792s",
+      "timestamp": "2026-03-29T08:54:59.351753",
+      "observability": {
+        "total_llm_requests": 4,
+        "timeout_count": 0,
+        "retry_count": 0,
+        "retry_success_count": 0,
+        "estimated_input_tokens_total": 848,
+        "error_type_counter": {}
+      },
+      "debug_info": {
+        "search_trace": [
+          {
+            "k": 1,
+            "can_diagnose": false,
+            "diagnosis_text": "",
+            "request_log": {
+              "start_at": "2026-03-29T08:54:55.189695",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "elapsed_sec": 1.092,
+                  "status": "success"
+                }
+              ],
+              "final_status": "success",
+              "retry_success_at": null
+            },
+            "compression_info": {
+              "compressed": false,
+              "selected_rounds": 1
+            }
+          },
+          {
+            "k": 3,
+            "can_diagnose": true,
+            "diagnosis_text": "建议立即住院行冠脉造影检查，评估右冠状动脉多发斑块及狭窄情况，排除左前降支远段闭塞风险",
+            "request_log": {
+              "start_at": "2026-03-29T08:54:56.281538",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "elapsed_sec": 1.533,
+                  "status": "success"
+                }
+              ],
+              "final_status": "success",
+              "retry_success_at": null
+            },
+            "compression_info": {
+              "compressed": false,
+              "selected_rounds": 3
+            }
+          },
+          {
+            "k": 2,
+            "can_diagnose": true,
+            "diagnosis_text": "右冠状动脉近、中段多发斑块（钙化斑块，混合斑块）伴管腔轻微狭窄，建议住院行冠状动脉造影检查",
+            "request_log": {
+              "start_at": "2026-03-29T08:54:57.814357",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "elapsed_sec": 1.537,
+                  "status": "success"
+                }
+              ],
+              "final_status": "success",
+              "retry_success_at": null
+            },
+            "compression_info": {
+              "compressed": false,
+              "selected_rounds": 2
+            }
+          }
+        ],
+        "search_note": "",
+        "advice_screening": {
+          "raw_response": "{\"has_explicit_diagnosis_advice\": true, \"advice_screen_reason\": \"Explicitly recommends a specific medical examination (coronary angiography)\"}",
+          "parsed_response": {
+            "has_explicit_diagnosis_advice": true,
+            "advice_screen_reason": "Explicitly recommends a specific medical examination (coronary angiography)"
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a strict medical text screener. Judge whether the doctor's text contains explicit diagnostic advice."
+            },
+            {
+              "role": "user",
+              "content": "Decide whether the doctor text includes explicit diagnostic advice.\nExplicit diagnostic advice means clear diagnosis direction and/or concrete medical next-step advice (e.g., suggested examination, treatment, medication adjustment, follow-up plan).\nNot explicit includes only greetings, pure questioning, registration/process guidance, or generic conversation.\n\nDoctor text:\n医生：建议冠脉造影\n\nReturn JSON only:\n{\"has_explicit_diagnosis_advice\": true/false, \"advice_screen_reason\": \"short reason\"}"
+            }
+          ],
+          "request_log": {
+            "start_at": "2026-03-29T08:54:53.203765",
+            "attempts": [
+              {
+                "attempt": 1,
+                "elapsed_sec": 1.986,
+                "status": "success"
+              }
+            ],
+            "final_status": "success",
+            "retry_success_at": null
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 18,
+      "pid": "ebfe0dc86e284a78b57aa7c0506af3e0",
+      "status": "success",
+      "error_message": "",
+      "failure_reason": "",
+      "k": 2,
+      "k_source": "model_min_k_at_last_round",
+      "k_dialogue": [
+        "患者：九月底没休息好，之后断断续续早上眼前发黑心慌，躺着手机冰冷，等一会手脚发热浑身出汗后就好了。最近在家附近做了动态心电图，让停用之前拿的药，感觉有点不靠谱，想再问一下 患者上传了预填图片[检查：心电图显示CH1导联最快心率为83次/分钟，最慢心率为44次/分钟，各导联的心电波形显示出正常的心室除极和复极过程, 心电图显示存在房性心动过速，心率在73至88次/分钟之间波动，心律呈现不规则的快速节律，P波形态异常且频率高于正常窦性心律，QRS波群形态正常，部分导联中可见到P波与QRS波群之间的关系不稳定，可能存在房室传导阻滞或干扰脱节现象, 心电图显示多导联的心电信号，包括CH1、CH2和CH3通道，在不同时间段内，心率分别为51次/分钟、61次/分钟和69次/分钟，波形中可见P波、QRS波群和T波，提示心脏的电活动情况，整体上呈现出窦性心律的特征, 心电图报告显示了24小时动态心电监测数据，包括心率变化范围从41到83次/分钟，以及室上性和室性心律失常的统计, 24小时内平均心率为54次/分钟，最慢心率44次/分钟，最快心率83次/分钟，记录到77220次心搏，其中室性早搏62次，房性早搏748次，未见大于2.0秒的停搏，最大QT间期为546毫秒，最大QTc为500毫秒，ST段轻度变化，最大压低-2.1mm，最大抬高0mm；疾病史：现病为房性心动过速, 心律失常，包括室速、二联律和三联律，有停搏现象, 窦性心动过缓，房性和室性早搏]（女，64岁）",
+        "医生：那你停用了哪个药",
+        "患者：患者上传了图片[出院后用药及建议医嘱包括：改善生活方式、戒烟戒酒、低盐低脂饮食、避免过劳、感染因素；心内科门诊随访，病情变化随时就诊，定期复查肝肾功能、血脂、肌酸激酶；如无禁忌继续服用阿司匹林，注意出血风险；使用他汀类药物，定期复查肝肾功能、血脂、肌酸激酶；关注医院就医服务号，查询报告结果。出院带药包括阿司匹林肠溶片、泮托拉唑钠肠溶片、富马酸比索洛尔片、盐酸乐卡地平片和阿托伐他汀钙片，具体剂量和服用方法已列出。心内科门诊时间安排为普通门诊周一至周五全天，周六上午半天；专病门诊周一上午冠心病高血压高血脂，周三上午冠心病介入后随访，周五上午肺动脉高压及肺栓塞；专家门诊周一至周五上午特需门诊，周二下午专家门诊。] 当面沟通时候说让停比索洛尔片跟拉挫钠肠片 患者上传了图片[患者为一名64岁女性，存在冠状动脉介入治疗后随诊检查、窦性心动过缓、房性期前收缩、室性期前收缩和颈总动脉斑块。去年进行了外院支架手术，今年复查显示LAD支架通畅，RCA狭窄60-70%。动态心电图显示窦律54次分，房早748次，室早62次。处方包括参松养心胶囊和银丹心泰滴丸，并停用比索洛尔。预约了心血管内科专家门诊。] 门诊病历写着停比索洛尔 下面是我妈的出院小结 患者上传了图片[该患者尿常规显示尿蛋白阴性，尿胆原正常，尿潜血阴性；肾功能检查中肌酐和尿素氮在正常范围内，但尿酸略高。血脂检查显示总胆固醇、甘油三酯和低密度脂蛋白胆固醇均在正常范围内，而高密度脂蛋白胆固醇略低。凝血功能检查显示凝血酶原时间和部分凝血活酶时间正常，纤维蛋白原水平正常。肝功能检查中谷丙转氨酶、谷草转氨酶和碱性磷酸酶均在正常范围内。维生素A、B1、B2、B6、B9、K1和E的水平均在正常范围内。炎症因子检测中白细胞介素-6、肿瘤坏死因子-α和干扰素γ的水平均在正常范围内。其他特殊检查结果未见明显异常。] 患者上传了图片[患者因冠状动脉粥样硬化性心脏病入院，入院时血压177/77mmHg，心率75次/分，呼吸18次/分，体温36.1℃。查体显示皮肤巩膜无黄染，浅表淋巴结无肿大，双肺呼吸音清，未闻及干湿性啰音；心律齐，各瓣膜听诊区未闻及病理性杂音；腹软，无压痛、反跳痛，肝脾肋下未触及，胆囊未触及，双下肢无浮肿。实验室检查结果显示白细胞计数4.18x10^9/L，中性粒细胞百分比30.9%，淋巴细胞百分比59.6%，红细胞计数4.34x10^12/L，血红蛋白132g/L，平均红细胞体积91.7fL，平均血红蛋白量30.4pg，血小板计数149x10^9/L，凝血酶原时间11.9秒，部分凝血活酶时间32.6秒，肌酐51umol/L，尿酸180umol/L，总胆固醇18umol/L，甘油三酯28.94ng/ml，降钙素原0.03ng/ml，肌酸激酶同工酶<2.5ng/ml，B型钠尿肽89.30pg/mL。] 患者上传了图片[患者因冠心病入院，经冠脉造影显示左冠状动脉前降支狭窄60-70%，右冠状动脉临界病变，右冠优势型。术后LAD支架通畅无再狭窄，TIMI血流3级。出院时患者无胸闷等不适，血压123/65mmHg，心率62次/分，律齐，双肺呼吸音清，腹软，无压痛，反跳痛，肝脾肋下未触及。出院后建议戒烟戒酒、低盐低脂饮食，定期复查肝肾功能、血脂、肌酸激酶，并关注医院就医服务号查询报告结果。随访计划包括普通门诊和专病门诊的时间安排。]",
+        "医生：动态心电图提示心率整体偏慢 比索洛尔是减慢心率的 建议停用  泮托拉唑是保护胃肠道的 如果服用心脏的药物后没有胃肠道不适 可以停用 请问还有什么其他问题吗  请问还有什么其他问题吗 如果没有其他问题了 我就确认诊毕了哦"
+      ],
+      "total_rounds": 2,
+      "doctor_diagnosis_raw": "医生：动态心电图提示心率整体偏慢 比索洛尔是减慢心率的 建议停用  泮托拉唑是保护胃肠道的 如果服用心脏的药物后没有胃肠道不适 可以停用 请问还有什么其他问题吗  请问还有什么其他问题吗 如果没有其他问题了 我就确认诊毕了哦",
+      "doctor_diagnosis_round": 2,
+      "doctor_diagnosis_source": "scored_candidate",
+      "doctor_diagnosis_candidates": [
+        {
+          "round": 2,
+          "doctor_text": "医生：动态心电图提示心率整体偏慢 比索洛尔是减慢心率的 建议停用  泮托拉唑是保护胃肠道的 如果服用心脏的药物后没有胃肠道不适 可以停用 请问还有什么其他问题吗  请问还有什么其他问题吗 如果没有其他问题了 我就确认诊毕了哦",
+          "score": 3.3,
+          "reasons": [
+            "+2.2:建议",
+            "+0.8:药",
+            "-1.2:请问还有",
+            "+1.50:position"
+          ]
+        },
+        {
+          "round": 1,
+          "doctor_text": "医生：那你停用了哪个药",
+          "score": 1.55,
+          "reasons": [
+            "+0.8:药",
+            "+0.75:position"
+          ]
+        }
+      ],
+      "has_explicit_diagnosis_advice": true,
+      "advice_screen_reason": "Contains specific medication adjustment instructions (stop bisoprolol) and conditional medication discontinuation advice for pantoprazole",
+      "processing_time": "8.716s",
+      "timestamp": "2026-03-29T08:54:59.300757",
+      "observability": {
+        "total_llm_requests": 3,
+        "timeout_count": 0,
+        "retry_count": 0,
+        "retry_success_count": 0,
+        "estimated_input_tokens_total": 1743,
+        "error_type_counter": {}
+      },
+      "debug_info": {
+        "search_trace": [
+          {
+            "k": 1,
+            "can_diagnose": false,
+            "diagnosis_text": "",
+            "request_log": {
+              "start_at": "2026-03-29T08:54:55.510323",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "elapsed_sec": 0.718,
+                  "status": "success"
+                }
+              ],
+              "final_status": "success",
+              "retry_success_at": null
+            },
+            "compression_info": {
+              "compressed": false,
+              "selected_rounds": 1
+            }
+          },
+          {
+            "k": 2,
+            "can_diagnose": true,
+            "diagnosis_text": "建议停用比索洛尔片，因动态心电图显示心率偏慢（最慢44次/分钟，平均54次/分钟），该药会进一步减慢心率；泮托拉唑钠肠溶片若无胃肠道不适可停用。继续按原方案服用阿司匹林、他汀类药物（阿托伐他汀钙片）和降压药（盐酸乐卡地平片），维持低盐低脂饮食，定期复查肝肾功能、血脂、肌酸激酶，心内科门诊随访。",
+            "request_log": {
+              "start_at": "2026-03-29T08:54:56.229544",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "elapsed_sec": 3.071,
+                  "status": "success"
+                }
+              ],
+              "final_status": "success",
+              "retry_success_at": null
+            },
+            "compression_info": {
+              "compressed": false,
+              "selected_rounds": 2
+            }
+          }
+        ],
+        "search_note": "",
+        "advice_screening": {
+          "raw_response": "{\"has_explicit_diagnosis_advice\": true, \"advice_screen_reason\": \"Contains specific medication adjustment instructions (stop bisoprolol) and conditional medication discontinuation advice for pantoprazole\"}",
+          "parsed_response": {
+            "has_explicit_diagnosis_advice": true,
+            "advice_screen_reason": "Contains specific medication adjustment instructions (stop bisoprolol) and conditional medication discontinuation advice for pantoprazole"
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a strict medical text screener. Judge whether the doctor's text contains explicit diagnostic advice."
+            },
+            {
+              "role": "user",
+              "content": "Decide whether the doctor text includes explicit diagnostic advice.\nExplicit diagnostic advice means clear diagnosis direction and/or concrete medical next-step advice (e.g., suggested examination, treatment, medication adjustment, follow-up plan).\nNot explicit includes only greetings, pure questioning, registration/process guidance, or generic conversation.\n\nDoctor text:\n医生：动态心电图提示心率整体偏慢 比索洛尔是减慢心率的 建议停用  泮托拉唑是保护胃肠道的 如果服用心脏的药物后没有胃肠道不适 可以停用 请问还有什么其他问题吗  请问还有什么其他问题吗 如果没有其他问题了 我就确认诊毕了哦\n\nReturn JSON only:\n{\"has_explicit_diagnosis_advice\": true/false, \"advice_screen_reason\": \"short reason\"}"
+            }
+          ],
+          "request_log": {
+            "start_at": "2026-03-29T08:54:53.546399",
+            "attempts": [
+              {
+                "attempt": 1,
+                "elapsed_sec": 1.964,
+                "status": "success"
+              }
+            ],
+            "final_status": "success",
+            "retry_success_at": null
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 19,
+      "pid": "634b3466f34246bd97fefcea07e12302",
+      "status": "success",
+      "error_message": "",
+      "failure_reason": "",
+      "k": null,
+      "k_source": "screen_no_explicit_advice",
+      "k_dialogue": [],
+      "total_rounds": 2,
+      "doctor_diagnosis_raw": "医生：不客气",
+      "doctor_diagnosis_round": 2,
+      "doctor_diagnosis_source": "low_confidence_fallback",
+      "doctor_diagnosis_candidates": [
+        {
+          "round": 1,
+          "doctor_text": "医生：您好，药开好了 对男性影响不大 请注意：国产的琥珀酸美托洛尔缓释片每片剂量95mg，一片相当于进口的47.5mg两片，请按原剂量服药",
+          "score": 1.55,
+          "reasons": [
+            "+0.8:药",
+            "+0.75:position"
+          ]
+        },
+        {
+          "round": 2,
+          "doctor_text": "医生：不客气",
+          "score": 1.5,
+          "reasons": [
+            "+1.50:position"
+          ]
+        }
+      ],
+      "has_explicit_diagnosis_advice": false,
+      "advice_screen_reason": "Text contains only a polite closing statement with no medical content",
+      "processing_time": "4.193s",
+      "timestamp": "2026-03-29T08:54:54.792529",
+      "observability": {
+        "total_llm_requests": 1,
+        "timeout_count": 0,
+        "retry_count": 0,
+        "retry_success_count": 0,
+        "estimated_input_tokens_total": 271,
+        "error_type_counter": {}
+      },
+      "debug_info": {
+        "search_trace": [],
+        "search_note": "screen_no_explicit_advice",
+        "advice_screening": {
+          "raw_response": "{\"has_explicit_diagnosis_advice\": false, \"advice_screen_reason\": \"Text contains only a polite closing statement with no medical content\"}",
+          "parsed_response": {
+            "has_explicit_diagnosis_advice": false,
+            "advice_screen_reason": "Text contains only a polite closing statement with no medical content"
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a strict medical text screener. Judge whether the doctor's text contains explicit diagnostic advice."
+            },
+            {
+              "role": "user",
+              "content": "Decide whether the doctor text includes explicit diagnostic advice.\nExplicit diagnostic advice means clear diagnosis direction and/or concrete medical next-step advice (e.g., suggested examination, treatment, medication adjustment, follow-up plan).\nNot explicit includes only greetings, pure questioning, registration/process guidance, or generic conversation.\n\nDoctor text:\n医生：不客气\n\nReturn JSON only:\n{\"has_explicit_diagnosis_advice\": true/false, \"advice_screen_reason\": \"short reason\"}"
+            }
+          ],
+          "request_log": {
+            "start_at": "2026-03-29T08:54:53.572400",
+            "attempts": [
+              {
+                "attempt": 1,
+                "elapsed_sec": 1.22,
+                "status": "success"
+              }
+            ],
+            "final_status": "success",
+            "retry_success_at": null
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 22,
+      "pid": "2aae2598457842a688c3389b0818d203",
+      "status": "success",
+      "error_message": "",
+      "failure_reason": "",
+      "k": 5,
+      "k_source": "fallback_last_round_no_positive",
+      "k_dialogue": [
+        "患者：五个月前其他医生做了造影检查 按照医嘱进行服药，目前患者一切正常，想问下所服用药物是否需要调整 患者上传了预填图片[主诉：劳力恶化型心绞痛、冠脉支架植入术后心律失常及2型糖尿病, 无胸闷胸痛、心慌气促等症状；检查：生命体征稳定，双肺呼吸音清，未闻及干湿啰音，心律齐，腹软无压痛，双下肢无浮肿, 查体显示血压122/59mmHg，心率70次/分，双肺呼吸音清，心律齐，腹软无压痛，双下肢不肿；疾病史：冠状动脉粥样硬化性心脏病、2型糖尿病、冠心病三支病变LCX原支架通畅LAD心肌桥；手术史：冠脉支架植入术，冠脉造影术，IVUS检查。；用药：弱双联抗血小板治疗, 硫酸氢氯吡格雷片、铝镁匹林片、瑞舒伐他汀钙片、泮托拉唑钠肠溶片、螺内酯片、普萘洛尔、盐酸吡格列酮片、盐酸二甲双胍缓释片]（女，85岁）",
+        "医生：您好，请问皮肤乌青块这种还有吗？",
+        "患者：没有了 按照医嘱吃就没有了  就是晚上会有点感觉心跳过速",
+        "医生：动态心电图最近有做过吗？",
+        "患者：没做过",
+        "医生：现在普萘洛尔怎么吃法？",
+        "患者：吃的药就这些 没你说的这个 阿司匹林肠溶片 早晨3片 一天一次 硫酸氰氯纰格雷片 75mg 每天半片 一天一次 硝酸异山梨酯片 5mg 一次一片 一天两次 瑞舒伐他汀钙片 10mg 晚上一片 阿司匹林肠溶片 早晨3片 一天一次； 硫酸氰氯纰格雷片 75mg 每天半片 一天一次； 硝酸异山梨酯片 5mg 一次一片 一天两次； 瑞舒伐他汀钙片 10mg 晚上一片",
+        "医生：可以做过动态心电图看一下心跳情况，如果确实偏快的话，可以用点药控制 阿司匹林是什么剂量的？",
+        "患者：25mg 白天还行 晚上偶尔感觉",
+        "医生：那就看症状吧 如果发作比较频繁，可以做一下检查看 其他目前的药暂时不变"
+      ],
+      "total_rounds": 5,
+      "doctor_diagnosis_raw": "医生：那就看症状吧 如果发作比较频繁，可以做一下检查看 其他目前的药暂时不变",
+      "doctor_diagnosis_round": 5,
+      "doctor_diagnosis_source": "scored_candidate",
+      "doctor_diagnosis_candidates": [
+        {
+          "round": 5,
+          "doctor_text": "医生：那就看症状吧 如果发作比较频繁，可以做一下检查看 其他目前的药暂时不变",
+          "score": 4.1,
+          "reasons": [
+            "+1.8:检查",
+            "+0.8:药",
+            "+1.50:position"
+          ]
+        },
+        {
+          "round": 4,
+          "doctor_text": "医生：可以做过动态心电图看一下心跳情况，如果确实偏快的话，可以用点药控制 阿司匹林是什么剂量的？",
+          "score": 1.2,
+          "reasons": [
+            "+0.8:药",
+            "-0.8:question",
+            "+1.20:position"
+          ]
+        },
+        {
+          "round": 3,
+          "doctor_text": "医生：现在普萘洛尔怎么吃法？",
+          "score": 0.1,
+          "reasons": [
+            "-0.8:question",
+            "+0.90:position"
+          ]
+        }
+      ],
+      "has_explicit_diagnosis_advice": true,
+      "advice_screen_reason": "Contains explicit diagnostic direction (suggested examination) and treatment advice (medication adjustment guidance)",
+      "processing_time": "4.127s",
+      "timestamp": "2026-03-29T08:54:59.244298",
+      "observability": {
+        "total_llm_requests": 4,
+        "timeout_count": 0,
+        "retry_count": 0,
+        "retry_success_count": 0,
+        "estimated_input_tokens_total": 1205,
+        "error_type_counter": {}
+      },
+      "debug_info": {
+        "search_trace": [
+          {
+            "k": 1,
+            "can_diagnose": false,
+            "diagnosis_text": "",
+            "request_log": {
+              "start_at": "2026-03-29T08:54:56.813955",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "elapsed_sec": 0.899,
+                  "status": "success"
+                }
+              ],
+              "final_status": "success",
+              "retry_success_at": null
+            },
+            "compression_info": {
+              "compressed": false,
+              "selected_rounds": 1
+            }
+          },
+          {
+            "k": 3,
+            "can_diagnose": false,
+            "diagnosis_text": "",
+            "request_log": {
+              "start_at": "2026-03-29T08:54:57.712606",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "elapsed_sec": 0.754,
+                  "status": "success"
+                }
+              ],
+              "final_status": "success",
+              "retry_success_at": null
+            },
+            "compression_info": {
+              "compressed": false,
+              "selected_rounds": 3
+            }
+          },
+          {
+            "k": 5,
+            "can_diagnose": false,
+            "diagnosis_text": "",
+            "request_log": {
+              "start_at": "2026-03-29T08:54:58.466958",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "elapsed_sec": 0.777,
+                  "status": "success"
+                }
+              ],
+              "final_status": "success",
+              "retry_success_at": null
+            },
+            "compression_info": {
+              "compressed": false,
+              "selected_rounds": 5
+            }
+          }
+        ],
+        "search_note": "",
+        "advice_screening": {
+          "raw_response": "{\"has_explicit_diagnosis_advice\": true, \"advice_screen_reason\": \"Contains explicit diagnostic direction (suggested examination) and treatment advice (medication adjustment guidance)\"}",
+          "parsed_response": {
+            "has_explicit_diagnosis_advice": true,
+            "advice_screen_reason": "Contains explicit diagnostic direction (suggested examination) and treatment advice (medication adjustment guidance)"
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a strict medical text screener. Judge whether the doctor's text contains explicit diagnostic advice."
+            },
+            {
+              "role": "user",
+              "content": "Decide whether the doctor text includes explicit diagnostic advice.\nExplicit diagnostic advice means clear diagnosis direction and/or concrete medical next-step advice (e.g., suggested examination, treatment, medication adjustment, follow-up plan).\nNot explicit includes only greetings, pure questioning, registration/process guidance, or generic conversation.\n\nDoctor text:\n医生：那就看症状吧 如果发作比较频繁，可以做一下检查看 其他目前的药暂时不变\n\nReturn JSON only:\n{\"has_explicit_diagnosis_advice\": true/false, \"advice_screen_reason\": \"short reason\"}"
+            }
+          ],
+          "request_log": {
+            "start_at": "2026-03-29T08:54:55.119701",
+            "attempts": [
+              {
+                "attempt": 1,
+                "elapsed_sec": 1.693,
+                "status": "success"
+              }
+            ],
+            "final_status": "success",
+            "retry_success_at": null
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 24,
+      "pid": "449d14e5b324465089ae6d14f0ba091c",
+      "status": "success",
+      "error_message": "",
+      "failure_reason": "",
+      "k": null,
+      "k_source": "screen_no_explicit_advice",
+      "k_dialogue": [],
+      "total_rounds": 3,
+      "doctor_diagnosis_raw": "医生：最近情况还好吗？是需要配药吗？ 那些药需要继续吃",
+      "doctor_diagnosis_round": 1,
+      "doctor_diagnosis_source": "scored_candidate",
+      "doctor_diagnosis_candidates": [
+        {
+          "round": 1,
+          "doctor_text": "医生：最近情况还好吗？是需要配药吗？ 那些药需要继续吃",
+          "score": 2.7,
+          "reasons": [
+            "+2.2:需要",
+            "+0.8:药",
+            "-0.8:question",
+            "+0.50:position"
+          ]
+        },
+        {
+          "round": 2,
+          "doctor_text": "医生：阿司匹林和倍他乐克和二甲双胍我没开，因为一次只能开五个药",
+          "score": 1.8,
+          "reasons": [
+            "+0.8:药",
+            "+1.00:position"
+          ]
+        },
+        {
+          "round": 3,
+          "doctor_text": "医生：是的",
+          "score": 1.5,
+          "reasons": [
+            "+1.50:position"
+          ]
+        }
+      ],
+      "has_explicit_diagnosis_advice": false,
+      "advice_screen_reason": "Text contains only questions and general conversation without specific diagnostic direction or medical next-step recommendations",
+      "processing_time": "1.587s",
+      "timestamp": "2026-03-29T08:54:56.812964",
+      "observability": {
+        "total_llm_requests": 1,
+        "timeout_count": 0,
+        "retry_count": 0,
+        "retry_success_count": 0,
+        "estimated_input_tokens_total": 280,
+        "error_type_counter": {}
+      },
+      "debug_info": {
+        "search_trace": [],
+        "search_note": "screen_no_explicit_advice",
+        "advice_screening": {
+          "raw_response": "{\"has_explicit_diagnosis_advice\": false, \"advice_screen_reason\": \"Text contains only questions and general conversation without specific diagnostic direction or medical next-step recommendations\"}",
+          "parsed_response": {
+            "has_explicit_diagnosis_advice": false,
+            "advice_screen_reason": "Text contains only questions and general conversation without specific diagnostic direction or medical next-step recommendations"
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a strict medical text screener. Judge whether the doctor's text contains explicit diagnostic advice."
+            },
+            {
+              "role": "user",
+              "content": "Decide whether the doctor text includes explicit diagnostic advice.\nExplicit diagnostic advice means clear diagnosis direction and/or concrete medical next-step advice (e.g., suggested examination, treatment, medication adjustment, follow-up plan).\nNot explicit includes only greetings, pure questioning, registration/process guidance, or generic conversation.\n\nDoctor text:\n医生：最近情况还好吗？是需要配药吗？ 那些药需要继续吃\n\nReturn JSON only:\n{\"has_explicit_diagnosis_advice\": true/false, \"advice_screen_reason\": \"short reason\"}"
+            }
+          ],
+          "request_log": {
+            "start_at": "2026-03-29T08:54:55.226696",
+            "attempts": [
+              {
+                "attempt": 1,
+                "elapsed_sec": 1.586,
+                "status": "success"
+              }
+            ],
+            "final_status": "success",
+            "retry_success_at": null
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 25,
+      "pid": "5534378a29d34439abe28136e3cf9521",
+      "status": "success",
+      "error_message": "",
+      "failure_reason": "",
+      "k": null,
+      "k_source": "screen_no_explicit_advice",
+      "k_dialogue": [],
+      "total_rounds": 3,
+      "doctor_diagnosis_raw": "医生：那个针要到内分泌科开，互联网门诊不能开的，要到医院内分泌门诊才能开 其他的药需要开吗？",
+      "doctor_diagnosis_round": 1,
+      "doctor_diagnosis_source": "scored_candidate",
+      "doctor_diagnosis_candidates": [
+        {
+          "round": 1,
+          "doctor_text": "医生：那个针要到内分泌科开，互联网门诊不能开的，要到医院内分泌门诊才能开 其他的药需要开吗？",
+          "score": 2.7,
+          "reasons": [
+            "+2.2:需要",
+            "+0.8:药",
+            "-0.8:question",
+            "+0.50:position"
+          ]
+        },
+        {
+          "round": 3,
+          "doctor_text": "医生：只能开5个药",
+          "score": 2.3,
+          "reasons": [
+            "+0.8:药",
+            "+1.50:position"
+          ]
+        },
+        {
+          "round": 2,
+          "doctor_text": "医生：好的，我帮你开药",
+          "score": 1.8,
+          "reasons": [
+            "+0.8:药",
+            "+1.00:position"
+          ]
+        }
+      ],
+      "has_explicit_diagnosis_advice": false,
+      "advice_screen_reason": "Text provides administrative guidance about prescription availability and location, not diagnostic direction or medical next steps",
+      "processing_time": "1.653s",
+      "timestamp": "2026-03-29T08:54:56.903956",
+      "observability": {
+        "total_llm_requests": 1,
+        "timeout_count": 0,
+        "retry_count": 0,
+        "retry_success_count": 0,
+        "estimated_input_tokens_total": 289,
+        "error_type_counter": {}
+      },
+      "debug_info": {
+        "search_trace": [],
+        "search_note": "screen_no_explicit_advice",
+        "advice_screening": {
+          "raw_response": "{\"has_explicit_diagnosis_advice\": false, \"advice_screen_reason\": \"Text provides administrative guidance about prescription availability and location, not diagnostic direction or medical next steps\"}",
+          "parsed_response": {
+            "has_explicit_diagnosis_advice": false,
+            "advice_screen_reason": "Text provides administrative guidance about prescription availability and location, not diagnostic direction or medical next steps"
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a strict medical text screener. Judge whether the doctor's text contains explicit diagnostic advice."
+            },
+            {
+              "role": "user",
+              "content": "Decide whether the doctor text includes explicit diagnostic advice.\nExplicit diagnostic advice means clear diagnosis direction and/or concrete medical next-step advice (e.g., suggested examination, treatment, medication adjustment, follow-up plan).\nNot explicit includes only greetings, pure questioning, registration/process guidance, or generic conversation.\n\nDoctor text:\n医生：那个针要到内分泌科开，互联网门诊不能开的，要到医院内分泌门诊才能开 其他的药需要开吗？\n\nReturn JSON only:\n{\"has_explicit_diagnosis_advice\": true/false, \"advice_screen_reason\": \"short reason\"}"
+            }
+          ],
+          "request_log": {
+            "start_at": "2026-03-29T08:54:55.250693",
+            "attempts": [
+              {
+                "attempt": 1,
+                "elapsed_sec": 1.653,
+                "status": "success"
+              }
+            ],
+            "final_status": "success",
+            "retry_success_at": null
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 30,
+      "pid": "084e84ed78cc41f386cb5601748e24bd",
+      "status": "success",
+      "error_message": "",
+      "failure_reason": "",
+      "k": null,
+      "k_source": "screen_no_explicit_advice",
+      "k_dialogue": [],
+      "total_rounds": 12,
+      "doctor_diagnosis_raw": "医生：不客气",
+      "doctor_diagnosis_round": 12,
+      "doctor_diagnosis_source": "low_confidence_fallback",
+      "doctor_diagnosis_candidates": [
+        {
+          "round": 8,
+          "doctor_text": "医生：奥美沙坦也有点强了 可以换氨氯地平 换药后监测血压，原则如上所述",
+          "score": 1.8,
+          "reasons": [
+            "+0.8:药",
+            "+1.00:position"
+          ]
+        },
+        {
+          "round": 12,
+          "doctor_text": "医生：不客气",
+          "score": 1.5,
+          "reasons": [
+            "+1.50:position"
+          ]
+        },
+        {
+          "round": 11,
+          "doctor_text": "医生：可以的",
+          "score": 1.375,
+          "reasons": [
+            "+1.38:position"
+          ]
+        }
+      ],
+      "has_explicit_diagnosis_advice": false,
+      "advice_screen_reason": "Text is a polite closing remark with no medical content",
+      "processing_time": "1.226s",
+      "timestamp": "2026-03-29T08:54:58.131359",
+      "observability": {
+        "total_llm_requests": 1,
+        "timeout_count": 0,
+        "retry_count": 0,
+        "retry_success_count": 0,
+        "estimated_input_tokens_total": 271,
+        "error_type_counter": {}
+      },
+      "debug_info": {
+        "search_trace": [],
+        "search_note": "screen_no_explicit_advice",
+        "advice_screening": {
+          "raw_response": "{\"has_explicit_diagnosis_advice\": false, \"advice_screen_reason\": \"Text is a polite closing remark with no medical content\"}",
+          "parsed_response": {
+            "has_explicit_diagnosis_advice": false,
+            "advice_screen_reason": "Text is a polite closing remark with no medical content"
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a strict medical text screener. Judge whether the doctor's text contains explicit diagnostic advice."
+            },
+            {
+              "role": "user",
+              "content": "Decide whether the doctor text includes explicit diagnostic advice.\nExplicit diagnostic advice means clear diagnosis direction and/or concrete medical next-step advice (e.g., suggested examination, treatment, medication adjustment, follow-up plan).\nNot explicit includes only greetings, pure questioning, registration/process guidance, or generic conversation.\n\nDoctor text:\n医生：不客气\n\nReturn JSON only:\n{\"has_explicit_diagnosis_advice\": true/false, \"advice_screen_reason\": \"short reason\"}"
+            }
+          ],
+          "request_log": {
+            "start_at": "2026-03-29T08:54:56.905028",
+            "attempts": [
+              {
+                "attempt": 1,
+                "elapsed_sec": 1.226,
+                "status": "success"
+              }
+            ],
+            "final_status": "success",
+            "retry_success_at": null
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 32,
+      "pid": "1d618a307cb24f0ab155074fc3c032c8",
+      "status": "success",
+      "error_message": "",
+      "failure_reason": "",
+      "k": null,
+      "k_source": "screen_no_explicit_advice",
+      "k_dialogue": [],
+      "total_rounds": 8,
+      "doctor_diagnosis_raw": "医生：不客气",
+      "doctor_diagnosis_round": 8,
+      "doctor_diagnosis_source": "low_confidence_fallback",
+      "doctor_diagnosis_candidates": [
+        {
+          "round": 8,
+          "doctor_text": "医生：不客气",
+          "score": 1.5,
+          "reasons": [
+            "+1.50:position"
+          ]
+        },
+        {
+          "round": 3,
+          "doctor_text": "医生：药物集采后都变便宜了",
+          "score": 1.363,
+          "reasons": [
+            "+0.8:药",
+            "+0.56:position"
+          ]
+        },
+        {
+          "round": 7,
+          "doctor_text": "医生：开好了 兰索拉唑也是每天一粒",
+          "score": 1.312,
+          "reasons": [
+            "+1.31:position"
+          ]
+        }
+      ],
+      "has_explicit_diagnosis_advice": false,
+      "advice_screen_reason": "Only a polite closing remark with no medical content",
+      "processing_time": "1.219s",
+      "timestamp": "2026-03-29T08:54:59.351753",
+      "observability": {
+        "total_llm_requests": 1,
+        "timeout_count": 0,
+        "retry_count": 0,
+        "retry_success_count": 0,
+        "estimated_input_tokens_total": 271,
+        "error_type_counter": {}
+      },
+      "debug_info": {
+        "search_trace": [],
+        "search_note": "screen_no_explicit_advice",
+        "advice_screening": {
+          "raw_response": "{\"has_explicit_diagnosis_advice\": false, \"advice_screen_reason\": \"Only a polite closing remark with no medical content\"}",
+          "parsed_response": {
+            "has_explicit_diagnosis_advice": false,
+            "advice_screen_reason": "Only a polite closing remark with no medical content"
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a strict medical text screener. Judge whether the doctor's text contains explicit diagnostic advice."
+            },
+            {
+              "role": "user",
+              "content": "Decide whether the doctor text includes explicit diagnostic advice.\nExplicit diagnostic advice means clear diagnosis direction and/or concrete medical next-step advice (e.g., suggested examination, treatment, medication adjustment, follow-up plan).\nNot explicit includes only greetings, pure questioning, registration/process guidance, or generic conversation.\n\nDoctor text:\n医生：不客气\n\nReturn JSON only:\n{\"has_explicit_diagnosis_advice\": true/false, \"advice_screen_reason\": \"short reason\"}"
+            }
+          ],
+          "request_log": {
+            "start_at": "2026-03-29T08:54:58.132357",
+            "attempts": [
+              {
+                "attempt": 1,
+                "elapsed_sec": 1.219,
+                "status": "success"
+              }
+            ],
+            "final_status": "success",
+            "retry_success_at": null
+          }
+        }
+      }
+    }
+  ]
+}

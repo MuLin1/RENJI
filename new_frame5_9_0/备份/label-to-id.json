@@ -1,0 +1,683 @@
+{
+  "metadata": {
+    "description": "心内科条件节点汇总（去重后）",
+    "generated_at": "2025-09-18T18:09:53.562684",
+    "statistics": {
+      "total_files_processed": 12,
+      "total_condition_nodes_found": 40,
+      "unique_nodes_after_dedup": 29,
+      "deduplication_rate": "17.5%",
+      "files_processed": [
+        "头晕or头胀or头痛.json",
+        "心律失常诊断.json",
+        "心悸or心跳不齐or心慌or昏厥.json",
+        "心率下降.json",
+        "有冠脉CT检查.json",
+        "有心电图检查.json",
+        "有血压测试结果.json",
+        "有血脂测试结果.json",
+        "有高血压诊断史.json",
+        "有高血脂症并且有肌肉酸痛.json",
+        "胸闷or胸痛or心脏不适or气促or呼吸困难.json"
+      ]
+    }
+  },
+  "nodes": {
+    "1": {
+      "type": "条件节点",
+      "content": "是否测过心电图",
+      "pid": [
+        "a9283ec9e60b425a9a26881fb99e06c5",
+        "a9538df1691f4abd8a28255878f1c52d",
+        "a83fe7bd224248f6896b202601b1c513"
+      ],
+      "label": [
+        "没测过",
+        "测过"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "头晕or头胀or头痛.json",
+            "original_id": "1"
+          }
+        ]
+      }
+    },
+    "2": {
+      "type": "条件节点",
+      "content": "是否测过心率",
+      "pid": [
+        "0205d7e6a53b4797b3d74be306f924bc",
+        "0082c3050d6a42ddbd12ac64ff8dd439",
+        "3d10b095aba44884b7c9d3cbd86baf64"
+      ],
+      "label": [
+        "心率<=80",
+        "心率>80"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "头晕or头胀or头痛.json",
+            "original_id": "2"
+          }
+        ]
+      }
+    },
+    "3": {
+      "type": "条件节点",
+      "content": "是否测过血压",
+      "pid": [
+        "80da8a42e34a4c3f911e11ddc2e8075a",
+        "78de60087a954efb973fcdc17d878d69",
+        "578533f4ddcd4d6fb44c3fb2dc18df30"
+      ],
+      "label": [
+        "测过",
+        "没测过"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "头晕or头胀or头痛.json",
+            "original_id": "5"
+          }
+        ]
+      }
+    },
+    "4": {
+      "type": "条件节点",
+      "content": "是否存在心悸 or 心跳不齐 or 心慌 or 昏厥",
+      "pid": [
+        "475e001b9d1244d8ad5fe91a107fee93",
+        "71be3bc71ac245c1b3b2e7add5d956be",
+        "24fcc873b0d44fa4bd5afb31e5362ccf"
+      ],
+      "label": [
+        "否",
+        "是"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "心律失常诊断.json",
+            "original_id": "7"
+          },
+          {
+            "file": "心律失常诊断.json",
+            "original_id": "1"
+          }
+        ]
+      }
+    },
+    "5": {
+      "type": "条件节点",
+      "content": "询问是否在吃抗心律失常药物",
+      "pid": [
+        "f62adede4b33440da683fb7a1a263a1c",
+        "640f5eda334f4e0aaadd08c8d3ad6cfa",
+        "64cf55b1125e403eb9649a3d7afba46d"
+      ],
+      "label": [
+        "否",
+        "是"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "心律失常诊断.json",
+            "original_id": "6"
+          },
+          {
+            "file": "心率下降.json",
+            "original_id": "2"
+          }
+        ]
+      }
+    },
+    "6": {
+      "type": "条件节点",
+      "content": "年龄是否大于等于40岁？",
+      "pid": [
+        "5efc5115414c49969d4d366455e053df",
+        "60d1add2f40547e1aa67e563c31d7c00",
+        "d45d24539e95407eb3c7c2ceb0d5d92c"
+      ],
+      "label": [
+        "是",
+        "否"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "心律失常诊断.json",
+            "original_id": "9"
+          }
+        ]
+      }
+    },
+    "7": {
+      "type": "条件节点",
+      "content": "询问是否做过心电图",
+      "pid": [
+        "059f185ec1bf498da4c785f97e634808",
+        "0082c3050d6a42ddbd12ac64ff8dd439",
+        "079d9c31b2e3436caac92e105a52ae5c"
+      ],
+      "label": [
+        "否",
+        "是"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "心悸or心跳不齐or心慌or昏厥.json",
+            "original_id": "1"
+          },
+          {
+            "file": "胸闷or胸痛or心脏不适or气促or呼吸困难.json",
+            "original_id": "2"
+          }
+        ]
+      }
+    },
+    "8": {
+      "type": "条件节点",
+      "content": "询问是否有心律失常诊断史",
+      "pid": [
+        "0803c759f9904411a8746730b6491dce",
+        "90831809b5334cde9c1f16400e93b123",
+        "90123cf8028a4ed6bb2f4277466d909f"
+      ],
+      "label": [
+        "是",
+        "否"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "心悸or心跳不齐or心慌or昏厥.json",
+            "original_id": "4"
+          }
+        ]
+      }
+    },
+    "9": {
+      "type": "条件节点",
+      "content": "询问狭窄血管情况",
+      "pid": [
+        "2a132ebb41ac47cdbfe7584d6fc8bd1a",
+        "070992c6a1fa499a953485c7f2a76b7f",
+        "7f0666c0dfcc4fe49fe195188c1a9c53"
+      ],
+      "label": [
+        "狭窄血管>=2 or 狭窄程度中度及以上",
+        "狭窄血管<2 and 狭窄程度为轻度"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "有冠脉CT检查.json",
+            "original_id": "4"
+          }
+        ]
+      }
+    },
+    "10": {
+      "type": "条件节点",
+      "content": "询问是否胸闷 or 心脏不适 or 气促等症状",
+      "pid": [
+        "090b085652bb4c5eb95013db6af0844a",
+        "0408465986c84eec9833568daca126ec",
+        "09730f8d23e848d5829ca34e5a5b16e6"
+      ],
+      "label": [
+        "否",
+        "是"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "有冠脉CT检查.json",
+            "original_id": "3"
+          }
+        ]
+      }
+    },
+    "11": {
+      "type": "条件节点",
+      "content": "询问检查结果",
+      "pid": [
+        "090b085652bb4c5eb95013db6af0844a",
+        "8fda869e56084ab0bb32a43514c1a865",
+        "002e63b9027b425d8bb5a80b9fdbff35",
+        "059f185ec1bf498da4c785f97e634808"
+      ],
+      "label": [
+        "房颤",
+        "S-T段改变 or T波改变",
+        "房早 or 室早 or 传导阻滞"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "有心电图检查.json",
+            "original_id": "8"
+          }
+        ]
+      }
+    },
+    "12": {
+      "type": "条件节点",
+      "content": "询问检查结果",
+      "pid": [
+        "7f0666c0dfcc4fe49fe195188c1a9c53",
+        "104ed0dc4bac4b56996547b0c05f53c9",
+        "059f185ec1bf498da4c785f97e634808"
+      ],
+      "label": [
+        "正常 or 轻度二尖瓣反流 or 轻度三尖瓣反流",
+        "其他"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "有心电图检查.json",
+            "original_id": "10"
+          }
+        ]
+      }
+    },
+    "13": {
+      "type": "条件节点",
+      "content": "询问是否心慌 or 心悸 or 胸痛 or 晕厥",
+      "pid": [
+        "475e001b9d1244d8ad5fe91a107fee93",
+        "71be3bc71ac245c1b3b2e7add5d956be",
+        "103eaa778c5e40e3baa8412e1c93f6f1"
+      ],
+      "label": [
+        "无",
+        "有"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "有心电图检查.json",
+            "original_id": "6"
+          }
+        ]
+      }
+    },
+    "14": {
+      "type": "条件节点",
+      "content": "是否做过心脏彩超",
+      "pid": [
+        "00473ad3977b49eba92bfeefd03ee19f",
+        "7f0666c0dfcc4fe49fe195188c1a9c53",
+        "059f185ec1bf498da4c785f97e634808"
+      ],
+      "label": [
+        "否",
+        "是"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "有心电图检查.json",
+            "original_id": "14"
+          }
+        ]
+      }
+    },
+    "15": {
+      "type": "条件节点",
+      "content": "询问年龄",
+      "pid": [
+        "60d1add2f40547e1aa67e563c31d7c00",
+        "5efc5115414c49969d4d366455e053df",
+        "d45d24539e95407eb3c7c2ceb0d5d92c"
+      ],
+      "label": [
+        "年龄<=40",
+        "年龄>40"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "有心电图检查.json",
+            "original_id": "3"
+          }
+        ]
+      }
+    },
+    "16": {
+      "type": "条件节点",
+      "content": "询问是否有房颤史",
+      "pid": [
+        "a6e40f521d174e15a81c152eda4c938b",
+        "0ee36959d094473294df56b6c19d2163",
+        "04125f26ef4c4027916a0fb57607fa32"
+      ],
+      "label": [
+        "否",
+        "是"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "有心电图检查.json",
+            "original_id": "9"
+          }
+        ]
+      }
+    },
+    "17": {
+      "type": "条件节点",
+      "content": "询问身高和体重",
+      "pid": [
+        "079d9c31b2e3436caac92e105a52ae5c",
+        "01bf85e8a79647a0a5ef63024b10e5aa",
+        "0242eacd587d42f0ae304a761c0e9357"
+        
+      ],
+      "label": [
+        "身高(单位cm)-体重(kg)<110",
+        "身高(单位cm)-体重(kg)>=110"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "有测血脂并且结果异常.json",
+            "original_id": "1"
+          },
+          {
+            "file": "有血脂测试结果.json",
+            "original_id": "13"
+          }
+        ]
+      }
+    },
+    "18": {
+      "type": "条件节点",
+      "content": "询问具体血压数值",
+      "pid": [
+        "5c851c624e95415b8e2ad6416503efb9",
+        "793110d38c3344a5b91bcde20b3e4f79",
+        "0da31a81f32f492b8be0b03624e06513",
+        "059f185ec1bf498da4c785f97e634808"
+      ],
+      "label": [
+        "高压<135 and 低压<85",
+        "135<高压<180 or 85<低压<110",
+        "高压>180 or 低压>110"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "有血压测试结果.json",
+            "original_id": "3"
+          }
+        ]
+      }
+    },
+    "19": {
+      "type": "条件节点",
+      "content": "是否有高血压史",
+      "pid": [
+        "28e70566615c4736881036bf0b6d303c",
+        "01bf85e8a79647a0a5ef63024b10e5aa",
+        "06241da94b924194a30924c237debf9b"
+      ],
+      "label": [
+        "是",
+        "否"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "有血压测试结果.json",
+            "original_id": "1"
+          }
+        ]
+      }
+    },
+    "20": {
+      "type": "条件节点",
+      "content": "是否有头晕 or 头胀 or 头痛",
+      "pid": [
+        "b01da25af99d4938b24c16e3defa42ed",
+        "0177406a45ba4328bd1240c14325294f",
+        "06241da94b924194a30924c237debf9b"
+      ],
+      "label": [
+        "无",
+        "有"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "有血压测试结果.json",
+            "original_id": "8"
+          }
+        ]
+      }
+    },
+    "21": {
+      "type": "条件节点",
+      "content": "血压测试是否满足非同日多次测量",
+      "pid": [
+        "a8f655e9988a49938c2b379390650cac",
+        "0956f73788684d14b99d8897309b2c43",
+        "c4a29874230c42a885a46e0c44e4b087"
+      ],
+      "label": [
+        "是",
+        "否"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "有血压测试结果.json",
+            "original_id": "12"
+          },
+          {
+            "file": "有高血压诊断史.json",
+            "original_id": "14"
+          }
+        ]
+      }
+    },
+    "22": {
+      "type": "条件节点",
+      "content": "对患者进行ASCVD风险等级评估（根据中国成人ASCVD评估标准划分为超高危、极高危、高危、中危和低危）ASCVD风险评估标准：[超高危：发生过2次及以上严重ASCVD事件（如ACS、缺血性卒中、外周动脉血运重建或截肢等），或发生过1次严重ASCVD事件合并2个及以上高危因素；极高危：不符合超高危标准的其他ASCVD患者；高危：具有以下因素之一：（1）糖尿病（≥40岁）（2）LDL-C≥4.9mmol/L（3）慢性肾脏病3~4期（4）高血压+2个及以上危险因素；中危 具有以下因素之一：（1）高血压+1个危险因素（2）无高血压，但有3个危险因素；低危 具有以下因素之一：（1）高血压+0个危险因素（2）无高血压，有0~2个危险因素；注：ASCVD：动脉粥样硬化性心血管疾病；ACS：急性冠状动脉综合征；LDL-C：低密度脂蛋白胆固醇；高危因素包括：（1）LDL-C≤1.8mmol/L，但再次发生严重ASCVD事件（2）早发冠心病[年龄<55/65岁（男/女）]（3）家族性高胆固醇血症或基线LDL-C≥4.9mmol/L（4）既往有冠状动脉旁路移植术或经皮冠状动脉介入治疗史（5）糖尿病（6）高血压（7）慢性肾脏病3~4期（8）吸烟；危险因素包括：（1）年龄≥45/55岁（男/女）（2）吸烟（3）高密度脂蛋白胆固醇<1.0mmol/L（4）对<40岁的糖尿病患者进行危险分层时糖尿病可作为1个危险因素]",
+      "pid": [
+        "01f7aad57c554033ba4a7f4cb86a3a6d",
+        "01b4ff1813fe4b39b62c83769105c653",
+        "146ebc7e37684571af555e349bafbaed",
+        "056881c38d854ebba2827aeca0b99f1e",
+        "9e765215ccae4aa78f2feccd0a0a8734",
+        "059f185ec1bf498da4c785f97e634808"
+      ],
+      "label": [
+        "高危",
+        "超高危",
+        "中危",
+        "极高危",
+        "低危"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "有血脂测试结果.json",
+            "original_id": "2"
+          }
+        ]
+      }
+    },
+    "23": {
+      "type": "条件节点",
+      "content": "询问低密度脂蛋白和甘油三酯具体数值（低危人群LDL-C目标通常<3.4）",
+      "pid": [
+        "229c7670361446f39e12906b8800e8b4",
+        "58a00af370114dccabbba9244e85a7e0",
+        "1af25bdd533747b480073a69c5d33074",
+        "f98e6d9bc1b8487cbcc54c8160726b3f",
+        "059f185ec1bf498da4c785f97e634808"
+      ],
+      "label": [
+        "甘油三酯>1.7 and 低密度脂蛋白>3.4",
+        "甘油三酯>=5.7",
+        "低密度脂蛋白>=3.4 and 甘油三酯<=1.7",
+        "1.7<甘油三酯<5.7"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "有血脂测试结果.json",
+            "original_id": "7"
+          }
+        ]
+      }
+    },
+    "24": {
+      "type": "条件节点",
+      "content": "询问是否有高血压 or 糖尿病 or 心脏病史 or 血管狭窄",
+      "pid": [
+        "28e70566615c4736881036bf0b6d303c",
+        "01bf85e8a79647a0a5ef63024b10e5aa",
+        "059f185ec1bf498da4c785f97e634808"
+      ],
+      "label": [
+        "有",
+        "无"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "有血脂测试结果.json",
+            "original_id": "8"
+          },
+          {
+            "file": "有血脂测试结果.json",
+            "original_id": "12"
+          }
+        ]
+      }
+    },
+    "25": {
+      "type": "条件节点",
+      "content": "目前服用几类降压药物",
+      "pid": [
+        "084e84ed78cc41f386cb5601748e24bd",
+        "493d4d6b311944628a7654ae82cf8238",
+        "d4896d1ebdb64823968df3a13e2a70f2",
+        "059f185ec1bf498da4c785f97e634808"
+      ],
+      "label": [
+        "同时服用多类药物",
+        "服用两类降压药物",
+        "服用一类降压药物"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "有高血压诊断史.json",
+            "original_id": "6"
+          }
+        ]
+      }
+    },
+    "26": {
+      "type": "条件节点",
+      "content": "询问具体血压数值",
+      "pid": [
+        "efd0a27613e84100a7b1e21bc6d8d263",
+        "5c851c624e95415b8e2ad6416503efb9",
+        "0da31a81f32f492b8be0b03624e06513",
+        "793110d38c3344a5b91bcde20b3e4f79",
+        "059f185ec1bf498da4c785f97e634808"
+      ],
+      "label": [
+        "110<=高压<=140 and 60<=低压<=90",
+        "高压<110 or 低压<60",
+        "高压>=180 or 低压>=110",
+        "140<高压<180 or 90<低压<110"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "有高血压诊断史.json",
+            "original_id": "2"
+          }
+        ]
+      }
+    },
+    "27": {
+      "type": "条件节点",
+      "content": "目前服用哪类降压药",
+      "pid": [
+        "9df41cdab9c64f36ad7beb0e5548cb86",
+        "128675928d224a8a9a6f26885eea4e60",
+        "01a893492c96432a981f978f38d048f2",
+        "059f185ec1bf498da4c785f97e634808"
+      ],
+      "label": [
+        "服用非CCB的单类药物",
+        "仅服用CCB类药物",
+        "服用多类药物"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "有高血压诊断史.json",
+            "original_id": "4"
+          }
+        ]
+      }
+    },
+    "28": {
+      "type": "条件节点",
+      "content": "近期是否运动过度",
+      "pid": [
+        "0d69cb32464042228f3adbea4790fde1",
+        "0cec22ed840b4a4da5f84f26e63f6a61",
+        "ae02376bff1448749c5a4225da4d04fe"
+      ],
+      "label": [
+        "否",
+        "是"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "有高血脂症并且有肌肉酸痛.json",
+            "original_id": "2"
+          }
+        ]
+      }
+    },
+    "29": {
+      "type": "条件节点",
+      "content": "询问是否活动后症状加重",
+      "pid": [
+        "1d87f923da444880ba17c59c11bac98d",
+        "15beb94fdfa1418eb1b635b4c78badb9",
+        "ae02376bff1448749c5a4225da4d04fe"
+      ],
+      "label": [
+        "否",
+        "是"
+      ],
+      "metadata": {
+        "sources": [
+          {
+            "file": "胸闷or胸痛or心脏不适or气促or呼吸困难.json",
+            "original_id": "3"
+          }
+        ]
+      }
+    }
+  }
+}

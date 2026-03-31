@@ -1,0 +1,247 @@
+{
+  "metadata": {
+    "scoring_model": {
+      "name": "deepseek-v3.1",
+      "url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key": "***hidden***"
+    },
+    "rules_version": "ground_truth_focus_v3",
+    "score_granularity": "0.5",
+    "low_info_filter": {
+      "mode": "all",
+      "max_len": 30,
+      "min_score": 3
+    },
+    "timestamp": "2026-03-28T20:49:46.838741"
+  },
+  "global_summary": {
+    "files_processed": 2,
+    "global_success_count": 99,
+    "global_error_count": 0,
+    "global_skipped_count": 1,
+    "global_average_final_score_0_5": 3.8384
+  },
+  "file_summaries": [
+    {
+      "input_file": "evaluation_results_Qwen_Qwen3.5-9B_highrisk.json",
+      "output_file": "similarity_scores_evaluation_results_Qwen_Qwen3.5-9B_highrisk_deepseek-v3.1.json",
+      "dataset_name": "highrisk",
+      "summary": {
+        "total_records": 50,
+        "success_count": 49,
+        "error_count": 0,
+        "skipped_count": 1,
+        "average_final_score_0_5": 4.2755,
+        "score_distribution": {
+          "0.0": 2,
+          "0.5": 0,
+          "1.0": 0,
+          "1.5": 0,
+          "2.0": 0,
+          "2.5": 3,
+          "3.0": 4,
+          "3.5": 3,
+          "4.0": 5,
+          "4.5": 1,
+          "5.0": 31
+        },
+        "low_info_success_count": 14,
+        "non_low_info_success_count": 35,
+        "low_info_average_final_score_0_5": 4.0714,
+        "non_low_info_average_final_score_0_5": 4.3571,
+        "low_score_samples_le_2": [
+          {
+            "sample_index": 2,
+            "pid": "4613877c11624a2abfdb9908a060333e",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊"
+            ],
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 8,
+            "pid": "22b1c052839841618fdeb12365a96290",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "major_conflicts": [],
+            "risk_flags": []
+          }
+        ],
+        "input_low_info_total": 15,
+        "input_non_low_info_total": 35,
+        "kept_records_count": 50,
+        "low_info_mode": "all"
+      }
+    },
+    {
+      "input_file": "evaluation_results_Qwen_Qwen3.5-9B_chronic.json",
+      "output_file": "similarity_scores_evaluation_results_Qwen_Qwen3.5-9B_chronic_deepseek-v3.1.json",
+      "dataset_name": "chronic",
+      "summary": {
+        "total_records": 50,
+        "success_count": 50,
+        "error_count": 0,
+        "skipped_count": 0,
+        "average_final_score_0_5": 3.41,
+        "score_distribution": {
+          "0.0": 6,
+          "0.5": 0,
+          "1.0": 1,
+          "1.5": 1,
+          "2.0": 2,
+          "2.5": 7,
+          "3.0": 2,
+          "3.5": 4,
+          "4.0": 8,
+          "4.5": 1,
+          "5.0": 18
+        },
+        "low_info_success_count": 7,
+        "non_low_info_success_count": 43,
+        "low_info_average_final_score_0_5": 2.5,
+        "non_low_info_average_final_score_0_5": 3.5581,
+        "low_score_samples_le_2": [
+          {
+            "sample_index": 2,
+            "pid": "7bdcd5af582144e5b94f9a43f0bfa7a0",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了|按原剂量|您好",
+              "no_explicit_medical_action"
+            ],
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 4,
+            "pid": "7d1cfc7be1594c68a27274cdf30eb189",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "major_conflicts": [
+              "Prediction suggests medication as primary treatment while ground truth prioritizes surgery"
+            ],
+            "risk_flags": [
+              "Medication recommendation without confirming asthma history as ground truth emphasizes hospital-based care"
+            ]
+          },
+          {
+            "sample_index": 5,
+            "pid": "220606dc934f4bfeac62755916941be7",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 6,
+            "pid": "236e786bfcec4a22b3048a0a704d05ef",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 7,
+            "pid": "629602fa773b494882eac848e7099eda",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "major_conflicts": [
+              "Ground truth suggests lifestyle changes first for lipids, prediction recommends immediate statins",
+              "Ground truth defers medication for lipids, prediction recommends immediate medication"
+            ],
+            "risk_flags": [
+              "Premature medication recommendation without lifestyle trial"
+            ]
+          },
+          {
+            "sample_index": 14,
+            "pid": "10017809b8b047bf9418989d0f1dd3b7",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 18,
+            "pid": "858a70aad21442ab8696fa70a729995b",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "major_conflicts": [
+              "Ground truth suggests switching to pitavastatin, prediction recommends continuing pravastatin and zhibitai capsule"
+            ],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 28,
+            "pid": "f3ad7ce61c174cad9778e548664f169a",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 42,
+            "pid": "f932cc5694024c7e97258448e7f81631",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊|请问"
+            ],
+            "major_conflicts": [
+              "Prediction recommends specific tests and treatments while ground truth advises against additional remote evaluation and suggests in-person consultation only"
+            ],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 47,
+            "pid": "34de05c7890942799e862a682b911e79",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text",
+              "no_explicit_medical_action"
+            ],
+            "major_conflicts": [
+              "Prediction recommends continuing irbesartan/hydrochlorothiazide while ground truth explicitly states to discontinue it"
+            ],
+            "risk_flags": [
+              "Continuing potassium-wasting diuretic despite known hypokalemia poses medical risk"
+            ]
+          }
+        ],
+        "input_low_info_total": 7,
+        "input_non_low_info_total": 43,
+        "kept_records_count": 50,
+        "low_info_mode": "all"
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "timestamp": "2026-03-29T20:48:10.515713",
+  "dataset_jobs": [
+    {
+      "name": "highrisk",
+      "annotation_file": "result_highrisk.json",
+      "raw_dataset_file": "xnk_dataset_highrisk.jsonl"
+    },
+    {
+      "name": "chronic",
+      "annotation_file": "result_chronic.json",
+      "raw_dataset_file": "xnk_dataset_chronic.jsonl"
+    }
+  ],
+  "model_jobs": [
+    {
+      "name": "Qwen/Qwen3.5-9B",
+      "url": "https://api.siliconflow.cn/v1",
+      "key": "sk-kwcpucjoyfugtgwslskeueqxcdwbububczpltehjoxelukqy"
+    }
+  ],
+  "results": [
+    {
+      "dataset_name": "highrisk",
+      "model_name": "Qwen/Qwen3.5-9B",
+      "status": "success",
+      "output_file": "evaluation_results_Qwen_Qwen3.5-9B_highrisk.json",
+      "summary": {
+        "total_samples": 645,
+        "successful_samples": 643,
+        "failed_samples": 2,
+        "average_processing_time": "7.934s"
+      }
+    },
+    {
+      "dataset_name": "chronic",
+      "model_name": "Qwen/Qwen3.5-9B",
+      "status": "success",
+      "output_file": "evaluation_results_Qwen_Qwen3.5-9B_chronic.json",
+      "summary": {
+        "total_samples": 2180,
+        "successful_samples": 444,
+        "failed_samples": 1736,
+        "average_processing_time": "3.211s"
+      }
+    }
+  ]
+}

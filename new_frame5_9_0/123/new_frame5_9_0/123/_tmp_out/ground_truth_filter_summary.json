@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "policy": "balanced",
+    "judge_model": {
+      "name": "deepseek-v3.1",
+      "url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key_source": "inline_key_from_--judge-api-key-env",
+      "api_key": "***hidden***"
+    },
+    "low_score_threshold": 2.5,
+    "workers": 20,
+    "max_samples": 0,
+    "timestamp": "2026-03-29T21:47:54.790974"
+  },
+  "global_summary": {
+    "files_processed": 0,
+    "candidate_count_total": 0,
+    "candidate_evaluated_total": 0,
+    "filtered_count_total": 0,
+    "filter_rate_in_candidates": 0.0,
+    "global_average_final_score_0_5_before": 0.0,
+    "global_average_final_score_0_5_after": 0.0,
+    "global_average_delta_success": 0.0,
+    "judge_status_counts": {}
+  },
+  "file_summaries": [],
+  "raw_jsonl_filter_summaries": []
+}

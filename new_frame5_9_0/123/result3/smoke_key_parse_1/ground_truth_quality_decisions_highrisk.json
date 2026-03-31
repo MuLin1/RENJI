@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "dataset_name": "highrisk",
+    "input_file": "similarity_scores_evaluation_results_Qwen_Qwen3.5-9B_highrisk_deepseek-v3.1.json",
+    "policy": "balanced",
+    "low_score_threshold": 2.5,
+    "judge_model": {
+      "name": "deepseek-v3.1",
+      "url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key_env": "inline_key_in_judge_api_key_env",
+      "api_key": "***hidden***"
+    },
+    "timestamp": "2026-03-29T21:21:37.844093"
+  },
+  "summary": {
+    "input_total_records": 645,
+    "candidate_count_total": 259,
+    "candidate_evaluated_count": 1,
+    "candidate_skipped_by_max_samples": 258,
+    "filtered_count": 0,
+    "kept_count": 645,
+    "filter_rate_in_candidates": 0.0,
+    "filter_rate_overall": 0.0,
+    "judge_status_counts": {
+      "judge_error": 1
+    },
+    "average_before_success": 3.014,
+    "average_after_success": 3.014,
+    "average_delta_success": 0.0
+  },
+  "decisions": [
+    {
+      "dataset_name": "highrisk",
+      "sample_index": 1,
+      "pid": "8b584f3a65ad43389d9cf9b81b403b70",
+      "record_key": "pid:8b584f3a65ad43389d9cf9b81b403b70",
+      "final_score_0_5": 2.0,
+      "ground_truth_text": "医生：你那时血管也有问题 现在情况可能也有变化 所以造影也要复查 最好是住院评估",
+      "judge_status": "judge_error",
+      "error_message": "{\"error_message\": \"Error code: 401 - {'error': {'message': 'Incorrect API key provided. For details, see: https://help.aliyun.com/zh/model-studio/error-code#apikey-error', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}, 'request_id': '346b4b5a-485f-9f2a-9f5b-0d9a4ac9ad21'}\", \"raw_text\": \"\", \"attempts\": [{\"attempt\": 1, \"status\": \"error\", \"elapsed_sec\": 89.574, \"error_type\": \"network_error\", \"error_message\": \"Connection error.\"}, {\"attempt\": 2, \"status\": \"error\", \"elapsed_sec\": 0.184, \"error_type\": \"other_error\", \"error_message\": \"Error code: 401 - {'error': {'message': 'Incorrect API key provided. For details, see: https://help.aliyun.com/zh/model-studio/error-code#apikey-error', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}, 'request_id': '3227d88a-21e1-9901-a803-9cd9189de2aa'}\"}, {\"attempt\": 3, \"status\": \"error\", \"elapsed_sec\": 0.048, \"error_type\": \"other_error\", \"error_message\": \"Error code: 401 - {'error': {'message': 'Incorrect API key provided. For details, see: https://help.aliyun.com/zh/model-studio/error-code#apikey-error', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}, 'request_id': 'ce6372e0-2c76-945e-b2f9-1ba986ac8433'}\"}, {\"attempt\": 4, \"status\": \"error\", \"elapsed_sec\": 0.156, \"error_type\": \"other_error\", \"error_message\": \"Error code: 401 - {'error': {'message': 'Incorrect API key provided. For details, see: https://help.aliyun.com/zh/model-studio/error-code#apikey-error', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}, 'request_id': '346b4b5a-485f-9f2a-9f5b-0d9a4ac9ad21'}\"}]}",
+      "judge_result": {
+        "should_filter": false,
+        "quality_label": "judge_error",
+        "reason": "LLM评测失败，按保守策略不删除",
+        "evidence_span": "",
+        "confidence": 0.0
+      },
+      "processing_time_sec": 107.387,
+      "debug_info": {
+        "messages": [
+          {
+            "role": "system",
+            "content": "你是一名医疗数据质检专家。你的任务是判断 Ground Truth 文本是否属于“低质量真值”，并且只能根据 Ground Truth 本身判断，不要参考任何 prediction。必须返回 JSON。"
+          },
+          {
+            "role": "user",
+            "content": "请按“平衡策略”判断以下 Ground Truth 是否应过滤。\n\n低质量（应过滤）通常包括：\n1) 纯流程/寒暄/礼貌收尾（如：好的、收到、不客气、请问还有问题吗）；\n2) 信息含量极低，无法提供可执行医疗指导；\n3) 不构成有效医学建议或有效管理动作。\n\n应保留（不应过滤）通常包括：\n1) 存在明确医疗动作或管理建议（检查、复查、用药、住院、转诊、随访等）；\n2) 即使简短，但能形成有效临床指引。\n\n输出字段要求：\n- should_filter: boolean\n- quality_label: 字符串，建议值 low_quality 或 acceptable\n- reason: 简要中文说明（<=120字）\n- evidence_span: 从 Ground Truth 原文摘取的短片段（<=40字）\n- confidence: 0~1 的数字\n\n只返回 JSON，不要输出其他内容。\n\n[Ground Truth]\n医生：你那时血管也有问题 现在情况可能也有变化 所以造影也要复查 最好是住院评估\n"
+          }
+        ]
+      }
+    }
+  ]
+}

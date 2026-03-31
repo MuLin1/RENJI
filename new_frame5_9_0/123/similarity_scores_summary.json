@@ -1,0 +1,4197 @@
+{
+  "metadata": {
+    "scoring_model": {
+      "name": "deepseek-v3.1",
+      "url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key": "***hidden***"
+    },
+    "rules_version": "pure_llm_direct_score_v5_more_lenient_prompt",
+    "score_granularity": "raw_llm",
+    "low_info_filter": {
+      "mode": "disabled",
+      "max_len": 30,
+      "min_score": 3
+    },
+    "timestamp": "2026-03-29T22:18:34.786706"
+  },
+  "global_summary": {
+    "files_processed": 2,
+    "global_success_count": 1087,
+    "global_error_count": 1738,
+    "global_skipped_count": 0,
+    "global_average_final_score_0_5": 2.9476
+  },
+  "file_summaries": [
+    {
+      "input_file": "evaluation_results_Qwen_Qwen3.5-9B_highrisk.json",
+      "output_file": "similarity_scores_evaluation_results_Qwen_Qwen3.5-9B_highrisk_deepseek-v3.1.json",
+      "dataset_name": "highrisk",
+      "summary": {
+        "total_records": 645,
+        "success_count": 643,
+        "error_count": 2,
+        "skipped_count": 0,
+        "average_final_score_0_5": 3.028,
+        "score_distribution": {
+          "0.0": 76,
+          "0.5": 28,
+          "1.0": 47,
+          "1.5": 34,
+          "2.0": 28,
+          "2.5": 21,
+          "3.0": 23,
+          "3.5": 70,
+          "4.0": 97,
+          "4.5": 141,
+          "5.0": 78
+        },
+        "low_score_samples_le_2": [
+          {
+            "sample_index": 1,
+            "pid": "8b584f3a65ad43389d9cf9b81b403b70",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本提出射频消融治疗早搏和评估心功能减退，与真值核心意图（复查造影和住院评估血管问题）完全无关，场景和临床方向偏离，未覆盖任何真值动作。"
+          },
+          {
+            "sample_index": 5,
+            "pid": "19e634fd7fe84705afdd6d878b87918a",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本仅部分覆盖真值中的药物（利伐沙班），但完全忽略了真值核心意图：询问血栓位置、心室相关性和复查情况，并提示利伐沙班不一定需长期服用。预测转向了纯粹的续药和剂量确认，与真值的诊断性询问方向冲突。"
+          },
+          {
+            "sample_index": 9,
+            "pid": "f7426348b5d34a7e8a79a9ad551da927",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图：真值是纯流程性配药数量确认（'一次只能5个药'），而预测提供了无关的通用治疗建议，无任何配药管理动作，场景偏离严重。"
+          },
+          {
+            "sample_index": 10,
+            "pid": "0242eacd587d42f0ae304a761c0e9357",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（药物服用间隔建议），反而建议'可同服'，与真值明确冲突，存在潜在安全风险。"
+          },
+          {
+            "sample_index": 14,
+            "pid": "82d2f31f14b7437ba2305db6f9d3f3fe",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（更换雷贝拉唑类似药物），反而建议继续服用雷贝拉唑，与真值明确冲突，构成反向替代。"
+          },
+          {
+            "sample_index": 30,
+            "pid": "084e84ed78cc41f386cb5601748e24bd",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值核心意图是礼貌性结束对话，无医疗动作；预测完全替换为无关的侵入性治疗和药物建议，严重偏离场景且存在潜在安全风险。"
+          },
+          {
+            "sample_index": 32,
+            "pid": "1d618a307cb24f0ab155074fc3c032c8",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值核心意图仅为礼貌性结束语，无医疗动作；预测添加了无关的配药、用药和复查建议，虽无冲突但基本未覆盖真值语义，仅保留‘确认’部分弱相关。"
+          },
+          {
+            "sample_index": 35,
+            "pid": "48ba609228c044bd9a8bb682ef4ef254",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（询问当前氯吡格雷剂量），替换为完全不同的临床场景（急诊介入手术），存在严重安全风险和场景冲突。"
+          },
+          {
+            "sample_index": 38,
+            "pid": "5f9c52fafa944f899e79da8a7f3e1299",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是结束对话流程，无医疗动作；预测添加了完整用药和生活方式建议，但完全未覆盖结束意图，且无关扩展可能造成患者混淆。"
+          },
+          {
+            "sample_index": 45,
+            "pid": "b4c3c2ac717041ffa86e61c5da5f10f2",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了|不客气",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是完成开药流程的确认，而预测文本未覆盖此意图，转而强调互联网门诊的配药限制，属于完全不同的临床场景，基本无重合。"
+          },
+          {
+            "sample_index": 47,
+            "pid": "c6e3abecd2904e958bc9b333055314e9",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是确认药物开方完成，属于纯流程确认，不含医疗动作。预测文本询问药物库存和开方选择，完全偏离真值意图，未覆盖任何核心内容，且可能引发混淆。"
+          },
+          {
+            "sample_index": 48,
+            "pid": "dd6d8102733f412c8cee356c29ea77be",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本与真值核心意图完全无关：真值是纯流程性配药确认（‘开好了，您看下’），无具体医疗动作；预测却替换为全新的诊断评估、检查建议和治疗调整，存在严重场景偏离和潜在安全风险。"
+          },
+          {
+            "sample_index": 60,
+            "pid": "77c320252e0f47dc8d33ff7ee1cf4f4d",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:线下",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（线下开针剂需求），仅提供无关的肝功能管理建议，属于完全不相关场景。"
+          },
+          {
+            "sample_index": 62,
+            "pid": "8a77a30d68634712bc2c291c53d2f482",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（确认药物已开具），而是转向询问剂量和评估调整，与真值动作无关且可能冲突。"
+          },
+          {
+            "sample_index": 66,
+            "pid": "bdd2c8abf2084c8d890aaf4d12950784",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:请问|您好",
+              "question_form",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图：真值聚焦于询问患者是否接受国产波立维药物，而预测转向了阿托伐他汀缺货和瑞舒伐他汀替代方案，两者无任何语义关联或临床线程延续。"
+          },
+          {
+            "sample_index": 69,
+            "pid": "feeff51377134c52872f1c1fe6a5803b",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:已开好|线下|复诊"
+            ],
+            "rationale": "预测文本完全忽略真值的核心意图：线下复诊建议、药物服用指导和互联网就诊限制说明。仅泛泛提及'控制危险因素'，但未覆盖血糖控制、复诊安排或药物管理，临床线程偏离严重。"
+          },
+          {
+            "sample_index": 70,
+            "pid": "69193ed6639247a2b0a8bf14810d57fb",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:线下"
+            ],
+            "rationale": "预测文本完全替换了真值的核心意图（线下门诊咨询），改为激进的手术和住院方案，存在临床场景偏离和潜在安全风险。"
+          },
+          {
+            "sample_index": 73,
+            "pid": "326c749078a9451f8eddc538ce149e95",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "rationale": "预测文本未覆盖真值核心意图：询问症状、调整依折麦布、询问当前用药、根据症状指导CT或造影复查。预测内容完全不同，涉及无关药物（依洛尤单抗、非诺贝特）和指标（甘油三酯），与真值临床场景冲突。"
+          },
+          {
+            "sample_index": 74,
+            "pid": "4106df12d3a0405da7cff940077a6667",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "rationale": "预测文本完全未覆盖真值核心意图（解释入院记录类型差异及获取方式），而是提供了无关的术后用药和复查建议，存在严重场景偏离。"
+          },
+          {
+            "sample_index": 77,
+            "pid": "922382ccd5fe4021bbb553bb0a9d15cb",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "medium_short_text",
+              "workflow_keywords:请问|您好"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（住院复查造影的询问和门诊复查条件说明），仅提及无关的用药指导和泛泛的‘定期复查’，缺乏对造影复查的具体回应，核心动作基本缺失。"
+          },
+          {
+            "sample_index": 79,
+            "pid": "9d9d89c7bff54b479111a45f8f8b3dba",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（药物更换通知和付款确认），而是提供了无关的通用心血管管理建议，与真值场景冲突且无实际语义重合。"
+          },
+          {
+            "sample_index": 81,
+            "pid": "ec83ad7a91e4486885ebb5a9af5fefe1",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了|按原剂量|不客气",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（按原剂量服药），而是转向了药物数量限制和选择确认，与真值动作明确冲突且场景偏离。"
+          },
+          {
+            "sample_index": 82,
+            "pid": "efef810119404e4b820e45ab91b069a6",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（硝酸异山梨酯片的配药确认），转而建议其他药物和复查，构成明确的临床场景偏离和动作替换。"
+          },
+          {
+            "sample_index": 85,
+            "pid": "2f869c99af234bc382d0d16f70a3280d",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图（门诊时间安排和检查结果无异常），转而提出全新的药物治疗方案，与真值场景和动作无关联，存在临床方向偏离。"
+          },
+          {
+            "sample_index": 88,
+            "pid": "644a3079720e4b44b089efd11aeba0da",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是确认心功能未下降，属于阴性评估结论。预测未覆盖此意图，反而转向要求上传检查报告、评估高血压风险及用药建议，与真值场景和动作完全无关，存在临床偏离。"
+          },
+          {
+            "sample_index": 100,
+            "pid": "056881c38d854ebba2827aeca0b99f1e",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（开药确认和流程管理），而是转向完全不同的临床场景（住院、药物调整和监测），存在严重场景偏离和冲突。"
+          },
+          {
+            "sample_index": 106,
+            "pid": "30ea6dc660524c0c912c1045bc57f535",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:您好"
+            ],
+            "rationale": "预测文本核心意图是建议住院复查造影，但真值明确反对住院和造影（强调‘暂时不需要做造影’‘不需要住院’），并建议替代检查（抽血、心超）。预测与真值核心医疗建议直接冲突，存在潜在安全风险。"
+          },
+          {
+            "sample_index": 107,
+            "pid": "31bd5d91a6754cd39f0a9f5dbd24b30f",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊|请问"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图：真值明确要求服用他汀类降脂药，但预测建议'暂不需特殊药物治疗'，直接冲突且存在安全风险。"
+          },
+          {
+            "sample_index": 112,
+            "pid": "493fa5f0ff9b44cfa2a704b0b8ffe2ca",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "question_form"
+            ],
+            "rationale": "预测文本完全忽略真值核心意图（询问冠心病症状和诊断方式），转而建议服药和监测血压，属于明确临床场景偏离和动作替换。"
+          },
+          {
+            "sample_index": 114,
+            "pid": "55602d848dc24e66909b66963129862a",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本建议复查动态心电图和调整抗心律失常药物，与真值核心意图（推荐运动平板或冠脉CTA检查心肌缺血）完全无关，未覆盖任何真值动作，且场景偏离。"
+          },
+          {
+            "sample_index": 116,
+            "pid": "5f4daf44ff3842a183bdd32695638909",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图‘继续服药’，反而建议‘无需特殊处理’和观察，与真值动作明确冲突，存在潜在安全风险。"
+          },
+          {
+            "sample_index": 122,
+            "pid": "80cea8a9a32d4a88a8fa4cd3db8815a3",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（明年7月复查造影），而是转向了药物剂量调整，属于完全不同的临床场景和动作，无任何语义一致性。"
+          },
+          {
+            "sample_index": 124,
+            "pid": "9271dac003a84406bde77264c1f214b0",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图（开具利伐沙班药物），转而建议其他无关的药物治疗和监测，属于临床场景偏离，未保留任何管理动作。"
+          },
+          {
+            "sample_index": 128,
+            "pid": "a86d9d2133864c1287271e6c0748cb35",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（处方审核流程和等待付款），而是提供了无关的血压监测和检查建议，存在临床场景偏离。"
+          },
+          {
+            "sample_index": 139,
+            "pid": "d45d24539e95407eb3c7c2ceb0d5d92c",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:请问"
+            ],
+            "rationale": "预测未覆盖真值核心意图：真值强调住院、造影和当面评估的必要性，而预测转向了门诊检查和管理建议，缺乏对关键住院和造影动作的响应。"
+          },
+          {
+            "sample_index": 141,
+            "pid": "db10d8d3939c468394e5a30b6b7bd0f9",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊|请问"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（建议线下复诊及门诊时间信息），仅保留了部分药物管理动作但未提及复诊建议，且添加了无关的疾病询问，导致临床场景偏离。"
+          },
+          {
+            "sample_index": 147,
+            "pid": "f3e6efc368524054a0e6c631e2517ceb",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本未覆盖真值的核心意图（进行冠脉CTA检查），而是建议了不同的检查（心脏超声和心肌标志物）和管理措施，与真值动作方向不一致。"
+          },
+          {
+            "sample_index": 150,
+            "pid": "f8825f310b194fc28426705337b2ae76",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是确认药物开具完成（隐含继续用药），但预测明确反对用药（暂停氢氯噻嗪）且未保留任何药物管理动作，与真值核心意图冲突。"
+          },
+          {
+            "sample_index": 154,
+            "pid": "0825dc5db99844099982dfd43ed794cb",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本核心意图（居家观察、疼痛排查、返院条件）与真值（长期服药并定期复查）基本无关，未保留用药管理动作，存在明显临床场景偏离。"
+          },
+          {
+            "sample_index": 156,
+            "pid": "135511de9f6a4e3c8b251ff58c923c4b",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊|请问"
+            ],
+            "rationale": "预测文本完全忽略了真值核心意图：调整剂量需基于血压、浮肿、尿量监测，并建议线下复诊。预测仅重复固定服药方案和配药流程，未覆盖任何真值中的关键临床管理动作，存在严重偏离。"
+          },
+          {
+            "sample_index": 161,
+            "pid": "23d7f3af8ef245768029d64a9b52cf2d",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊|请问"
+            ],
+            "rationale": "预测文本完全忽略了真值核心意图（建议线下复诊及提供具体门诊信息），转而提出独立的检查方案，与真值无重合且场景偏离，属于无关响应。"
+          },
+          {
+            "sample_index": 163,
+            "pid": "2acf8691eeec46fea38a3016cd803721",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是确认药物已开具（开好了），但预测文本未覆盖此动作，反而提出缺货和更换药物，与真值明确冲突，且可能带来用药中断风险。"
+          },
+          {
+            "sample_index": 167,
+            "pid": "3754057f7d6b4afaab62a7a4738ce3ab",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "rationale": "预测文本完全偏离真值核心意图（询问药物规格确认和开药需求），替换为无关的PCI手术建议和新诊断场景，无任何覆盖或保留动作。"
+          },
+          {
+            "sample_index": 169,
+            "pid": "43c7ff300edc473195653bc8f1aee2f6",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是结束对话的礼貌用语，无医疗动作。预测添加了无关的医疗建议（服药、复查、避免劳累），与真值无关联且可能误导患者，存在潜在安全风险。"
+          },
+          {
+            "sample_index": 173,
+            "pid": "553792a7a8aa405b94607e0996eb6107",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "medium_short_text",
+              "question_form",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图：真值关注美托洛尔剂量调整和配药选择的具体询问，而预测转向了通用药物建议和骨科就诊，无任何配药或剂量响应，场景偏离且无实际动作保留。"
+          },
+          {
+            "sample_index": 177,
+            "pid": "7027cd2d778e417a8a1d1bb9a6b2a180",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值仅为问候语'㊗️好'，无任何医疗意图或动作；预测添加了具体的诊断建议（监测、复查CT/MRI、调整药物），与真值核心意图完全无关且可能引入未经请求的医疗风险。"
+          },
+          {
+            "sample_index": 179,
+            "pid": "73c80aac2f7a4e599fb1ac15919c23d1",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（调整氯吡格雷剂量并停药），反而建议调整其他药物（替格瑞洛）和饮食管理，与真值动作明确冲突且场景偏离。"
+          },
+          {
+            "sample_index": 182,
+            "pid": "7dddcf631a094ea781cde43564fefca9",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（复查HRCT以解决CT层厚问题），反而建议了无关的血糖血脂检测、冠脉造影等不同临床方向的行动，存在严重场景偏离。"
+          },
+          {
+            "sample_index": 185,
+            "pid": "8fe6cfec711742de9a267cb0e2e43a54",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "medium_short_text",
+              "workflow_keywords:您好"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（建议咨询五官科），仅涉及血压管理，与真值无关且存在场景偏离。"
+          },
+          {
+            "sample_index": 186,
+            "pid": "935dcc7e39fd4f91aae197f397f4eb00",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "medium_short_text",
+              "workflow_keywords:线下"
+            ],
+            "rationale": "预测文本的核心意图是建议新诊断和侵入性治疗（冠脉造影/支架），而真值核心意图是确认线上续药流程并结束咨询，两者临床场景和动作方向完全冲突，无覆盖。"
+          },
+          {
+            "sample_index": 188,
+            "pid": "a46910a0d38f4319860e2c2db1293dee",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（讨论住院病人会诊的医疗协作场景），而是转向了无关的胃肠镜手术流程和药物管理，存在严重场景偏离。"
+          },
+          {
+            "sample_index": 198,
+            "pid": "cd27ef0d72e649c09f587b1e35070a11",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值仅为流程性确认'好的'，无明确医疗意图或动作；预测完全替换为具体入院复查和药物调整方案，核心意图未覆盖且场景偏离。"
+          },
+          {
+            "sample_index": 202,
+            "pid": "d7b4caa48c094fa08d61ff1836b07da5",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全替换了真值的核心意图（减量服药），改为暂停服药并建议急诊检查，存在明确临床冲突和潜在安全风险。"
+          },
+          {
+            "sample_index": 205,
+            "pid": "dc8b47ce78c146d28685d210444d4afa",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图：真值明确建议神经内科就诊和症状随访，而预测转向心内科、支架/搭桥手术，临床场景冲突且存在潜在安全风险。"
+          },
+          {
+            "sample_index": 206,
+            "pid": "e5f25e5219f14b24b1c55173b2ab15d7",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（询问付费流程确认），而是替换为无关的用药和复查建议，存在严重场景偏离。"
+          },
+          {
+            "sample_index": 207,
+            "pid": "eb74604611c54961a3cfd3199b2f9678",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（互联网药房缺药问题），转而提供无关的用药管理和复查建议，与真值场景完全偏离且无实际关联。"
+          },
+          {
+            "sample_index": 212,
+            "pid": "fedb54145d5848b0a754e8d7f610e532",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:请问",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（确认诊毕流程询问），而是提供了独立的诊断和建议，与真值无关且场景偏离。"
+          },
+          {
+            "sample_index": 214,
+            "pid": "d4896d1ebdb64823968df3a13e2a70f2",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊|请问"
+            ],
+            "rationale": "预测文本的核心意图（重新上传检查、评估心肌桥与冠脉狭窄）与真值（检查正常、无需重复检查、建议线下复诊）明确冲突，且未覆盖真值的关键管理动作，存在潜在安全风险。"
+          },
+          {
+            "sample_index": 217,
+            "pid": "2a132ebb41ac47cdbfe7584d6fc8bd1a",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:登记|请问"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（费用说明、医保政策咨询、住院排队询问），仅部分涉及冠脉造影但未遵循真值的非治疗性咨询场景，且主动建议PCI和药物与真值的中立信息提供方向冲突。"
+          },
+          {
+            "sample_index": 226,
+            "pid": "5c1c1fd4b4704ef38e50579fdf192aaf",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本建议使用希刻劳治疗肺炎，与真值核心意图（询问板蓝根最大剂量是否已开）完全无关，且涉及不同药物和疾病场景，存在潜在用药冲突风险。"
+          },
+          {
+            "sample_index": 228,
+            "pid": "6d324be8f49c4bd98dba23521fd61dc0",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值核心意图为结束对话的礼貌回应，无医疗动作；预测完全替换为无关的冠脉疾病管理建议，核心意图零覆盖且场景严重偏离。"
+          },
+          {
+            "sample_index": 229,
+            "pid": "70a12f5065504727a9a1d914b621486a",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（询问他汀类型、无症状时随访或咨询血液科），反而转向不同临床场景（心超异常、抗血小板和调脂药建议），存在严重偏离和潜在冲突。"
+          },
+          {
+            "sample_index": 233,
+            "pid": "9c6ac387b6fb4b21b1cfc4a223140ae9",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:线下",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本建议停用抗血小板药并加用利伐沙班，与真值核心意图（调整阿司匹林剂量需线下门诊评估）完全冲突，且未覆盖任何真值动作。"
+          },
+          {
+            "sample_index": 234,
+            "pid": "a7c4b01c7aae4b4fb52e0a54e5492d85",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（甲状腺结节随访和甲乳外科咨询），转向了心血管管理（血脂和心脏彩超），存在严重场景偏离。"
+          },
+          {
+            "sample_index": 235,
+            "pid": "aef27296cf3944a799af7e18f862d631",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本的核心意图是门诊配药和住院检查，与真值核心意图（冠状动脉造影及费用报销说明）完全无关，且替换为不同的临床动作，存在严重场景偏离。"
+          },
+          {
+            "sample_index": 238,
+            "pid": "bba80d3f39c34833bbe265ffaa86c9f5",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全忽略真值核心意图（线上配药限制与开药动作），替换为住院治疗建议，存在严重场景偏离和临床决策冲突。"
+          },
+          {
+            "sample_index": 239,
+            "pid": "bbebd26eff634c7c8146e5b4b4feff58",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（询问术后造影复查情况），而是转向无关的术前停药和凝血功能检查建议，存在严重场景偏离。"
+          },
+          {
+            "sample_index": 240,
+            "pid": "bbef9c54264e4d52add88546c78d818b",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图。真值仅为礼貌性结束语'不客气'，无任何医疗指令或临床动作；预测却添加了具体的血脂管理建议，属于无关内容且场景严重冲突。"
+          },
+          {
+            "sample_index": 241,
+            "pid": "c185c36b7bef49e5b5149033f9e36d98",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:开好了|不客气"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图：安排颈动脉和椎动脉超声检查的具体预约信息，仅建议定期随访，与真值动作无关且无覆盖。"
+          },
+          {
+            "sample_index": 243,
+            "pid": "ce2ad23857ab496f9ee853990a4bebeb",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "workflow_keywords:请问",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（处理诺欣妥缺货和替代开药的后台沟通流程），而是提供了无关的常规用药和监测建议，与真值场景和动作无重合。"
+          },
+          {
+            "sample_index": 245,
+            "pid": "dabf1704de9648728cc13bfc0e452a32",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值仅为流程性确认'好的'，无核心医疗意图或动作；预测文本添加了无关的加号就诊建议，完全偏离真值场景且可能误导患者，属于明确冲突和场景替换。"
+          },
+          {
+            "sample_index": 251,
+            "pid": "1889516ccdbd486ab08bb82f6455317d",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本未覆盖真值的核心意图（住院后通过造影评估血管情况并决定处理），仅提供了通用的药物和监测建议，与真值的临床场景和动作方向不一致。"
+          },
+          {
+            "sample_index": 258,
+            "pid": "52f07b104aa94aff903552f24a4f663a",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本完全替换了真值的核心意图（心脏磁共振检查及门诊预约），转而推荐冠脉CTA检查，与真值明确冲突且临床场景偏离。"
+          },
+          {
+            "sample_index": 263,
+            "pid": "9483c7b66d0c41638df0bfe91e026339",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "rationale": "预测文本完全忽略了真值的核心意图（饮食控制、锻炼、长期药物治疗以维持血脂），替换为无关的心肌缺血排查检查，临床场景和动作方向均偏离。"
+          },
+          {
+            "sample_index": 269,
+            "pid": "d00b5212d5154fbe8731179bae88a4ce",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全替换了真值的核心意图（开药询问），转向完全不同的临床场景（急性冠脉综合征住院评估），与真值明确冲突且无覆盖。"
+          },
+          {
+            "sample_index": 271,
+            "pid": "d5fd7815e6ae498991ae178652f3847f",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（确认开药完成），转而要求患者补充信息并评估病情，构成明确反向替代，未保留任何管理动作。"
+          },
+          {
+            "sample_index": 275,
+            "pid": "fe3eaf402fef490fb58aa69fcbdb348c",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（建议线下复诊和提供门诊预约信息），而是提出完全不同的检查方案（平板运动试验）和干预措施，临床场景偏离。"
+          },
+          {
+            "sample_index": 280,
+            "pid": "044eb26dced8436d86891cc1cad22b14",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图：真值聚焦于询问当前症状（无大问题前提），而预测要求检查报告并评估胸闷原因，未覆盖症状询问动作，且引入新临床场景（胸闷评估），存在明显冲突。"
+          },
+          {
+            "sample_index": 281,
+            "pid": "05228af6bc184a3c95e7623fd99d2a6b",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图：真值明确建议心脏彩超和冠脉CTA检查，而预测仅建议观察随访，未提及任何检查安排，且错误否定药物治疗需求（真值肯定奥美沙坦安全性）。核心动作被忽略或反向替代。"
+          },
+          {
+            "sample_index": 283,
+            "pid": "08458b18531d4db2a7b20b156307e814",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图。真值强调甲亢风险需复查评估，而预测转向冠心病排查和CTA检查，临床场景和关注点均不同，无覆盖。"
+          },
+          {
+            "sample_index": 285,
+            "pid": "0a79fa0610e5483d9f2016b5f72b0285",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊|请问"
+            ],
+            "rationale": "预测文本建议血管检查以排除心肌缺血，但未覆盖真值的核心意图：强调线下复诊的必要性、提供具体门诊时间和预约方式。预测内容与真值场景基本无关，未保留关键管理动作。"
+          },
+          {
+            "sample_index": 288,
+            "pid": "10a2ee837a4c493e879639c59b240e96",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "question_form",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图：真值焦点是开药数量限制（5个）和补铁药外的其他药物选择，而预测转向了暂停/更换抗血小板药和胃镜复查，无任何相关覆盖或兼容动作。"
+          },
+          {
+            "sample_index": 290,
+            "pid": "12f1aa2ec1ff409691b922e3068f6d59",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "medium_short_text",
+              "workflow_keywords:请问",
+              "question_form"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图：真值核心是询问病史（复查情况、近期症状），而预测直接跳转到治疗决策（造影、手术、药物），未保留任何询问动作，存在临床场景偏离。"
+          },
+          {
+            "sample_index": 298,
+            "pid": "2b693b5051884cc7826e52244222c106",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（建议线下复诊并提供门诊时间），转而询问药物剂量和调整方案，属于完全不同的临床场景，未保留任何核心管理动作。"
+          },
+          {
+            "sample_index": 301,
+            "pid": "326f634f41ee43ebb9505e22d5e9b725",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（监测消化道出血和复查血指标），转而建议抗血小板药物和观察淤青，与真值方向冲突且存在潜在安全风险。"
+          },
+          {
+            "sample_index": 303,
+            "pid": "3675b13f54f44a1990cc993c7197a1f6",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本完全替换了真值的核心用药指令（继续原方案），改为更换胃药、调整他汀并安排复查，与真值意图明确冲突且无覆盖。"
+          },
+          {
+            "sample_index": 312,
+            "pid": "467a140f028747798b92ba26604017cd",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊|请问"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（建议神经内科就诊排查原因和线下复诊流程），而是提供了心血管相关的独立建议，与真值无关且场景偏离。"
+          },
+          {
+            "sample_index": 314,
+            "pid": "492eded0d5734a04ba3dfef73249b36d",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图（等待检查结果、线下复诊、监测血压心率），转而建议心脏彩超和保心丸，与真值方向冲突且缺乏依据，存在潜在安全风险。"
+          },
+          {
+            "sample_index": 315,
+            "pid": "4e79664aa50a4d468e807f4f80d18c02",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（开药流程确认），替换为住院、检查、调整治疗等不同临床动作，无覆盖且存在潜在冲突。"
+          },
+          {
+            "sample_index": 317,
+            "pid": "51c4ee3666d74e5680cfa4c7eaf7cdaa",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:复诊"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（继续服药、监测血压、复诊评估剂量调整及出血风险），而是转向了完全不同的临床场景（要求提供脑CT和血管检查报告以评估神经内科转诊）。"
+          },
+          {
+            "sample_index": 318,
+            "pid": "5283db2f8cb340e7a6a02d672bd0acf4",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图（定期复查、控制血脂血糖、甲状腺科就诊），转而建议冠脉CTA检查，临床场景和动作方向彻底偏离，无任何覆盖。"
+          },
+          {
+            "sample_index": 319,
+            "pid": "56450118fb2846f3845a3148d700378a",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本与真值核心意图完全冲突：真值建议无症状轻度狭窄随访观察，而预测要求立即停药并紧急就诊，涉及不同临床场景（高血压药物管理 vs 冠脉狭窄），且停药指令可能带来安全风险。"
+          },
+          {
+            "sample_index": 320,
+            "pid": "5bad15eb436649bfab950b3940e9f1c8",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊"
+            ],
+            "rationale": "预测仅部分覆盖真值核心意图：保留了服药和复查建议，但完全忽略了阿司匹林替换条件、线下复诊关键建议及门诊时间等核心管理动作，覆盖不完整。"
+          },
+          {
+            "sample_index": 325,
+            "pid": "68ea4e285fb44d8681ab8c2714881c18",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图：真值讨论利伐沙班和艾多沙班的进口属性及配药，而预测错误替换为阿托伐他汀的国产建议，并添加无关的抗凝、降压、心衰治疗内容，存在严重场景冲突。"
+          },
+          {
+            "sample_index": 328,
+            "pid": "6ef5d97eee844ca2a74250903c6eadb7",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（症状特征描述与饮食建议），转而讨论血压监测和药物剂量确认，存在严重临床场景偏离。"
+          },
+          {
+            "sample_index": 329,
+            "pid": "815510524c4c4ad3a385246683b98f48",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊|请问"
+            ],
+            "rationale": "预测文本的核心意图是停用阿奇霉素和等待心电图结果后决定治疗，与真值的核心意图（建议心电图和血压测量以评估是否需要进一步检查，并强调线下复诊）基本无关。预测未覆盖真值的评估和复诊建议，且引入了无关药物停用，可能造成冲突或安全风险。"
+          },
+          {
+            "sample_index": 330,
+            "pid": "852cf5dfc91d48debd6dec3b944cdfad",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图：真值强调长期服用阿尔马尔（一种β受体阻滞剂）的适应症和调整条件，而预测涉及冠脉造影、抗血小板药物调整和他汀类药物管理，与心率/血压管理无关，存在严重临床场景偏离。"
+          },
+          {
+            "sample_index": 333,
+            "pid": "8c5719fe21c949af8327fe1fb9bef593",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（开诺欣妥作为替代方案），而是要求患者自行选择停药，完全偏离了真值的医疗决策方向。"
+          },
+          {
+            "sample_index": 337,
+            "pid": "9d5973810ee144a3a03345ccc03ae4a9",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:已开好|按原剂量|您好"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（按原剂量服药和取药流程），改为建议加用新降压药，构成明确冲突和潜在安全风险。"
+          },
+          {
+            "sample_index": 340,
+            "pid": "a60e4ddcf91943dc9e20605ce8e9fdbf",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全忽略了真值核心意图（血糖检查），转而建议一系列心脏相关检查，存在严重场景偏离和临床动作冲突。"
+          },
+          {
+            "sample_index": 342,
+            "pid": "aa7d912bccb84364aea5246c810c3f52",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（保持随访联系），替换为无关的详细诊断和检查建议，无任何覆盖或兼容动作，属于严重场景冲突。"
+          },
+          {
+            "sample_index": 349,
+            "pid": "b7f7d9e4d14b4d49afca8c699ecaf993",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本完全替换了真值的核心意图（无症状不服药、有症状服药），转而建议立即就诊和启动治疗，与真值的保守管理方向明确冲突。"
+          },
+          {
+            "sample_index": 355,
+            "pid": "c3bdb412c5404caeac3d68a48a6ca36d",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "medium_short_text",
+              "workflow_keywords:挂号",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（处理医保支付和挂号流程问题），而是提供了无关的用药和复查建议，存在严重场景偏离。"
+          },
+          {
+            "sample_index": 356,
+            "pid": "c50359d68084499cbcbe977e2d43f225",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本的核心意图是停用维拉帕米并重新评估，而真值核心意图是根据记录数值调整用药（可能包括剂量调整或更换药物）。预测的'停用'动作与真值的'调整'意图存在潜在冲突，未覆盖调整用药的兼容方向。"
+          },
+          {
+            "sample_index": 357,
+            "pid": "c6a2bc18c0134e5482a3d49e0c92b1c6",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（建议联合使用托拉塞米和螺内酯，并关注下月初螺内酯供应），反而明确反对真值动作（声明螺内酯缺货且未提及联合用药），存在临床管理冲突。"
+          },
+          {
+            "sample_index": 358,
+            "pid": "cae64558adfc41efb9ea3f2e089ccc83",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值核心意图为礼貌性结束语，无医疗动作；预测文本提供具体诊断和治疗建议，与真值完全无关，场景严重偏离。"
+          },
+          {
+            "sample_index": 359,
+            "pid": "cb1aa4b98f564de2a5ea3ef8831b2790",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图。真值仅要求执行检查动作，但预测替换为药物干预建议，存在临床场景冲突和潜在安全风险（未检查直接开药）。"
+          },
+          {
+            "sample_index": 361,
+            "pid": "d03cf731384e40d9937766a0e74dc780",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（等待动作），替换为全新的诊断评估请求，属于临床场景和动作的根本性冲突，无有意义覆盖。"
+          },
+          {
+            "sample_index": 364,
+            "pid": "d6f4f891afb14c0fb7f81ae1d874f756",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（处理肺结节和呼吸科随访），而是转向了心血管问题（冠脉、心肌桥、主动脉），存在严重的临床场景偏离和冲突。"
+          },
+          {
+            "sample_index": 365,
+            "pid": "dc239c506dc545cfa6886831df26db0d",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "rationale": "预测文本未覆盖真值核心意图：真值要求提供动态心电图结果、基于现有药物诊断高血压/高脂血症，并建议血压血脂肝功能随访及心脏检查；预测仅部分涉及血压监测，但遗漏了关键诊断确认、检查结果请求和具体心脏评估建议，核心动作基本缺失。"
+          },
+          {
+            "sample_index": 366,
+            "pid": "e22298442d1b44b8826c8578b8bec49e",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（询问CT类型和手术相关情况），转而建议其他检查和管理措施，存在场景偏离和动作替换。"
+          },
+          {
+            "sample_index": 367,
+            "pid": "e27f5bd2955946d6ba55ca77e2a12329",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "question_form",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（询问是否需要开药），而是提供了无关的停药和监测建议，属于场景偏离且无相关动作保留。"
+          },
+          {
+            "sample_index": 368,
+            "pid": "e3b05e52199c418bae32ce6852cf56ff",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本与真值核心意图完全无关：真值要求查看检查结果，预测却转向生活方式建议和甲状腺功能检查，存在严重场景偏离和动作替换。"
+          },
+          {
+            "sample_index": 371,
+            "pid": "e67ed8621f4642ec9ccc0a03c6f2aebc",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图：真值明确否定住院需求并说明炎症指标正常，而预测转向药物续方和监测建议，无任何关联或覆盖。"
+          },
+          {
+            "sample_index": 372,
+            "pid": "ee65976b42394d51bd421cc25b94f612",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "rationale": "预测文本完全忽略了真值的核心意图：药物快递确认和国庆后住院安排，转而提供药物清单和检查建议，属于不同临床场景和动作方向，基本未保留真值管理动作。"
+          },
+          {
+            "sample_index": 374,
+            "pid": "f20348cb3e614d13bc3463993e0c2601",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（对症治疗），而是转向完全不同的诊断方向（甲状腺检查），存在临床场景偏离。"
+          },
+          {
+            "sample_index": 377,
+            "pid": "f81ba6fbba1f4c86872f1c8e831805df",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全替换了真值的核心意图（配药确认和流程性操作），改为建议住院、调整治疗方案和暂不配药，与真值明确冲突且无覆盖。"
+          },
+          {
+            "sample_index": 380,
+            "pid": "00bc5082f8e64b6797f26a1d878016c8",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊|请问"
+            ],
+            "rationale": "预测文本提出程控起搏器调高心率上限，与真值核心意图‘停药观察并建议线下复诊’完全冲突。真值强调停药和保守管理，预测却建议积极器械干预，存在安全风险且临床方向相反。"
+          },
+          {
+            "sample_index": 381,
+            "pid": "040decc10bd1484e9200205423ac089e",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（礼貌性结束对话），未保留任何相关医疗动作或语义，属于完全不相关场景。"
+          },
+          {
+            "sample_index": 384,
+            "pid": "09c00021766949858ce5e27126ea7526",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本完全忽略真值核心意图（询问过敏和皮疹情况），转而处理高血压急症和用药建议，场景严重偏离且未保留任何相关动作。"
+          },
+          {
+            "sample_index": 385,
+            "pid": "0a7e8b80f8a04a63a4dad8f033c4aa51",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图（提供门诊时间、预约方式和就诊准备建议），转而提出独立的诊断检查和治疗建议，与真值无关联且临床场景偏离。"
+          },
+          {
+            "sample_index": 390,
+            "pid": "1598f0ea9b624235acb2779706a1e829",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图。真值描述局部麻醉手术的住院流程和时间，而预测转向电生理检查、射频消融等不同临床场景，未覆盖任何手术安排或麻醉信息，存在严重场景冲突。"
+          },
+          {
+            "sample_index": 405,
+            "pid": "3cb4a6bcce6a479fb2d78b431691129c",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值仅含中性流程确认‘好的’，无医疗意图；预测添加了药物、检查等具体医疗建议，与真值核心无覆盖且场景偏离，仅部分相关但未保留任何管理动作。"
+          },
+          {
+            "sample_index": 407,
+            "pid": "437ef38356ab42de915092dc1e0b9514",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（药物开立完成），转而建议更换药物或线下就诊，属于明确替代真值动作的场景偏离。"
+          },
+          {
+            "sample_index": 415,
+            "pid": "5f530304f04e4edb9d67bcc6414958ec",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值核心意图为礼貌性结束语，无医疗动作；预测替换为药物开具清单，完全偏离临床场景，未保留任何核心意图。"
+          },
+          {
+            "sample_index": 416,
+            "pid": "611d2407e42145ea8e77aea87c311f72",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是告知处方已开好并指导线上付费流程，但预测完全替换为具体药物续配和注射说明，未提及付费操作或提交流程，与真值核心动作无关且场景偏离。"
+          },
+          {
+            "sample_index": 417,
+            "pid": "6a162aeea53e4cdc9e8d67cae14e34fa",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（避免诱因和定期复查），而是建议临时用药和继续观察，与真值的保守管理方向冲突。"
+          },
+          {
+            "sample_index": 423,
+            "pid": "799466afac994f978fa45c5d3ea34974",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本询问药物品种以指导替代用药，与真值核心意图'开药完成'完全无关且方向冲突，未覆盖任何管理动作。"
+          },
+          {
+            "sample_index": 424,
+            "pid": "7c7c4986f7194d8bbf5fe87d8ac3f32a",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图：真值强调避免增强CT和造影的潜在伤害，而预测建议进行心脏彩超等检查并复诊，方向相反且存在潜在冲突。"
+          },
+          {
+            "sample_index": 425,
+            "pid": "7db8f91273d44cdd8aae1f1db7359bfe",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:已开好|线下|登记"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（安排心脏超声检查、提供门诊信息），而是替换为询问症状细节，属于明确临床场景偏离。"
+          },
+          {
+            "sample_index": 426,
+            "pid": "7f0666c0dfcc4fe49fe195188c1a9c53",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:线下"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（线下门诊开检查的限制），转而建议无关的心绞痛管理和复查，存在临床场景偏离。"
+          },
+          {
+            "sample_index": 429,
+            "pid": "88a65019b9564c028d9bd3b4c3499dcd",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "rationale": "预测文本的核心意图（尿路感染诊断和尿常规复查）与真值（非特异性症状、建议门诊复查和医师查体）存在明显冲突和场景偏离，未覆盖真值的核心管理动作。"
+          },
+          {
+            "sample_index": 432,
+            "pid": "8fc4f6c75d794aef99c49cc139872239",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图（调整焦虑药物），转而建议继续当前心脏药物并随访，属于明确反向替代和场景偏离。"
+          },
+          {
+            "sample_index": 434,
+            "pid": "92000ef307364f7bb29766dcb083062b",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（开药确认流程），替换为药物缺货通知和不同药物建议，且未保留任何原有管理动作，存在潜在用药冲突风险。"
+          },
+          {
+            "sample_index": 435,
+            "pid": "93a2ea24c0f94277b37c443b3838cd48",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值核心意图为礼貌性结束对话，无医疗动作；预测添加了无关的详细检查建议，与真值完全无关且可能误导患者，存在场景偏离。"
+          },
+          {
+            "sample_index": 436,
+            "pid": "96c4d688e52042afaa7906839cae5c49",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:登记"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（询问预约住院登记进行造影检查），而是替换为开具续药处方，存在明确临床场景偏离和动作冲突。"
+          },
+          {
+            "sample_index": 437,
+            "pid": "9764755cf1d145768e74f160e54158e0",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值核心意图仅为礼貌性回应，无医疗动作；预测添加了完整的药物续方和监测建议，与真值无关且可能造成临床场景偏离，但无安全风险。"
+          },
+          {
+            "sample_index": 441,
+            "pid": "9b43019de58349c7b3617aefa8d45119",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（告知检查结果正常并安抚患者），反而错误报告血压偏低并建议评估或随访，与真值的正常结果和放心建议明确冲突。"
+          },
+          {
+            "sample_index": 442,
+            "pid": "9d6783d8017c4a459e314afbf610aab7",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:已开好|线下|复诊"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（安排动态心电图检查、提供预约细节及线下复诊建议），反而提出无关的检查建议（心肌酶谱、胸部CT）和不同临床方向（泌尿外科咨询），存在严重场景偏离。"
+          },
+          {
+            "sample_index": 444,
+            "pid": "9fc3dc3c044f4079aa37d6bb4b156ff9",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本建议停用降压药傲坦，而真值核心意图是讨论心绞痛药物的停药条件（无症状时可停），两者涉及完全不同的药物和临床场景，预测未覆盖真值核心意图且存在潜在安全风险。"
+          },
+          {
+            "sample_index": 446,
+            "pid": "a08cf04cd11344cc8d350dddfd0fb42c",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "rationale": "预测文本的核心意图（药物干预）与真值核心意图（优先生活方式干预3个月，避免立即用药）明确冲突。真值强调先非药物治疗，预测直接推荐药物且未提及生活方式管理，存在临床方向偏离。"
+          },
+          {
+            "sample_index": 447,
+            "pid": "a3895bfe4ea544398c2fc4ce08032437",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "medium_short_text",
+              "workflow_keywords:线下|复诊"
+            ],
+            "rationale": "预测文本完全忽略了真值核心意图（识别重复用药风险并建议线下复诊），转而建议加用抗心律失常药，这与真值明确冲突且可能带来用药安全风险。"
+          },
+          {
+            "sample_index": 450,
+            "pid": "a8471996347e4d27bafaa86851cfc4d9",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全替换了真值核心意图（电话咨询药房），转向住院检查与治疗方案调整，无任何覆盖或兼容动作，存在临床场景偏离。"
+          },
+          {
+            "sample_index": 454,
+            "pid": "bc0a25c2adc645c18287ed87fcd02a76",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（通过生活方式改善和确认诊毕），而是转向了诊断性检查和建议，与真值的非干预性、观察性方向明确冲突。"
+          },
+          {
+            "sample_index": 466,
+            "pid": "dd165ea431164fcd9dfc7d9543650c05",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（建议线下复诊以补充信息），仅提供药物和检查建议，与真值场景（互联网就诊限制需线下评估）无直接关联，且未保留任何管理动作。"
+          },
+          {
+            "sample_index": 472,
+            "pid": "e7f6a6a1ac5b4be1adcfeb5caae86d1c",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "workflow_keywords:复诊",
+              "question_form"
+            ],
+            "rationale": "预测文本与真值核心意图严重冲突：真值强调继续服用利伐沙班3个月并监测出血，但预测错误建议停用；真值要求1个月复查心电图，预测改为6个月；降压药调整建议未覆盖真值确认现有药物的核心意图。"
+          },
+          {
+            "sample_index": 475,
+            "pid": "eb152c6162124d009cd3901d17a874d6",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（解释三个检查的必要性及不可替代性），反而转向药物建议和无关检查，存在严重场景偏离和潜在安全风险。"
+          },
+          {
+            "sample_index": 476,
+            "pid": "ec50efd3d7d44e75b694e0b336b5b088",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是确认处方完成（流程动作），但预测文本完全替换为药物查询建议和具体用药指导，未覆盖真值的核心流程确认意图，且存在潜在安全风险（建议自行查询药物）。"
+          },
+          {
+            "sample_index": 479,
+            "pid": "f47784f7fc564969b7fed9a3f0ad2428",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:请问"
+            ],
+            "rationale": "预测文本完全忽略真值核心意图：建议呼吸科就诊以评估肺部和胸膜情况，并提及胸膜炎治疗。预测仅关注心脏钙化和饮食建议，与真值无关且临床场景偏离。"
+          },
+          {
+            "sample_index": 482,
+            "pid": "f60d5e40000546f3aa44dbf89b0dcf40",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊|请问"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图：建议线下复诊并提供门诊时间、预约方式等具体指引。预测转向了血压监测和药物调整，与真值的复诊建议无关联，属于完全不同的临床场景。"
+          },
+          {
+            "sample_index": 484,
+            "pid": "f7c8b54c841f4f4bbc9b4051ccbf98c6",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是纯流程确认（开药完成），但预测文本完全替换为新的检查建议和用药指令，未覆盖或遵循真值的任何动作，存在明显场景偏离。"
+          },
+          {
+            "sample_index": 485,
+            "pid": "fa1598edc02044a19765725d6744c9c8",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图。真值仅为礼貌性结束语，无医疗动作或指令；预测却引入药物开具限制和线下复诊建议，构成无关临床场景替换和明确冲突。"
+          },
+          {
+            "sample_index": 487,
+            "pid": "0023b9ce33ac4935b099b8d51eaef8a5",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是简单同意或确认动作，但预测替换为开具病假单和医疗建议，与真值完全无关且临床场景偏离，未保留任何核心管理动作。"
+          },
+          {
+            "sample_index": 492,
+            "pid": "09f56265cac147a3aa36335377f4e4a8",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值核心意图为礼貌性结束对话，预测文本完全无关地转向症状和检查建议，未覆盖任何真值意图，存在严重场景偏离。"
+          },
+          {
+            "sample_index": 493,
+            "pid": "0e2cbc46bef14e0eb5e06d5b13ce034e",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全忽略真值核心意图（开药完成），转而建议全新检查流程，属于明确临床场景偏离，未保留任何管理动作。"
+          },
+          {
+            "sample_index": 495,
+            "pid": "10017809b8b047bf9418989d0f1dd3b7",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "rationale": "预测文本与真值核心意图完全冲突：真值建议暂不启动药物治疗并优先生活方式干预，而预测却建议立即停药并转向其他诊断，存在明确临床方向逆转和安全风险。"
+          },
+          {
+            "sample_index": 497,
+            "pid": "17407e912da14c6b92b654c2ad58cef4",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "question_form",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图（询问是否需要开药或检验），转而提供具体的降脂药管理建议，属于明确替换动作和场景偏离，无覆盖。"
+          },
+          {
+            "sample_index": 498,
+            "pid": "17c9c62881d3470d8052e746b690cab1",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全替换了真值的核心意图（等待流程响应），转而要求提供处方或配药信息，属于明确反向替代和场景偏离，无覆盖。"
+          },
+          {
+            "sample_index": 503,
+            "pid": "1d3cef6d171f4d05b8af8e27f00d9225",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值核心意图是礼貌性结束对话，无医疗动作；预测添加了开药、服药和监测等无关医疗指令，与真值场景和意图完全偏离，存在潜在安全风险。"
+          },
+          {
+            "sample_index": 504,
+            "pid": "2071a24f3940499e915ecffe02026599",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（药物不可用），反而建议继续服用药物，与真值明确冲突，存在潜在安全风险。"
+          },
+          {
+            "sample_index": 506,
+            "pid": "2481988ef80149799f4b94066b0988fa",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:已开好|线下|复诊"
+            ],
+            "rationale": "预测文本的核心意图是甲亢药物管理和血压监测，与真值文本的核心意图（安排检查并建议线下复诊以获取全面评估）完全无关，且未覆盖任何真值动作。"
+          },
+          {
+            "sample_index": 507,
+            "pid": "24b7a6666e434f46a8b8062da3878ff8",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图：真值关注药物缺货和删除操作，而预测错误聚焦于支付问题，未覆盖缺货处理或重试指令，存在临床场景冲突。"
+          },
+          {
+            "sample_index": 509,
+            "pid": "24f99b8ef82149c18a011abff3e0d2e7",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本建议进行动态心电图检查并复查，与真值'不需要'的核心意图明确冲突，属于反向替代动作。"
+          },
+          {
+            "sample_index": 513,
+            "pid": "28e70566615c4736881036bf0b6d303c",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图（支架术后咳嗽无需过度担忧，因已通过验证确保位置和血流），转而建议CT检查以评估肺部，这与真值的安抚和解释方向明确冲突。"
+          },
+          {
+            "sample_index": 515,
+            "pid": "30c9a9a51f9d45c6a11900c30da77cea",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（开其他四个替代夫塞米），反而聚焦于不同药物（倍他乐克）的规格和国产问题，属于完全不同的临床场景和动作，无相关性。"
+          },
+          {
+            "sample_index": 516,
+            "pid": "31d5868448b841c6bef6300aa5a40e20",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:开好了"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图：真值要求停用普罗帕酮和美托洛尔并改用索他洛尔，但预测错误地建议停用心律平（普罗帕酮）后换用美托洛尔，这与真值指令明确冲突，存在用药安全风险。"
+          },
+          {
+            "sample_index": 517,
+            "pid": "3227b070c2e0446f86dd977890d1ec2b",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值的核心意图（确认处方修改完成），转而讨论药品品牌、缺货和患者自行购买，与真值无关联且可能带来用药安全风险。"
+          },
+          {
+            "sample_index": 519,
+            "pid": "3534eef2078846c19161d54c61dcac52",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "medium_short_text",
+              "workflow_keywords:线下",
+              "question_form"
+            ],
+            "rationale": "预测文本仅覆盖真值中'血脂需要复查'的意图（通过安排检查），但完全忽略了核心管理动作：瑞舒伐他汀开药决策和线下门诊开瑞百安的必要性，导致关键临床意图缺失。"
+          },
+          {
+            "sample_index": 522,
+            "pid": "3ad0cc5e34684eb193d900f472ee8f2b",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图：真值强调线下复诊、个体化评估和医生判断的必要性，而预测直接指定药物调整，与真值冲突且可能带来安全风险。"
+          },
+          {
+            "sample_index": 524,
+            "pid": "3f86de39410f4d7084cef7a17d09ab91",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本的核心动作是更换药物（氨氯地平贝那普利片→盐酸贝尼地平片），与真值'药开好了'的意图（确认药物已开具，无变更指示）明确冲突，属于反向替代临床场景。"
+          },
+          {
+            "sample_index": 526,
+            "pid": "43385a632fb441b0ba638ca547a52cda",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是纯流程确认（开药完成并让患者查看），不包含具体医疗指令。预测文本替换为详细用药管理建议（如药物名称、血压控制、复查），与真值的流程确认动作完全无关，属于场景偏离。"
+          },
+          {
+            "sample_index": 528,
+            "pid": "4680da1efa2a4b018e67e0cb8a5d7f03",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是完成开药流程并让患者确认，但预测文本未覆盖此意图，反而告知药品缺货并建议替代方案，完全偏离了真值的动作方向。"
+          },
+          {
+            "sample_index": 530,
+            "pid": "47ed1671fbc14f21b097411f5fed5c10",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了|不客气",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本建议更换降压药并监测血压，而真值核心意图是确认处方已完成（'开好了'），两者临床动作方向完全冲突：真值隐含维持当前治疗，预测却主动更换药物。"
+          },
+          {
+            "sample_index": 532,
+            "pid": "496461deff234d4babd96ea2f24e39cc",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是完成开药流程，但预测文本未提及开药动作，反而讨论药物缺货和替代方案，与真值核心意图明确冲突，未覆盖关键动作。"
+          },
+          {
+            "sample_index": 534,
+            "pid": "4cce1f6551e34703bcae94a680525c3b",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（雷贝拉唑开药及换包装信息），转而处理了沙库巴曲缬沙坦缺药和退号事宜，与真值无关且临床场景偏离。"
+          },
+          {
+            "sample_index": 536,
+            "pid": "4e39852a5d32475288bdca315612b021",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本建议住院和积极心衰治疗，但真值仅为流程操作提示，无具体医疗意图。预测完全替换了真值核心动作，临床场景严重偏离，无覆盖。"
+          },
+          {
+            "sample_index": 539,
+            "pid": "5430aa4a6c97496e81c932ea0e899f7e",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（药物取件方式），转而提供心血管诊断建议，构成无关临床场景替换，无任何覆盖。"
+          },
+          {
+            "sample_index": 543,
+            "pid": "5be8f19ef67c49a09be0f86b89fa4982",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图：真值强调咨询手术医生且问题与造影无关，预测却转向药物管理、停药和肌酸激酶复查，临床场景和动作方向均冲突。"
+          },
+          {
+            "sample_index": 546,
+            "pid": "6236155a3fe543dc8dc5b068b7ab2978",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（接受风险并保持健康生活方式），而是替换为‘无需特殊处理’，存在明确临床方向冲突，仅‘建议随访’部分弱相关。"
+          },
+          {
+            "sample_index": 547,
+            "pid": "639cfedeb1ef4f569412fee6dc13af0b",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（询问患者当前问题），而是替换为无关的处方续药流程确认，属于明确临床场景偏离。"
+          },
+          {
+            "sample_index": 552,
+            "pid": "711bdceff37b41e490d0193611ee333c",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是确认或重复相同处理，但预测完全替换为更换药物并询问需求，与真值明确冲突且无覆盖。"
+          },
+          {
+            "sample_index": 553,
+            "pid": "71e42f7a2aa04ba5a5ca7a76435fd301",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "workflow_keywords:您好",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本的核心意图是要求提供心电图报告以评估房颤和指导治疗，与真值文本的核心意图（通知药物可开、付款流程和联系方式）完全无关，且未保留任何真值中的管理动作或临床场景。"
+          },
+          {
+            "sample_index": 554,
+            "pid": "760aee4c50b84124b32ac513d4899b80",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本完全替换了真值的核心意图（门诊复查和药物调整），转而建议住院进行心尖室壁瘤和心功能评估，导致临床场景偏离且未保留任何真值动作。"
+          },
+          {
+            "sample_index": 556,
+            "pid": "7bf7e624bfa4437aae5b08b3905a9593",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:不客气"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（安排颈动脉彩超检查的具体时间、地点和准备事项），而是提供了无关的血脂控制、肝肾监测等建议，与真值场景明确冲突且无任何重合。"
+          },
+          {
+            "sample_index": 558,
+            "pid": "8087ce4155f849ca92daa03b5fd26d84",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（确认处方完成），转为无关的医保流程说明，无任何覆盖或兼容动作。"
+          },
+          {
+            "sample_index": 564,
+            "pid": "8c7f2a1aa84b4b97b1e5d20a3266299c",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图：真值强调先做CT门诊检查，根据结果决定是否住院造影，并提供线下复诊细节；预测直接建议住院，省略了关键的门诊检查步骤，与真值流程冲突，且未提及复诊安排。"
+          },
+          {
+            "sample_index": 567,
+            "pid": "8f7e33f05e5c4b5883b28438a892cebe",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值仅含中性确认词'好的'，无具体医疗意图或动作。预测文本添加了药物指导、检查建议及症状警示，与真值核心意图完全无关，存在擅自扩展医疗建议的风险。"
+          },
+          {
+            "sample_index": 570,
+            "pid": "990f5c8caad84c23a78e6eb7760bda11",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本询问药物规格替代和剂量调整，完全偏离真值核心意图（纯流程确认开药完成），未保留任何管理动作或临床方向，属于无关响应。"
+          },
+          {
+            "sample_index": 575,
+            "pid": "a8ef35326c124cee92d26a8dad61a435",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图仅为确认开药完成，无具体医疗指令；预测完全替换为调整药物方案的新临床动作，与真值无关且存在潜在安全风险。"
+          },
+          {
+            "sample_index": 577,
+            "pid": "aab106fa52dd4778901073188e6b9fe3",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "medium_short_text",
+              "workflow_keywords:线下"
+            ],
+            "rationale": "预测文本与真值核心意图完全冲突：真值强调心电图异常并建议肺动脉增强CT检查，预测却假设心电图正常且否定进一步检查需求，存在明显临床安全风险。"
+          },
+          {
+            "sample_index": 578,
+            "pid": "abc5832845b84ec08a69ab2eff78d328",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:您好",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全违背真值核心意图：真值明确说明雷贝拉唑无货且无法配药，但预测却声称已更换为该药并开出处方，构成明确冲突和严重用药安全风险。"
+          },
+          {
+            "sample_index": 579,
+            "pid": "ac55f71a0b35490da9fc547a18784867",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:复诊"
+            ],
+            "rationale": "预测文本仅泛泛提及‘继续按时服药并定期复查’，但未覆盖真值核心意图：具体术后时间点（第二个月续药减量、第三个月做24小时心电图复诊调整用药）。核心管理动作未被保留，属于弱覆盖。"
+          },
+          {
+            "sample_index": 580,
+            "pid": "ac9bab4f18d54a7aad197fa35e87c8d9",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是纯流程确认（开药完成并让患者查看），无医疗动作指令。预测完全替换为药物库存说明、监测及复查建议，与真值意图无关且场景偏离。"
+          },
+          {
+            "sample_index": 587,
+            "pid": "b905c2ec3ef0449d89d195feabefae12",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是技术操作指导（重新提交和刷新），预测文本完全无关，涉及药物开具和复查建议，无任何语义覆盖或临床线程关联。"
+          },
+          {
+            "sample_index": 592,
+            "pid": "bcc7b16ee947413e89e65087348788e4",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是确认处方已完成，无具体用药指令；预测替换为建议重新购药，与开药完成的动作冲突，且未保留核心管理意图。"
+          },
+          {
+            "sample_index": 593,
+            "pid": "bd19a34b1e464045853370813dd95f4d",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是确认处方完成，但预测文本未覆盖此动作，而是转向药物缺货处理和配送说明，与真值意图无关且场景偏离。"
+          },
+          {
+            "sample_index": 598,
+            "pid": "c6cb523e711e42d5834de44efb0b3268",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（已开药完成），而是转向询问药物名称以办理续方，与真值动作基本无关且场景偏离。"
+          },
+          {
+            "sample_index": 599,
+            "pid": "c89d750813fa4652b4a6ec65dca3fd9a",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（询问生活习惯以评估症状原因），转而建议发送报告并评估心律失常治疗，属于严重场景偏离和无关响应。"
+          },
+          {
+            "sample_index": 606,
+            "pid": "d238a7fa38854a21893440b8cae61c7a",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图。真值仅为简短确认'对'，无明确医疗动作；预测添加了血压监测和复诊建议，这些内容与真值无关且可能误导，构成场景偏离。"
+          },
+          {
+            "sample_index": 607,
+            "pid": "d2c9d6f6b2dd45aba33585c5243c96e1",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（不推荐磷虾油、确认开药完成），反而提出与真值无关且可能冲突的药物调整建议（停阿司匹林、改用氯吡格雷），存在潜在安全风险。"
+          },
+          {
+            "sample_index": 614,
+            "pid": "db1540ac71564fea8a0736b3dc1ec5b5",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（生活方式管理建议），而是转向了要求检查报告和症状评估，属于不同的临床场景和动作方向。"
+          },
+          {
+            "sample_index": 615,
+            "pid": "dbb576a946ff48eca030067877e21936",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（开立脂必泰药物及确认流程），而是转向完全不同的临床场景（糖尿病管理、他汀类药物和检查建议），存在严重场景偏离。"
+          },
+          {
+            "sample_index": 617,
+            "pid": "dc800e95a72146129551b6defe519867",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图（确认上次单一药物已开好），转而要求提供新数据并评估开新处方，构成明确反向替代和场景偏离。"
+          },
+          {
+            "sample_index": 619,
+            "pid": "dff7cadcc5d3460fab94e06cefa8136a",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（礼貌性结束对话），转而请求医疗信息上传和诊疗建议，属于明确临床场景替换和冲突。"
+          },
+          {
+            "sample_index": 621,
+            "pid": "e07aef355d894069809f3f8f44049599",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（确认开药完成），转而询问药品品牌选择问题，未保留任何管理动作或确认流程，属于场景偏离。"
+          },
+          {
+            "sample_index": 623,
+            "pid": "e236c0d9152a461ea6ef5260615dd8b6",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测未覆盖真值核心意图（特定剂量服药和2个月复查时间点），仅泛化提及复查和药物，但未冲突或造成安全风险。"
+          },
+          {
+            "sample_index": 624,
+            "pid": "e33e38a787ce4c45871d63c5e01292d4",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（门诊仅提供增强CT，造影需住院检查），反而转向出院费用和床位医生安排，与真值场景冲突且存在误导风险。"
+          },
+          {
+            "sample_index": 629,
+            "pid": "eb65240146d245a2ade3e87cd0c46458",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "预测文本完全偏离真值的核心意图（礼貌性结束对话），转而提出药物替代和配发问题，属于完全不同的临床场景，无任何语义覆盖。"
+          },
+          {
+            "sample_index": 630,
+            "pid": "ec810dbd46674b49a8c7260936549cdd",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（开药流程确认），替换为冠脉支架植入术等侵入性治疗，存在严重临床场景冲突和安全风险。"
+          },
+          {
+            "sample_index": 632,
+            "pid": "ee3eb0ea454b4c849a9512d98ded5896",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值仅确认性回应'好'，无具体医疗意图。预测文本完全转向安排住院流程，与真值核心意图无关，存在场景偏离。"
+          },
+          {
+            "sample_index": 635,
+            "pid": "ef62381dd2eb4cdb9db7ac178fcc4d3b",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（确认药物开具完成），转而建议缺药购买或换药，构成明确冲突和场景替代，未保留任何兼容管理动作。"
+          },
+          {
+            "sample_index": 638,
+            "pid": "f7114e8038b14907a5eff6ff3783319a",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "workflow_keywords:已开好",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（药物交付流程、遵医嘱服药、处方量限制及取药方式），反而替换为无关的血压监测和饮食建议，存在临床场景偏离。"
+          },
+          {
+            "sample_index": 644,
+            "pid": "fceb1e9ddc9f4c7e9cceb7d7758f022a",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本仅覆盖真值中'心脏相关原因排除'部分，但完全忽略了真值核心意图：考虑消化道、肺部、神经肌肉等其他原因。预测专注于心脏检查，与真值多系统评估方向冲突。"
+          }
+        ],
+        "input_total_count": 645,
+        "low_info_detected_count": 263,
+        "excluded_low_info_count": 0,
+        "kept_non_low_info_count": 645
+      }
+    },
+    {
+      "input_file": "evaluation_results_Qwen_Qwen3.5-9B_chronic.json",
+      "output_file": "similarity_scores_evaluation_results_Qwen_Qwen3.5-9B_chronic_deepseek-v3.1.json",
+      "dataset_name": "chronic",
+      "summary": {
+        "total_records": 2180,
+        "success_count": 444,
+        "error_count": 1736,
+        "skipped_count": 0,
+        "average_final_score_0_5": 2.8311,
+        "score_distribution": {
+          "0.0": 57,
+          "0.5": 22,
+          "1.0": 41,
+          "1.5": 25,
+          "2.0": 18,
+          "2.5": 17,
+          "3.0": 16,
+          "3.5": 55,
+          "4.0": 71,
+          "4.5": 91,
+          "5.0": 31
+        },
+        "low_score_samples_le_2": [
+          {
+            "sample_index": 1,
+            "pid": "5c6a2c30195f4824a1f08180bad54640",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊|请问"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（建议线下复诊并提供门诊时间信息），而是替换为完全不同的临床处理方案（动态血压监测、药物治疗、复查指标），存在严重场景偏离。"
+          },
+          {
+            "sample_index": 5,
+            "pid": "7d1cfc7be1594c68a27274cdf30eb189",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图：真值优先推荐手术射频和急诊就诊下用药，预测却建议动态心电图和美托洛尔，并明确反对手术，与真值冲突且存在潜在安全风险。"
+          },
+          {
+            "sample_index": 8,
+            "pid": "4e79664aa50a4d468e807f4f80d18c02",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图：真值为纯流程确认'开好了'，无医疗动作；预测却建议住院、调整治疗等激进临床干预，构成明确冲突和场景替换。"
+          },
+          {
+            "sample_index": 10,
+            "pid": "ee65976b42394d51bd421cc25b94f612",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "rationale": "预测文本完全忽略了真值的核心意图（药物配送确认和住院时间安排），转而提供全新的药物清单和检查建议，属于临床场景偏离且未保留任何真值动作。"
+          },
+          {
+            "sample_index": 11,
+            "pid": "01f7aad57c554033ba4a7f4cb86a3a6d",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是询问药物数量或剂量，属于纯流程性确认；预测文本完全未涉及药物数量询问，而是转向晕厥评估和慢病管理，与真值无关且场景偏离。"
+          },
+          {
+            "sample_index": 12,
+            "pid": "236e786bfcec4a22b3048a0a704d05ef",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图：维持心率药物原剂量不加量，而是转向多科室随访和调整药物，与真值明确冲突且无覆盖。"
+          },
+          {
+            "sample_index": 21,
+            "pid": "10017809b8b047bf9418989d0f1dd3b7",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "rationale": "预测文本建议立即停药，与真值核心意图'不启动药物治疗'完全冲突，且未覆盖饮食控制+锻炼的建议，存在安全风险。"
+          },
+          {
+            "sample_index": 25,
+            "pid": "858a70aad21442ab8696fa70a729995b",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（更换为匹伐他汀），反而错误建议继续服用普伐他汀，与真值明确冲突且存在用药安全风险。"
+          },
+          {
+            "sample_index": 27,
+            "pid": "9271dac003a84406bde77264c1f214b0",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（开利伐沙班药物及数量确认），反而替换为无关的用药建议和检查安排，属于明确临床场景偏离。"
+          },
+          {
+            "sample_index": 28,
+            "pid": "a9068164f35146938aa87d31df47811e",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了|不客气",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图（开药完成确认），转而建议调整药物和线下检查，与真值无关联且临床场景偏离。"
+          },
+          {
+            "sample_index": 31,
+            "pid": "dd6d8102733f412c8cee356c29ea77be",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是纯流程性配药确认（无具体医疗动作），预测替换为完全不同的临床评估和治疗调整方案，存在严重场景偏离和潜在安全风险。"
+          },
+          {
+            "sample_index": 40,
+            "pid": "f3ad7ce61c174cad9778e548664f169a",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图：真值关注头颅磁共振检查及结果评估，预测却转向冠脉CT、血压药物和心脏问题随访，无任何重叠或兼容性，属于不同临床场景。"
+          },
+          {
+            "sample_index": 42,
+            "pid": "fe3eaf402fef490fb58aa69fcbdb348c",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图：建议线下复诊、提供门诊时间和预约方式。预测仅建议检查（平板运动试验）和复查，但未提及线下就诊安排，且真值强调互联网限制需线下补充，预测未响应此关键点。"
+          },
+          {
+            "sample_index": 44,
+            "pid": "3718f4f94ab3499da8b64fb941faf2ce",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值核心意图是礼貌性结束对话，无医疗动作。预测文本替换为完全不同的临床管理指令，涉及用药调整和检查要求，与真值无关且可能引发不必要的医疗干预。"
+          },
+          {
+            "sample_index": 47,
+            "pid": "a8471996347e4d27bafaa86851cfc4d9",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（电话咨询药房），而是转向了住院、检查调整药物等不同临床场景，存在严重偏离和潜在安全风险。"
+          },
+          {
+            "sample_index": 50,
+            "pid": "f2445ed2b17b4c56b560ab02fb7ad324",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（评估肾功能、蛋白尿及转诊肾脏科），转而提出降压方案调整和心脏相关监测，属于临床场景偏离和动作替换。"
+          },
+          {
+            "sample_index": 51,
+            "pid": "fa1598edc02044a19765725d6744c9c8",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值核心意图是礼貌性结束对话，预测文本却转向药物开具限制和线下就诊建议，完全偏离核心场景，无覆盖且无关。"
+          },
+          {
+            "sample_index": 52,
+            "pid": "044eb26dced8436d86891cc1cad22b14",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图（询问当前症状），转而要求检查报告和评估胸闷原因，与真值场景和动作方向冲突，无覆盖。"
+          },
+          {
+            "sample_index": 53,
+            "pid": "1e1faaa6b0de4b77bc02892ffac227d8",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（建议线下复诊），仅提及继续服药和无需干预，与真值强调线下评估的需求冲突，且缺乏对检查后复诊的呼应。"
+          },
+          {
+            "sample_index": 55,
+            "pid": "2f869c99af234bc382d0d16f70a3280d",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图（门诊时间安排和检查结果无异常），转而提出全新的药物治疗和复查计划，与真值无任何语义重合，属于完全不同的临床场景。"
+          },
+          {
+            "sample_index": 57,
+            "pid": "51c4ee3666d74e5680cfa4c7eaf7cdaa",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:复诊"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（继续服药、监测血压和出血风险、门诊复诊评估剂量），转而要求脑CT和血管检查以评估头痛，属于不同临床场景和动作方向。"
+          },
+          {
+            "sample_index": 62,
+            "pid": "d44087ab6e3146539cb7f69e542c5f91",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值核心意图仅为礼貌性结束语，无医疗动作；预测完全替换为具体药物调整建议，存在明确临床场景偏离和安全风险。"
+          },
+          {
+            "sample_index": 63,
+            "pid": "d45d24539e95407eb3c7c2ceb0d5d92c",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:请问"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图：强调当前信息不足、需住院后造影评估才能判断病情，并询问患者问题以结束咨询。预测转向了具体的诊断和药物调整建议，与真值方向冲突，构成临床场景偏离。"
+          },
+          {
+            "sample_index": 64,
+            "pid": "d5fd7815e6ae498991ae178652f3847f",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全替换了真值的核心意图（开药流程确认），转向全新的临床评估场景（肺栓塞风险、抗凝降脂调整），与真值无关且存在潜在安全风险。"
+          },
+          {
+            "sample_index": 67,
+            "pid": "0de6416df06d4a88ab16f38028ad871b",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是开药流程确认，无具体医疗动作；预测替换为完全不同的药物调整和疾病管理方案，未保留开药确认意图，存在场景偏离。"
+          },
+          {
+            "sample_index": 69,
+            "pid": "19e634fd7fe84705afdd6d878b87918a",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（询问血栓位置、复查情况、利伐沙班用药必要性），转而讨论倍他乐克的剂量和规格调整，属于完全不同的临床场景和动作方向。"
+          },
+          {
+            "sample_index": 70,
+            "pid": "1d618a307cb24f0ab155074fc3c032c8",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值核心意图为礼貌性结束语，无医疗动作；预测完全替换为具体药物管理和疾病建议，与真值无关且场景偏离。"
+          },
+          {
+            "sample_index": 72,
+            "pid": "34de05c7890942799e862a682b911e79",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全忽略了真值核心意图：停用厄贝沙坦氢氯噻嗪并询问利伐沙班配药需求，反而错误地继续利伐沙班并添加可达龙，与真值动作明确冲突且存在潜在安全风险。"
+          },
+          {
+            "sample_index": 73,
+            "pid": "415b9cbd4d3a449cab8b38f1f4d98007",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图：避免使用减慢心率药物和随访动态心电图。预测建议的复查和药物（如阿托伐他汀）与冠心病管理相关，但与真值中排除冠心病和特定警告冲突。"
+          },
+          {
+            "sample_index": 75,
+            "pid": "469f1876bc634ae5b72068223a7184a6",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值核心意图仅为中性确认'好'，无具体医疗动作；预测添加了药物、评估和复查建议，与真值无关且可能引入未授权的临床干预，存在潜在安全风险。"
+          },
+          {
+            "sample_index": 76,
+            "pid": "553792a7a8aa405b94607e0996eb6107",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "medium_short_text",
+              "question_form",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（确认琥珀酸美托洛尔剂量调整和配药选择），而是转向了无关的心功能评估和常规治疗建议，存在严重场景偏离。"
+          },
+          {
+            "sample_index": 80,
+            "pid": "7f3e2b42b92f4270b15f46e31df50255",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测未覆盖真值核心意图：美托洛尔加量至早晚各一粒、基于血常规停利可君的建议，且未响应配药询问。额外建议的检查与真值无关，存在潜在冲突（真值强调血压不低时加药，预测未提及此前提）。"
+          },
+          {
+            "sample_index": 81,
+            "pid": "852cf5dfc91d48debd6dec3b944cdfad",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图：长期服用阿尔马尔以改善预后，并允许在特定心率或血压条件下调整。预测完全转向了不同的抗血小板和他汀治疗方案，与真值动作无关且场景偏离。"
+          },
+          {
+            "sample_index": 82,
+            "pid": "909a813d119641249c86b0211dd516b6",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "medium_short_text",
+              "question_form",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图：真值焦点是二甲双胍缺货需替代开药（脂必泰和可多华），预测却错误声称药物可用并询问继续服用，与真值冲突且可能造成用药安全风险。"
+          },
+          {
+            "sample_index": 83,
+            "pid": "9a02638464e945c0a5f6178f5e000d54",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值核心意图为礼貌性结束对话，无医疗动作；预测文本完全替换为具体停药和检查指令，与真值无关且存在潜在安全风险（擅自调整心血管药物）。"
+          },
+          {
+            "sample_index": 84,
+            "pid": "a39cde5af15a4aacb2dd087f0bfcffff",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "rationale": "预测文本未覆盖真值核心意图：真值强调通过吃药观察效果，若无效则住院做血管造影，并询问青光眼病史；预测仅建议复查CT和症状加重就诊，未提及药物试验、血管造影或青光眼，核心动作被忽略。"
+          },
+          {
+            "sample_index": 86,
+            "pid": "b8961f31d0184d9e859bf7d47769ba14",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是‘再试一下’，可能指药物或治疗的临时调整尝试，但预测文本完全替换为确认现有用药和复查，无任何‘尝试’动作覆盖，与真值明确冲突。"
+          },
+          {
+            "sample_index": 92,
+            "pid": "f7426348b5d34a7e8a79a9ad551da927",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是确认配药数量限制的流程操作，预测文本完全未提及药物数量、开药流程或确认动作，而是转向了泛化的治疗建议，核心意图未被覆盖且场景偏离。"
+          },
+          {
+            "sample_index": 93,
+            "pid": "00476a0238e94359a21ca76fd421203f",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "预测文本与真值核心意图完全无关。真值为中性确认词'好'，无具体医疗动作；预测却建议复查特定指标，属于完全不同的临床场景，无任何覆盖或遵循。"
+          },
+          {
+            "sample_index": 94,
+            "pid": "00dc18c27fb84be8b8f1d668b0d42e96",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本建议改用降脂针治疗，但真值核心意图是确认现有200多/月二针方案的自愿性并结束问诊，预测未覆盖自愿原则或诊毕意图，且建议改变治疗方案可能冲突。"
+          },
+          {
+            "sample_index": 98,
+            "pid": "15beb94fdfa1418eb1b635b4c78badb9",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本与真值核心意图（根据心跳恢复情况决定是否需要持续用药）明确冲突：真值强调口服药物维持的可能性，而预测直接要求住院静脉用药并禁止自行服药，存在临床场景偏离和潜在安全风险。"
+          },
+          {
+            "sample_index": 101,
+            "pid": "24f99b8ef82149c18a011abff3e0d2e7",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本建议进行具体检查，与真值'不需要（任何检查/干预）'的核心意图完全冲突，属于明确反向替代。"
+          },
+          {
+            "sample_index": 102,
+            "pid": "2c4441e4d3804a0d9340f69ccb2c4dd9",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值仅为流程性确认'好的'，无核心医疗意图；预测添加了药物调整建议，与真值无关且可能造成冲突，未覆盖真值内容。"
+          },
+          {
+            "sample_index": 110,
+            "pid": "82d2f31f14b7437ba2305db6f9d3f3fe",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（更换雷贝拉唑类似药物），反而建议继续服用雷贝拉唑，与真值明确冲突。"
+          },
+          {
+            "sample_index": 111,
+            "pid": "86ea8c5817d54a5ca6b07f4a10f50390",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图（续药），转而建议全新的检查评估和方案调整，属于明确反向替代和临床场景偏离。"
+          },
+          {
+            "sample_index": 112,
+            "pid": "8bcda200cc0c410cb24996265053ee1e",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本与真值核心意图（已完成开药且无需额外处理）完全冲突：真值强调'不需要'任何调整，而预测却建议立即就诊并调整药物方案，存在潜在安全风险。"
+          },
+          {
+            "sample_index": 114,
+            "pid": "935dcc7e39fd4f91aae197f397f4eb00",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "medium_short_text",
+              "workflow_keywords:线下"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图：真值强调线上续药和初次方案需线下，而预测提出全新的冠脉介入治疗建议，无续药或管理动作覆盖，存在临床场景冲突和安全风险。"
+          },
+          {
+            "sample_index": 115,
+            "pid": "a08cf04cd11344cc8d350dddfd0fb42c",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "rationale": "预测文本未覆盖真值核心意图：真值强调先通过饮食控制和锻炼3个月，复查后再考虑药物；预测直接建议药物治疗（美托洛尔），且未提及生活方式干预或复查时间点，与真值方向冲突。"
+          },
+          {
+            "sample_index": 119,
+            "pid": "bcc2516118ba4c33abd4d570aba52238",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全替换了真值的核心意图（开药确认流程），改为药物更换指令，与真值无关且可能引发用药冲突风险。"
+          },
+          {
+            "sample_index": 124,
+            "pid": "c3ff6c8b2b2d42428fe680a344932ed7",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "medium_short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（已开好处方并等待审核），而是转向询问新药物选择，属于完全不同的临床场景和动作方向。"
+          },
+          {
+            "sample_index": 128,
+            "pid": "d883a587d5a447d8bba13bed0cb9c597",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（评估胸闷症状、高血压/糖尿病史及冠脉CT建议），而是转向完全不同的临床场景（室早射频消融和抗心律失常药物），存在严重场景偏离。"
+          },
+          {
+            "sample_index": 129,
+            "pid": "dd165ea431164fcd9dfc7d9543650c05",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图（建议线下复诊和提供门诊信息），转而提出不同的药物治疗和检查建议，与真值动作无覆盖且临床场景偏离。"
+          },
+          {
+            "sample_index": 130,
+            "pid": "eb65240146d245a2ade3e87cd0c46458",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值仅为礼貌性结束语，无任何医疗意图或动作；预测完全替换为高血压药物调整建议，与真值核心意图无关且存在潜在安全风险（未经评估直接加药）。"
+          },
+          {
+            "sample_index": 131,
+            "pid": "eca2eca00066447493ae5c1395f95f66",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值核心意图是礼貌性结束对话，无医疗动作；预测添加了具体检查安排，与真值无关且可能误导患者，存在场景偏离。"
+          },
+          {
+            "sample_index": 135,
+            "pid": "2ed5a69c4b504feb85643a1b1fa10465",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（处方审批和取药流程），替换为无关的诊断检查和药物调整建议，存在严重场景偏离。"
+          },
+          {
+            "sample_index": 138,
+            "pid": "8b584f3a65ad43389d9cf9b81b403b70",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（复查造影和住院评估），转而建议射频消融治疗早搏，属于不同临床场景和动作，存在严重偏离。"
+          },
+          {
+            "sample_index": 148,
+            "pid": "1b0b3c26db9645b1a6ac726011cac6ed",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "question_form",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图（询问开药需求），转而提供具体的药物调整建议，构成明确临床动作替换和场景偏离，无任何覆盖。"
+          },
+          {
+            "sample_index": 150,
+            "pid": "1eb1518675794e9bb9e87dc3a25e76fa",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "rationale": "预测文本完全未覆盖真值的核心意图。真值讨论降脂药起始治疗策略、生活方式干预和复查时机，而预测文本仅涉及血压药物剂量维持，两者临床场景和主题无关。"
+          },
+          {
+            "sample_index": 152,
+            "pid": "274572c1d1284170b91b7b780075ef1a",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（药物控制血脂及开药询问），转而提出完全不同的诊断路径（查甲状腺功能、确诊糖尿病、降糖治疗），临床场景和动作方向偏离。"
+          },
+          {
+            "sample_index": 153,
+            "pid": "279688c7a31149b99a7800ea98a47550",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值核心意图仅为确认性回应'好的'，无具体医疗动作；预测文本完全替换为询问症状和病史的新临床方向，与真值无关且场景偏离。"
+          },
+          {
+            "sample_index": 155,
+            "pid": "3133a5a6af904d39bf126aca17548271",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "rationale": "预测文本仅建议线下复诊和一般性治疗控制，未覆盖真值核心意图：饮食运动干预3个月、复查血脂、药物使用逻辑、停药风险及平板运动试验检查。核心临床管理动作基本缺失，仅有弱相关点。"
+          },
+          {
+            "sample_index": 157,
+            "pid": "47ed1671fbc14f21b097411f5fed5c10",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了|不客气",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本建议换药和监测血压，与真值核心意图'开好了'（确认处方完成）完全无关且冲突，属于明确反向替代临床动作。"
+          },
+          {
+            "sample_index": 159,
+            "pid": "4b33bfd0fae040df95711cecb28209c2",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图：真值建议将口服药改为每月打针并复查，而预测却建议维持当前用药方案，明确冲突且反向替代了临床动作。"
+          },
+          {
+            "sample_index": 162,
+            "pid": "5866250b4ee74135a96b87223e26630c",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（西洛他唑相关头痛处理与剂量调整），转向讨论降脂治疗，存在严重场景偏离和冲突。"
+          },
+          {
+            "sample_index": 167,
+            "pid": "799466afac994f978fa45c5d3ea34974",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（确认处方完成），而是转向询问药物品种以讨论替代方案，与真值动作明确冲突且场景偏离。"
+          },
+          {
+            "sample_index": 173,
+            "pid": "8fe6cfec711742de9a267cb0e2e43a54",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "medium_short_text",
+              "workflow_keywords:您好"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（建议咨询五官科评估抗血小板药物使用），仅提供无关的血压管理建议，与真值临床场景和动作方向无关联。"
+          },
+          {
+            "sample_index": 175,
+            "pid": "96c4d688e52042afaa7906839cae5c49",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:登记"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（询问预约住院登记进行造影检查），而是转向了续药和服药指令，属于完全不同的临床场景，核心动作未被保留。"
+          },
+          {
+            "sample_index": 178,
+            "pid": "a18ec7c45c0e46b7981da2df41c3386c",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图：真值强调心率<55次/分时需停用可达龙（胺碘酮），但预测文本完全忽略此安全监测和停药条件，仅建议常规服药和复查，存在潜在安全风险。"
+          },
+          {
+            "sample_index": 180,
+            "pid": "b466779a24e145fbb01cd7dc2577a813",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是通知患者一个药未开成功而其他药已开好，属于纯流程配药确认。预测完全未提及药物开具状态，转而建议服药和检查，与真值核心意图无关且场景偏离。"
+          },
+          {
+            "sample_index": 181,
+            "pid": "b64ecb94aba24224bad873c8b50be255",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值仅为礼貌性结束语，无任何医疗动作意图；预测添加了具体的药物和复查指令，与真值核心意图完全无关，存在潜在安全风险。"
+          },
+          {
+            "sample_index": 182,
+            "pid": "b8de3d82ae504f04a5a67dec435dc106",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了|您好",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（开药流程确认），替换为无关的甲肝诊断、隔离治疗和高血压药物建议，存在严重临床场景冲突和安全风险。"
+          },
+          {
+            "sample_index": 185,
+            "pid": "bdd2c8abf2084c8d890aaf4d12950784",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:请问|您好",
+              "question_form",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图：真值是关于波立维药物可用性的询问，而预测错误地转向阿托伐他汀和瑞舒伐他汀的用药建议，无任何覆盖或相关性。"
+          },
+          {
+            "sample_index": 189,
+            "pid": "c802f780746e42b68d1e0ea1afac98c2",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（同意/确认动作），而是替换为完全不同的临床场景（药物开具限制和监测建议），存在明确场景偏离。"
+          },
+          {
+            "sample_index": 191,
+            "pid": "cb70848412144240ae85ba6f2927ed3d",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "rationale": "预测文本完全未覆盖真值核心意图：真值强调饮食控制、运动、复查及必要时药物治疗高脂血症，而预测聚焦血压监测和心态管理，与血脂管理无关，存在严重场景偏离。"
+          },
+          {
+            "sample_index": 192,
+            "pid": "cfd2701b0cc8421bb042350c4fd0c82f",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图。真值强调斑块超声表现和饮食管理（低盐低脂），而预测转向药物调整（立普妥减半）、监测和复查，未提及饮食建议或斑块相关评估，存在临床场景冲突。"
+          },
+          {
+            "sample_index": 194,
+            "pid": "da051eec6c2e46e6abc5f37f5fb8e1b0",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图：复查nt-proBNP、确认当前降血脂方案并调整。仅泛泛提及血脂和运动，缺乏对具体数值、复查计划及药物管理的响应，临床动作方向偏离。"
+          },
+          {
+            "sample_index": 198,
+            "pid": "ec0906e3bfe04a0fbd52bd677d368ffe",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "真值核心意图是询问停药后血脂恢复问题并结束咨询，预测却建议启动他汀治疗（与停药意图直接冲突）、控制血压等全新方案，完全未覆盖真值，且存在用药安全风险。"
+          },
+          {
+            "sample_index": 206,
+            "pid": "1889516ccdbd486ab08bb82f6455317d",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（住院后通过造影评估血管情况以决定处理必要性），仅提供泛化药物和监测建议，与真值场景和动作无关。"
+          },
+          {
+            "sample_index": 208,
+            "pid": "1c54161df3994ab2956d73c578f7f8cf",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是确认药物开具完成（流程动作），但预测文本完全替换为新的诊断建议（调整药物和检查），未覆盖任何真值内容，且存在潜在安全风险（未经评估直接建议调整剂量）。"
+          },
+          {
+            "sample_index": 211,
+            "pid": "27cc80e11bdd423bb3e23620eb932f0c",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测仅部分覆盖真值核心意图（心内科评估），但忽略了手术指证的关键前提（复查结果良好），并添加了无关且可能冲突的用药和饮食建议（换药、喝茶），导致临床方向偏离。"
+          },
+          {
+            "sample_index": 217,
+            "pid": "6854d7653f3f40fc9a72b5c01ac49011",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "rationale": "预测文本未覆盖真值核心意图（停用中成药、生活方式干预、三个月后复查），反而建议‘暂不停药’，与真值明确冲突，存在潜在安全风险。"
+          },
+          {
+            "sample_index": 218,
+            "pid": "6bacf0e52468433595cee49c64791b34",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全替换了真值的核心意图（开3盒现有药），改为要求更换药物规格并确认，与真值动作明确冲突且无覆盖。"
+          },
+          {
+            "sample_index": 225,
+            "pid": "f309efa6ddfe44aeb07af50dfb39bea2",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测未覆盖真值核心意图（询问咳嗽和吸烟史），仅提及检查正常和后续管理建议，与真值方向基本无关。"
+          },
+          {
+            "sample_index": 235,
+            "pid": "609aff256a9c4a72b53c3e2094382409",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（药品物流调整通知），而是提供了无关的医疗建议（复查、预约医院、评估手术），属于完全不相关且场景偏离。"
+          },
+          {
+            "sample_index": 239,
+            "pid": "9cd315c85c214ec5a86c1f05ab311b22",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图：真值为中性流程确认（'好的'），预测却添加了具体药物开具、复查和服药指令，这些内容与真值无关且可能造成临床安全风险。"
+          },
+          {
+            "sample_index": 241,
+            "pid": "a8266202acc04f0ba8e84b1155652253",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（付费流程确认），替换为药物更换和复查建议，无任何覆盖或兼容性，属于明确场景冲突。"
+          },
+          {
+            "sample_index": 242,
+            "pid": "d16a610e95fc4bfb873dd0602a7d6fbc",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（药已开好），而是转向询问是否继续开具其他药物，与真值动作明确冲突且场景偏离。"
+          },
+          {
+            "sample_index": 243,
+            "pid": "d65478116b284c30b0f7e5423edf0514",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（建议咨询神经内科医生关于用药时长和停药），替换为住院诊治的临床场景，无覆盖或兼容性。"
+          },
+          {
+            "sample_index": 244,
+            "pid": "d8224a00b8044ff1825ae58e97670f88",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是告知药品缺货并限制开药数量，但预测文本完全未提及缺货信息或开药限制，仅聚焦血压管理和续方，与真值核心动作无关且存在场景偏离。"
+          },
+          {
+            "sample_index": 245,
+            "pid": "e4f42e7d89fe4db1bdf6004f231daf59",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图：真值聚焦费用和用药确认，而预测转向询问药物选择和历史评估，无任何覆盖或兼容动作。"
+          },
+          {
+            "sample_index": 250,
+            "pid": "0a79fa0610e5483d9f2016b5f72b0285",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊|请问"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图（线下复诊流程和预约指导），转而提出无关的血管检查建议，与真值场景和动作无实质覆盖，存在临床场景偏离。"
+          },
+          {
+            "sample_index": 256,
+            "pid": "294a58785d794783a48ce1cb7f3c9199",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "rationale": "预测文本与真值核心意图冲突：真值要求继续服用他汀并加药，而预测建议停用并更换他汀，这直接反对了真值的用药指令，存在潜在安全风险。"
+          },
+          {
+            "sample_index": 258,
+            "pid": "3675b13f54f44a1990cc993c7197a1f6",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本完全替换了真值的核心用药指令（继续原用药），改为更换胃药和调整他汀方案，存在明确冲突和潜在安全风险，未覆盖任何真值意图。"
+          },
+          {
+            "sample_index": 264,
+            "pid": "5283db2f8cb340e7a6a02d672bd0acf4",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图：定期复查、控制血脂血糖和内分泌科就诊。预测转向了冠脉CTA和血管狭窄评估，与真值的返流管理和代谢问题控制无关，存在临床场景偏离。"
+          },
+          {
+            "sample_index": 268,
+            "pid": "6ef5d97eee844ca2a74250903c6eadb7",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图：真值聚焦症状描述（活动相关胸闷胸痛）和饮食建议（白肉可食），而预测转向低血压监测和药物调整（诺欣妥减量），两者临床场景和动作方向无关联且可能冲突。"
+          },
+          {
+            "sample_index": 271,
+            "pid": "76f1a864b33e428997940d613521735c",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图（建议线下复诊、提供门诊时间和预约方式），转而讨论不相关的动态心电图结果和专科复查，与真值无语义一致性。"
+          },
+          {
+            "sample_index": 273,
+            "pid": "80cea8a9a32d4a88a8fa4cd3db8815a3",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图：真值焦点是安排明年7月复查造影的随访计划，而预测改为调整高血压药物剂量，无任何复查或时间安排提及，属于完全不同的临床场景。"
+          },
+          {
+            "sample_index": 277,
+            "pid": "a1104e148d3c459397183615390cda6f",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "rationale": "预测文本完全忽略真值核心意图（基于冠脉CT结果建议住院血管造影或控制危险因素），转而推荐心理评估和无药物治疗，与真值临床方向明确冲突，存在潜在安全风险。"
+          },
+          {
+            "sample_index": 278,
+            "pid": "a239cbf3e2844683b496019b94ae7c33",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图：确认当前用药细节（阿尔马尔剂量）、指导血压监测记录和运动减重建议，转而提出全新的紧急降压治疗和评估方案，与真值临床场景和动作方向冲突。"
+          },
+          {
+            "sample_index": 284,
+            "pid": "b2e46ec769e54994b8bec0c3098076ab",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图仅为配药流程确认（'开好了'），无具体医疗动作指令。预测添加了疾病管理建议（服药、复查等），但未覆盖真值的核心流程确认意图，存在场景偏离。"
+          },
+          {
+            "sample_index": 285,
+            "pid": "b4c3c2ac717041ffa86e61c5da5f10f2",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了|不客气",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（确认开药完成），而是转向处方限制说明，与真值动作无关且场景偏离。"
+          },
+          {
+            "sample_index": 290,
+            "pid": "e27f5bd2955946d6ba55ca77e2a12329",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "question_form",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（询问是否需要开药），而是转向了护胃药调整和血压监测建议，存在严重场景偏离和动作替代。"
+          },
+          {
+            "sample_index": 293,
+            "pid": "0e3c200b60a1489ea88731d156476a5e",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图：真值询问糖尿病药物开具限制，预测却转向心血管药物（阿司匹林、他汀）和检查建议，临床场景与意图彻底偏离，无任何相关性。"
+          },
+          {
+            "sample_index": 294,
+            "pid": "12f6d3bd86a5419fb3af3908dc30df7d",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图：真值关注碳酸氢钠未开和螺内酯下次可不开的具体管理，预测却转向达格列净换药和开药用量建议，临床场景和动作方向完全偏离。"
+          },
+          {
+            "sample_index": 295,
+            "pid": "5530344d2b5c4508819b9479565f0a1a",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（邮寄药物和按提示操作），替换为无关的停用药物询问和症状评估，存在临床场景冲突。"
+          },
+          {
+            "sample_index": 297,
+            "pid": "9411faaa77cf491ca1655b335a7721f8",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（早搏需长期用药），仅讨论药物服用细节，与真值内容无关且未提及早搏管理。"
+          },
+          {
+            "sample_index": 303,
+            "pid": "056881c38d854ebba2827aeca0b99f1e",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图：真值仅为开药流程确认，无具体医疗动作；预测却建议住院、调整药物和检查，属于完全不同的临床场景，且可能带来不必要的医疗风险。"
+          },
+          {
+            "sample_index": 304,
+            "pid": "084e84ed78cc41f386cb5601748e24bd",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值核心意图为礼貌性结束对话，无医疗动作；预测文本完全替换为具体诊断和治疗建议，与真值无关且场景偏离。"
+          },
+          {
+            "sample_index": 306,
+            "pid": "0a7e8b80f8a04a63a4dad8f033c4aa51",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（门诊时间安排和预约流程），而是提供了独立的诊断和治疗建议，与真值无关且场景偏离。"
+          },
+          {
+            "sample_index": 308,
+            "pid": "135511de9f6a4e3c8b251ff58c923c4b",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊|请问"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图：真值强调根据血压、浮肿、尿量调整剂量并询问血压范围，建议线下复诊；预测却改为继续原方案服药并讨论配药限制，与真值冲突且忽略关键临床评估需求。"
+          },
+          {
+            "sample_index": 310,
+            "pid": "25c842fa6dbd41fa9684f16b518e7dc3",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图：真值询问索他洛尔每日剂量，但预测转向无关药物（泮托拉唑、利伐沙班）和凝血监测，无任何索他洛尔相关信息，属于完全不同的临床场景。"
+          },
+          {
+            "sample_index": 313,
+            "pid": "2acf8691eeec46fea38a3016cd803721",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（确认药物已开好），反而建议更换药物或延迟取药，与真值动作明确冲突，属于反向替代。"
+          },
+          {
+            "sample_index": 314,
+            "pid": "2f2c01a540f04e7782bdaab3d03f901b",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（手术射频消融治疗作为药物无效的替代方案），仅重复了现有药物治疗和监测，未提及任何手术选项，存在明确临床方向冲突。"
+          },
+          {
+            "sample_index": 318,
+            "pid": "3d70481569824500ba392b8a99e60ed7",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（开药流程确认），而是替换为无关的肾功能诊断和停药建议，存在严重场景偏离和潜在安全风险。"
+          },
+          {
+            "sample_index": 320,
+            "pid": "43b513da79924c3e948bc88f579fbf72",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（建议线下复诊以全面评估），反而提出替代性检查建议（心脏彩超），与真值方向冲突且可能忽略线下复诊的必要性。"
+          },
+          {
+            "sample_index": 323,
+            "pid": "68b2a63540af4cb79e38ec919491fa1c",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊|请问"
+            ],
+            "rationale": "预测文本的核心意图是更换降压药，但真值强调检查心脏、肾脏等并建议线下复诊，未建议换药；预测忽略了真值的关键检查建议和线下复诊指引，存在临床场景偏离和潜在安全风险（擅自换药可能不稳定）。"
+          },
+          {
+            "sample_index": 325,
+            "pid": "7027cd2d778e417a8a1d1bb9a6b2a180",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图为祝福性问候，无医疗动作；预测文本添加了具体医疗建议（监测血压、防跌倒等），与真值完全无关且可能误导患者，存在场景偏离风险。"
+          },
+          {
+            "sample_index": 326,
+            "pid": "78301a75cc9740a7a2c9739be37387ab",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本完全忽略真值核心意图（维持原剂量服药并定期复查），反而提议更换他汀类型，与真值明确冲突且可能带来用药安全风险。"
+          },
+          {
+            "sample_index": 329,
+            "pid": "7fecdcab4b8e42bea3a36e3b8567b36f",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（确认原研药物可用性），替换为房颤诊断、抗凝和起搏器植入建议，属于完全不同的临床场景，无覆盖。"
+          },
+          {
+            "sample_index": 330,
+            "pid": "80a1f6c8a1e142808735bc0b9cc99e33",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测未覆盖真值核心意图（开Holter评估心律失常），反而替换为完全不同的检查方案（心电图、心脏超声）和药物调整，存在临床场景偏离。"
+          },
+          {
+            "sample_index": 331,
+            "pid": "813d06b63f7343c491653c9c9766496b",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图：真值强调消化科就诊、轻微与轻度狭窄差异、药物评估和线下复诊，而预测错误聚焦冠状动脉狭窄（心脏问题）和非心脏病因排查，与真值食管胃肠道主题冲突，存在严重场景偏离。"
+          },
+          {
+            "sample_index": 335,
+            "pid": "8429dd6c90394490b00533b2e7bee52d",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:已开好|线下|复诊"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图：线下复诊、核对药物信息及门诊安排。预测仅提及调整药物和复查，但完全忽略了真值中的关键管理动作（如复诊流程、药物核对），且未提及诱因分析，属于核心动作缺失。"
+          },
+          {
+            "sample_index": 341,
+            "pid": "9971b073db96429c9a1d8c81a6fc09cc",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图：真值强调通过生活方式控制血脂及调整药物（如换用比索洛尔或加用麝香保心丸），而预测仅建议继续原药和复查，未提及任何药物调整或生活方式干预，核心动作基本缺失。"
+          },
+          {
+            "sample_index": 342,
+            "pid": "9e54417b06f64b82aca2743e9a73847c",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [],
+            "rationale": "预测未覆盖真值核心意图：真值强调周六上午特定医生可同时完成检查和就诊，而预测建议周一门诊就诊，检查与就诊时间地点完全冲突，核心管理动作被替换。"
+          },
+          {
+            "sample_index": 346,
+            "pid": "a46910a0d38f4319860e2c2db1293dee",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本建议胃肠镜流程和抗血小板药物评估，与真值核心意图（住院病人会诊管理）完全无关，场景偏离严重，无覆盖。"
+          },
+          {
+            "sample_index": 349,
+            "pid": "a8ef35326c124cee92d26a8dad61a435",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全忽略了真值'开好了'的核心意图（处方已完成或确认），转而建议调整药物和监测，属于明确反向替代和场景偏离。"
+          },
+          {
+            "sample_index": 355,
+            "pid": "b7f7d9e4d14b4d49afca8c699ecaf993",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图（无症状不服药、有症状服药、长期维持治疗），转而建议门诊就诊和评估风险，属于明确反向替代和场景偏离。"
+          },
+          {
+            "sample_index": 357,
+            "pid": "bb211f324ed44fbda6294e87810a874d",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本明确替换了真值核心意图（继续原方案监测），改为更换药物和暂停药物，与真值动作冲突，且可能带来安全风险。"
+          },
+          {
+            "sample_index": 362,
+            "pid": "c5caab3b61b3434bb23c104b41452db0",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（信息不足无法判断用药需求），而是直接建议线下复诊，未保留真值中的关键医疗动作和谨慎评估立场。"
+          },
+          {
+            "sample_index": 363,
+            "pid": "ca1f8149737c47b3b57a98836bdb979a",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊|请问"
+            ],
+            "rationale": "预测文本建议暂停服药和排查继发性高血压，与真值核心意图（记录血压后复诊决定用药，不暂停当前药物）明确冲突，且未覆盖血压监测和复诊安排。"
+          },
+          {
+            "sample_index": 367,
+            "pid": "e1b6e3efb5114a3fb7f7040c15268b17",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是流程动作‘提交处方’，但预测替换为‘已开好处方并更换厂家’，涉及药物变更且未保留原动作，存在临床场景偏离。"
+          },
+          {
+            "sample_index": 369,
+            "pid": "e451575eb24d4936a3f1e8faff8ee066",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（同意/确认），而是替换为询问症状和复诊目的，构成明确反向替代。"
+          },
+          {
+            "sample_index": 371,
+            "pid": "f2674d99d778418b8115b2fbd839c5d6",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:请问"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图：真值焦点是确认代开药流程和处方细节（艾司奥美拉唑、利伐沙班、胺碘酮的用法），而预测转向了早搏、ST段改变和复查建议，临床场景和动作完全偏离。"
+          },
+          {
+            "sample_index": 373,
+            "pid": "f55f58c8221d4018bab1c1fb2d6c58dc",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:线下|复诊"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（规律服药和线下复诊建议），而是替换为完全不同的临床干预（冠脉造影和支架植入），存在严重场景偏离和潜在安全风险。"
+          },
+          {
+            "sample_index": 375,
+            "pid": "f8825f310b194fc28426705337b2ae76",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是确认处方完成（开好了），但预测文本建议暂停药物并调整方案，明确反对真值动作，存在冲突和潜在安全风险。"
+          },
+          {
+            "sample_index": 381,
+            "pid": "feeff51377134c52872f1c1fe6a5803b",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:已开好|线下|复诊"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（血糖控制、互联网就诊限制、线下复诊建议、药物核对与服用、处方量限制等），仅泛泛提及危险因素控制，存在严重场景偏离和动作缺失。"
+          },
+          {
+            "sample_index": 1535,
+            "pid": "b7379135fabe484a846734a1e5532d51",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是系统操作指导（找不到科室的解决方法），预测文本完全转向药物开具和血压管理，无任何相关覆盖，存在严重场景偏离。"
+          },
+          {
+            "sample_index": 1540,
+            "pid": "b9a429fe5ff44d038973e33d18ad752a",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "workflow_keywords:登记|您好"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（确认周六心超预约细节和询问检查时间），反而建议不同检查（动态心电图相关）并否定进一步检查，与真值冲突且偏离临床场景。"
+          },
+          {
+            "sample_index": 1542,
+            "pid": "bd02d2e78b4a4845a6eef61727e997a0",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "medium_short_text",
+              "workflow_keywords:开好了"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图：真值明确开具氯吡格雷并指导用药监测，预测却改为讨论阿托伐他汀、脂必泰和化验，且以疑问形式提出阿司匹林，未保留任何真值中的药物、剂量或出血监测指令。"
+          },
+          {
+            "sample_index": 1544,
+            "pid": "bddc7e82af574f2387ffb47c0dcba3c7",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "medium_short_text",
+              "workflow_keywords:线下"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（线下面诊以决定药物治疗方案），转而讨论手术风险和评估，属于完全不同的临床场景和方向性冲突。"
+          },
+          {
+            "sample_index": 1546,
+            "pid": "bdea8e16a6c946fe99e210334866ef75",
+            "final_score_0_5": 2.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是确认处方开立完成，无具体医疗动作指令；预测替换药物并添加控制血脂和监测肝功能建议，未覆盖开立完成的确认意图，且药物更换可能隐含冲突。"
+          },
+          {
+            "sample_index": 1548,
+            "pid": "c0732b0369c74be0a246cc6dadc43eb4",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值仅为流程性确认'好的'，无核心医疗意图；预测添加了具体药物、剂量目标和复查计划，与真值无关联性，属于完全不同的临床场景。"
+          },
+          {
+            "sample_index": 1549,
+            "pid": "c15cd90f7fc14c0b83eacf31be6b32db",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本替换了真值的核心意图（心内科会诊请求），转向心外科手术和住院治疗，存在明显临床场景偏离和潜在安全风险。"
+          },
+          {
+            "sample_index": 1550,
+            "pid": "c241fbccd35d4d649729c7029463e67e",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（互联网门诊开药量限制说明），而是提供了无关的用药和监测建议，与真值无关联且临床场景偏离。"
+          },
+          {
+            "sample_index": 1571,
+            "pid": "d4aeaec8c6b74249b82693b1486c37ac",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（开药完成确认），转而告知无药并建议自行查询或替代方案，构成明确反向替代和临床场景冲突。"
+          },
+          {
+            "sample_index": 1960,
+            "pid": "9a556fba039342a58c2f2598c79c2346",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（开药1个月），反而替换为线下就诊和检查建议，属于明确反向替代临床动作。"
+          },
+          {
+            "sample_index": 1964,
+            "pid": "9c394407e24742818eaf720783bfc110",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本未覆盖真值核心意图（当天完成检查和开单），反而替换为长期监测和复查方案，属于临床场景偏离和动作反向替代。"
+          },
+          {
+            "sample_index": 1965,
+            "pid": "9cba778930634245996141d31f8737e7",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值核心意图是礼貌性结束对话，无医疗动作；预测完全替换为无关的药物管理和检查建议，核心意图零覆盖且存在潜在安全风险。"
+          },
+          {
+            "sample_index": 1968,
+            "pid": "9d46e7368bfa402285e6a5edb1ea1a8d",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "medium_short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全忽略了真值的核心意图：明确指出不应按一天二次服药（因涉及过度开药问题），而是直接开具续药处方并建议按时服用，这与真值的警告和指导方向明确冲突。"
+          },
+          {
+            "sample_index": 1973,
+            "pid": "9e5ea346d10d4ceaaee9df10368d9b8c",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是确认药物已开并默认继续原方案，但预测明确拒绝续药并替换为全新诊断流程，与真值动作冲突且偏离临床场景。"
+          },
+          {
+            "sample_index": 1976,
+            "pid": "a01ff9fa7d034ed79631447202e74106",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "真值核心意图为礼貌性结束对话，无医疗动作；预测完全替换为无关的降压药更换建议，存在临床场景偏离和安全风险。"
+          },
+          {
+            "sample_index": 1977,
+            "pid": "a04435b4de6c4f43afc8105376df0307",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action",
+              "polite_only_phrase"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图：真值为纯礼貌性结束语，无医疗动作；预测添加了无关的诊断、治疗建议和就诊指导，与真值无关联性。"
+          },
+          {
+            "sample_index": 1980,
+            "pid": "a120f17e5ca24537b30c8ff0497666bd",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是确认药物开具完成，但预测文本替换为缺货自行购买或换药建议，完全偏离了核心动作，且存在潜在用药安全风险。"
+          },
+          {
+            "sample_index": 1982,
+            "pid": "a18d0054a52b4076aa653c4d03c12f8b",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图：真值强调夜间心率正常无需担忧，而预测错误诊断房早和心律不齐并提出治疗建议，造成明确临床冲突和潜在安全风险。"
+          },
+          {
+            "sample_index": 2002,
+            "pid": "ab7a90677c5c4f5eb38ae680949db082",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图：真值强调精神处方需线下开具且线上无法处理，而预测建议无症状无需服药和观察，属于完全不同的临床场景和方向，无相关性。"
+          },
+          {
+            "sample_index": 2003,
+            "pid": "abf43bc568514b1f8077ad8ec1b5bbf8",
+            "final_score_0_5": 1.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（确认开药完成），转而讨论药物缺货和替代方案，未保留任何管理动作或流程确认，属于严重场景偏离。"
+          },
+          {
+            "sample_index": 2021,
+            "pid": "b1f8928a1d774872be4c43188592a771",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:不客气",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全偏离真值核心意图（询问是否需要开药），改为建议调整药物剂量，属于明确反向替代和场景冲突。"
+          },
+          {
+            "sample_index": 2026,
+            "pid": "b52f436f477c48699293dfbaa05f1d7f",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是确认开药完成，但预测完全替换为停药、换药和查询库存，与真值动作明确冲突，未保留任何兼容管理动作。"
+          },
+          {
+            "sample_index": 2039,
+            "pid": "bb98267a8363476c8a190cfe35c9280c",
+            "final_score_0_5": 1.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是礼貌性结束对话，无医疗动作；预测完全替换为具体药物开具和监测指令，与真值无关且场景偏离。"
+          },
+          {
+            "sample_index": 2040,
+            "pid": "bbebd26eff634c7c8146e5b4b4feff58",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": false,
+            "low_info_reasons": [
+              "short_text"
+            ],
+            "rationale": "预测文本完全未覆盖真值核心意图（询问术后造影复查情况），而是转向了术前停药和凝血功能检查，属于完全不相关的临床场景和动作，存在严重偏离。"
+          },
+          {
+            "sample_index": 2042,
+            "pid": "bcc7b16ee947413e89e65087348788e4",
+            "final_score_0_5": 0.5,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是确认处方完成（开药流程），但预测文本替换为家属自行购药指令，完全偏离临床场景和医生职责，存在安全风险。"
+          },
+          {
+            "sample_index": 2044,
+            "pid": "be2630a4d8f145938000bdd4a0ab62bc",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "预测文本完全未覆盖真值的核心意图（开药流程确认），而是转向了不同的诊断建议（动态心电图检查），存在明确场景偏离和动作替换。"
+          },
+          {
+            "sample_index": 2046,
+            "pid": "beae22308b8d4930be7821df4bfb22c6",
+            "final_score_0_5": 0.0,
+            "is_low_info_ground_truth": true,
+            "low_info_reasons": [
+              "short_text",
+              "workflow_keywords:开好了",
+              "no_explicit_medical_action"
+            ],
+            "rationale": "真值核心意图是已完成开药动作，但预测文本要求患者提供药物信息以重新开具处方，这与真值的完成状态明确冲突，未覆盖核心意图。"
+          }
+        ],
+        "input_total_count": 2180,
+        "low_info_detected_count": 1913,
+        "excluded_low_info_count": 0,
+        "kept_non_low_info_count": 2180
+      }
+    }
+  ]
+}

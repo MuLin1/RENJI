@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "dataset_name": "highrisk",
+    "input_file": "similarity_scores_evaluation_results_Qwen_Qwen3.5-9B_highrisk_deepseek-v3.1.json",
+    "policy": "balanced",
+    "low_score_threshold": 2.5,
+    "judge_model": {
+      "name": "deepseek-v3.1",
+      "url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key_env": "inline_key_in_judge_api_key_env",
+      "api_key": "***hidden***"
+    },
+    "timestamp": "2026-03-29T21:19:39.430462"
+  },
+  "summary": {
+    "input_total_records": 645,
+    "candidate_count_total": 259,
+    "candidate_evaluated_count": 0,
+    "candidate_skipped_by_max_samples": 259,
+    "filtered_count": 0,
+    "kept_count": 645,
+    "filter_rate_in_candidates": 0.0,
+    "filter_rate_overall": 0.0,
+    "judge_status_counts": {},
+    "average_before_success": 3.014,
+    "average_after_success": 3.014,
+    "average_delta_success": 0.0
+  },
+  "decisions": []
+}

@@ -1,0 +1,571 @@
+{
+  "metadata": {
+    "scoring_model": {
+      "name": "deepseek-v3.1",
+      "url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key": "***hidden***"
+    },
+    "rules_version": "direction_consistency_v2",
+    "score_granularity": "0.5",
+    "timestamp": "2026-03-28T18:33:32.749282"
+  },
+  "global_summary": {
+    "files_processed": 2,
+    "global_success_count": 99,
+    "global_error_count": 0,
+    "global_skipped_count": 1,
+    "global_average_final_score_0_5": 1.803
+  },
+  "file_summaries": [
+    {
+      "input_file": "evaluation_results_Qwen_Qwen3.5-9B_highrisk.json",
+      "output_file": "similarity_scores_evaluation_results_Qwen_Qwen3.5-9B_highrisk_deepseek-v3.1.json",
+      "dataset_name": "highrisk",
+      "summary": {
+        "total_records": 50,
+        "success_count": 49,
+        "error_count": 0,
+        "skipped_count": 1,
+        "average_final_score_0_5": 1.7857,
+        "score_distribution": {
+          "0.0": 19,
+          "0.5": 2,
+          "1.0": 4,
+          "1.5": 5,
+          "2.0": 0,
+          "2.5": 1,
+          "3.0": 3,
+          "3.5": 5,
+          "4.0": 3,
+          "4.5": 2,
+          "5.0": 5
+        },
+        "low_score_samples_le_2": [
+          {
+            "sample_index": 0,
+            "pid": "d6d92f48588343a7836d77aa22e14f4a",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 2,
+            "pid": "4613877c11624a2abfdb9908a060333e",
+            "final_score_0_5": 1.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 4,
+            "pid": "fdbeab39a2a1483fa76a9844cb60a9a1",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [
+              "原回答仅确认开药，预测回答提供完整诊疗方案"
+            ],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 5,
+            "pid": "19e634fd7fe84705afdd6d878b87918a",
+            "final_score_0_5": 0.5,
+            "major_conflicts": [
+              "原回答聚焦血栓位置和抗凝药物使用，预测回答全面展开冠心病综合管理方案"
+            ],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 7,
+            "pid": "3fd939e8e47a46f3bc4365cbf08c1164",
+            "final_score_0_5": 1.5,
+            "major_conflicts": [
+              "原回答建议门诊评估后决定检查项目，预测回答直接给出具体检查清单"
+            ],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 8,
+            "pid": "ec1fbc44daca41ecb2c987f61ac9395b",
+            "final_score_0_5": 1.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 10,
+            "pid": "0242eacd587d42f0ae304a761c0e9357",
+            "final_score_0_5": 1.5,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 11,
+            "pid": "22b1c052839841618fdeb12365a96290",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 13,
+            "pid": "5998ff43e30a4d838a1b2d895f30e9dc",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 14,
+            "pid": "82d2f31f14b7437ba2305db6f9d3f3fe",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [
+              "原问题仅询问雷贝拉唑替代方案，预测回答完全偏离主题，提供了不相关的心血管疾病诊疗方案"
+            ],
+            "risk_flags": [
+              "预测回答对非心血管疾病问题给出了详细心血管诊疗建议，存在严重误导风险"
+            ]
+          },
+          {
+            "sample_index": 19,
+            "pid": "634b3466f34246bd97fefcea07e12302",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 22,
+            "pid": "2aae2598457842a688c3389b0818d203",
+            "final_score_0_5": 1.5,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 24,
+            "pid": "449d14e5b324465089ae6d14f0ba091c",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 25,
+            "pid": "5534378a29d34439abe28136e3cf9521",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [
+              "原回答仅涉及内分泌科开药流程，预测回答全面展开冠心病诊疗方案"
+            ],
+            "risk_flags": [
+              "预测回答提供大量未经请求的心血管诊疗建议，存在严重误导风险"
+            ]
+          },
+          {
+            "sample_index": 28,
+            "pid": "c14fe1a8fa4f43c78d525dfd39b31d86",
+            "final_score_0_5": 1.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 30,
+            "pid": "084e84ed78cc41f386cb5601748e24bd",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 31,
+            "pid": "0de6416df06d4a88ab16f38028ad871b",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 32,
+            "pid": "1d618a307cb24f0ab155074fc3c032c8",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [
+              "原回答仅含礼貌性回复，无任何医学内容，与预测回答的详细诊疗建议完全无关联"
+            ],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 34,
+            "pid": "3ae5b89f43f243c19f3c922f15752c6b",
+            "final_score_0_5": 1.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 35,
+            "pid": "48ba609228c044bd9a8bb682ef4ef254",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [
+              "原回答仅为氯吡格雷剂量询问，预测回答却给出了完整的急性心梗诊疗方案，两者完全无关"
+            ],
+            "risk_flags": [
+              "预测回答提供不相关的急性心梗诊疗建议，存在严重误导风险"
+            ]
+          },
+          {
+            "sample_index": 37,
+            "pid": "51203c1e8ce3496e8eba40796fb8b007",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 38,
+            "pid": "5f9c52fafa944f899e79da8a7f3e1299",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [
+              "原回答仅为医生结束语，无任何医学内容，预测回答的完整诊疗建议与原回答无任何语义关联"
+            ],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 40,
+            "pid": "6db2d80e6a884ebd886e700499570e87",
+            "final_score_0_5": 1.5,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 41,
+            "pid": "89d17ffd61764b2b84c382a2efb9e63b",
+            "final_score_0_5": 1.5,
+            "major_conflicts": [
+              "原回答仅关注依折麦布加药及开药流程，预测回答额外增加了抗血小板治疗、心肌桥管理等多项诊疗建议"
+            ],
+            "risk_flags": [
+              "预测回答中关于抗血小板治疗的推荐在原回答中无依据，存在过度扩展风险"
+            ]
+          },
+          {
+            "sample_index": 43,
+            "pid": "a5c7f521c69a443d8f1b83661e38ffd4",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 44,
+            "pid": "aee1833e6f7d44f2b62e48af174612fb",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [
+              "预测回答完全超出原回答范围"
+            ],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 45,
+            "pid": "b4c3c2ac717041ffa86e61c5da5f10f2",
+            "final_score_0_5": 0.5,
+            "major_conflicts": [
+              "原回答仅确认开药完成，预测回答新增多项疾病诊断和详细建议"
+            ],
+            "risk_flags": [
+              "预测回答基于有限信息做出多项疾病诊断，存在过度推断风险"
+            ]
+          },
+          {
+            "sample_index": 46,
+            "pid": "b8961f31d0184d9e859bf7d47769ba14",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 47,
+            "pid": "c6e3abecd2904e958bc9b333055314e9",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 48,
+            "pid": "dd6d8102733f412c8cee356c29ea77be",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          }
+        ]
+      }
+    },
+    {
+      "input_file": "evaluation_results_Qwen_Qwen3.5-9B_chronic.json",
+      "output_file": "similarity_scores_evaluation_results_Qwen_Qwen3.5-9B_chronic_deepseek-v3.1.json",
+      "dataset_name": "chronic",
+      "summary": {
+        "total_records": 50,
+        "success_count": 50,
+        "error_count": 0,
+        "skipped_count": 0,
+        "average_final_score_0_5": 1.82,
+        "score_distribution": {
+          "0.0": 18,
+          "0.5": 1,
+          "1.0": 6,
+          "1.5": 2,
+          "2.0": 3,
+          "2.5": 4,
+          "3.0": 3,
+          "3.5": 4,
+          "4.0": 2,
+          "4.5": 1,
+          "5.0": 6
+        },
+        "low_score_samples_le_2": [
+          {
+            "sample_index": 1,
+            "pid": "5c6a2c30195f4824a1f08180bad54640",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [
+              "原回答建议线下复诊，预测回答给出具体诊断和治疗方案"
+            ],
+            "risk_flags": [
+              "预测回答在缺乏充分信息情况下给出具体用药建议，存在潜在医疗风险"
+            ]
+          },
+          {
+            "sample_index": 3,
+            "pid": "7bdcd5af582144e5b94f9a43f0bfa7a0",
+            "final_score_0_5": 1.0,
+            "major_conflicts": [
+              "原回答仅要求按原剂量服药，预测回答却提出完整诊疗方案和多种药物调整建议"
+            ],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 4,
+            "pid": "dd4eb92d77df41fe90a94b291f172eec",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [
+              "预测回答完全超出原回答范围"
+            ],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 5,
+            "pid": "7d1cfc7be1594c68a27274cdf30eb189",
+            "final_score_0_5": 2.0,
+            "major_conflicts": [
+              "原回答强调优先考虑手术射频，预测回答明确拒绝手术方案"
+            ],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 7,
+            "pid": "220606dc934f4bfeac62755916941be7",
+            "final_score_0_5": 1.5,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 8,
+            "pid": "4e79664aa50a4d468e807f4f80d18c02",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 9,
+            "pid": "51203c1e8ce3496e8eba40796fb8b007",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 10,
+            "pid": "ee65976b42394d51bd421cc25b94f612",
+            "final_score_0_5": 1.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 11,
+            "pid": "01f7aad57c554033ba4a7f4cb86a3a6d",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 12,
+            "pid": "236e786bfcec4a22b3048a0a704d05ef",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 14,
+            "pid": "7ef523b3c680447f86567be7e42a5157",
+            "final_score_0_5": 1.0,
+            "major_conflicts": [
+              "原回答仅强调长期服药和随访，预测回答包含详细的诊断、检查、用药方案，核心信息缺失较多"
+            ],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 16,
+            "pid": "bd261eaa1bb84ac2bd5fa51673bc33e1",
+            "final_score_0_5": 1.5,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 17,
+            "pid": "eb2a9449234b4d7480eaee80b2e54af6",
+            "final_score_0_5": 1.0,
+            "major_conflicts": [
+              "原回答仅安排心脏超声检查，预测回答提出多项额外检查建议（冠脉CTA/造影、CMR）"
+            ],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 18,
+            "pid": "ec1fbc44daca41ecb2c987f61ac9395b",
+            "final_score_0_5": 1.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 21,
+            "pid": "10017809b8b047bf9418989d0f1dd3b7",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [
+              "原回答建议生活方式干预暂缓用药，预测回答建议立即停药并排查肾动脉狭窄",
+              "原回答关注血脂管理，预测回答关注低血压问题"
+            ],
+            "risk_flags": [
+              "预测回答在完全无关的临床场景下给出具体诊疗建议，存在严重误导风险"
+            ]
+          },
+          {
+            "sample_index": 22,
+            "pid": "17d63173f95f4102a489ed8b4ec424bc",
+            "final_score_0_5": 0.5,
+            "major_conflicts": [
+              "原回答建议先生活方式干预3个月再考虑用药，预测回答直接强烈推荐启动药物治疗",
+              "原回答强调停药后血脂会反弹，预测回答纠正停药误区并强调必须长期用药"
+            ],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 23,
+            "pid": "68ea4e285fb44d8681ab8c2714881c18",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 25,
+            "pid": "858a70aad21442ab8696fa70a729995b",
+            "final_score_0_5": 1.0,
+            "major_conflicts": [
+              "原回答仅涉及他汀类药物调整，预测回答包含完整诊断、检查、治疗方案"
+            ],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 27,
+            "pid": "9271dac003a84406bde77264c1f214b0",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [
+              "原回答仅涉及利伐沙班开具，预测回答则提供完整心衰诊疗方案，二者方向完全不一致"
+            ],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 28,
+            "pid": "a9068164f35146938aa87d31df47811e",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 31,
+            "pid": "dd6d8102733f412c8cee356c29ea77be",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 32,
+            "pid": "e4df726fe5df443cbc7d3e1673279d25",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 33,
+            "pid": "f81ba6fbba1f4c86872f1c8e831805df",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 36,
+            "pid": "9483c7b66d0c41638df0bfe91e026339",
+            "final_score_0_5": 2.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 37,
+            "pid": "e8bf540824914ecd8881622a6ec8860b",
+            "final_score_0_5": 2.0,
+            "major_conflicts": [
+              "原回答明确建议线下就诊，预测回答却给出了具体检查治疗方案"
+            ],
+            "risk_flags": [
+              "预测回答在缺乏足够信息情况下给出具体诊疗建议存在潜在风险"
+            ]
+          },
+          {
+            "sample_index": 38,
+            "pid": "ebfe0dc86e284a78b57aa7c0506af3e0",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [
+              "原回答仅提及停用比索洛尔和泮托拉唑，预测回答新增多项检查建议和复杂治疗方案，存在过度展开"
+            ],
+            "risk_flags": [
+              "预测回答建议使用胺碘酮等抗心律失常药物，但原回答未提及任何心律失常治疗，存在潜在用药风险"
+            ]
+          },
+          {
+            "sample_index": 40,
+            "pid": "f3ad7ce61c174cad9778e548664f169a",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [
+              "原回答仅关注头颅MRI检查的必要性，预测回答却全面展开心血管诊疗方案，两者方向完全无关"
+            ],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 44,
+            "pid": "3718f4f94ab3499da8b64fb941faf2ce",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [],
+            "risk_flags": []
+          },
+          {
+            "sample_index": 45,
+            "pid": "3f43107abcd04b73824016cff26b800a",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [
+              "原回答明确停用美托洛尔，而预测回答建议继续使用并密切监测"
+            ],
+            "risk_flags": [
+              "预测回答建议继续使用可能导致心动过缓的美托洛尔，与原回答的停药决定冲突"
+            ]
+          },
+          {
+            "sample_index": 47,
+            "pid": "a8471996347e4d27bafaa86851cfc4d9",
+            "final_score_0_5": 0.0,
+            "major_conflicts": [
+              "原回答仅建议电话咨询药房，预测回答提供了完整的诊疗方案，两者方向完全相反"
+            ],
+            "risk_flags": [
+              "预测回答在缺乏必要临床信息的情况下给出了具体诊疗建议，存在高风险误导"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
